@@ -5,8 +5,9 @@
         <title>{% block title %}{% endblock %} - Anatom-Easy</title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="/css/mainStyle.css" />
         <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
         {% endblock %}
 
@@ -14,9 +15,7 @@
     <body>
         <div class="container symfony-content">
             {% block body %}
-
-                {% include "FloBenAnatomEasyBundle::indexmenu.html.twig" %}
-
+                
 
 
             {% endblock %}

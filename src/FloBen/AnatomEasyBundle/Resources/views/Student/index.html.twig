@@ -5,9 +5,9 @@
 
 {% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
 {{ parent() }}
-<h2>Bonjour "nom" !</h2>
-<div id="devoir" class="well">
-<h3>Devoirs</h3>
+<h1>Bonjour "nom" !</h1>
+<div id="devoir" class="well itemMenu">
+<h1 class="titreMenu">Devoirs</h1>
         <div class="row-fluid">
             <ul class="thumbnails">
               <li class="span3">
@@ -30,12 +30,13 @@
             </ul>
           </div>
 </div>
-<div id="cours" class="well">
-<h3>Cours</h3>
+<div id="cours" class="well itemMenu">
+<h1 class="titreMenu">Cours</h1>
 </div>
-<div id="exercices" class="well">
-<h3>Exercices</h3>
+<div id="exercices" class="well itemMenu">
+<h1 class="titreMenu">Exercices</h1>
 </div>
+
 
 
 {% endblock body %}
