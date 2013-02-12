@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}{% endblock %} - WWWConf</title>
+        <title>{% block title %}{% endblock %} - Anatom-Easy</title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css" />
@@ -12,7 +12,7 @@
 
     </head>
     <body>
-        <div class="symfony-content">
+        <div class="container symfony-content">
             {% block body %}
 
                 {% include "FloBenAnatomEasyBundle::indexmenu.html.twig" %}
