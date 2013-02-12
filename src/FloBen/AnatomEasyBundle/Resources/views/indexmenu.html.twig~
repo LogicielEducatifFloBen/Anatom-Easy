@@ -1,0 +1,21 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
+          <div class="nav-collapse collapse">  
+              <form action="href="{{ path('anatomeasy_teacher_index') }}"" class="navbar-form pull-right">
+              <label for="email">Espace enseignant</label>
+              <input name="email" class="span2" type="text" placeholder="Email Enseignant">
+              <input class="span2" type="password" placeholder="Mot de passe">
+              <button type="submit" class="btn">connexion</button>
+              </li>
+            </form> 
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
