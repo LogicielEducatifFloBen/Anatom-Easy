@@ -1,0 +1,18 @@
+FloBen\AnatomEasyBundle\Entity\Result:
+    type: entity
+    table: Result
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        todoData:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+            column: TODO_data
+    lifecycleCallbacks: {  }

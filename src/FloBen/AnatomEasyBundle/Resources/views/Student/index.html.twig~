@@ -5,9 +5,35 @@
 
 {% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
 {{ parent() }}
-<h2>Bonjour "nom" !</h2>
-<div id="devoir" class="well">
+<h1>Bonjour "nom" !</h1>
+<div id="devoir" class="well itemMenu">
+<h1 class="titreMenu">Devoirs</h1>
         <div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                </a>
+              </li>
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                <img src="apple-touch-icon.png"/>
+                </a>
+              </li>
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                </a>
+              </li>
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                  
+                </a>
+              </li>
+            </ul>
+         </div>
+</div>
+<div id="cours" class="well itemMenu">
+<h1 class="titreMenu">Cours</h1>
+<div class="row-fluid">
             <ul class="thumbnails">
               <li class="span3">
                 <a href="#" class="thumbnail">
@@ -27,12 +53,33 @@
                 </a>
               </li>
             </ul>
-          </div>
+         </div>
 </div>
-<div id="cours" class="well">
+<div id="exercices" class="well itemMenu">
+<h1 class="titreMenu">Exercices</h1>
+<div class="row-fluid">
+            <ul class="thumbnails">
+              <li class="span3">
+                <a href="#" class="thumbnail">cours1
+                </a>
+              </li>
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                </a>
+              </li>
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                </a>
+              </li>
+              <li class="span3">
+                <a href="#" class="thumbnail">
+                  
+                </a>
+              </li>
+            </ul>
+         </div>
 </div>
-<div id="exercices" class="well">
-</div>
+
 
 
 {% endblock body %}

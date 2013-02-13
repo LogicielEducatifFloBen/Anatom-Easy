@@ -1,0 +1,43 @@
+FloBen\AnatomEasyBundle\Entity\User:
+    type: entity
+    table: User
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        firstName:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+            column: first_name
+        login:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+        pass:
+            type: string
+            length: 45
+            fixed: false
+            nullable: false
+    manyToOne:
+        groupe:
+            targetEntity: Group
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Groupe_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

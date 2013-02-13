@@ -20,6 +20,6 @@ class StudentController extends Controller
     public function indexAction()
     {
         return array();
-    }
+    } 
 }
 
