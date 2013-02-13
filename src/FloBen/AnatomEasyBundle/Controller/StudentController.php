@@ -19,7 +19,16 @@ class StudentController extends Controller
      */
     public function indexAction()
     {
+        return array(); 
+    }  
+	
+	 /**
+     * @Route("/cours/{id}", name="anatomeasy_student_cours")
+     * @Template()
+     */
+    public function coursAction($id)
+    {
         return array();
-    } 
+    }
 }
 
