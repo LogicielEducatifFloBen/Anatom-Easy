@@ -7,9 +7,9 @@ body{
 	background: light-green;
 	min-height: 100%;
 	overflow: scroll;
-	
 }
 
+/*************************** MENU STUDENT ********************************************/
 
 .itemMenu{
 	position: relative;
@@ -25,14 +25,14 @@ body{
 	border-top-right-radius:12px;
 	-moz-border-radius-topright:12px;
 	-webkit-border-top-right-radius:12px;
-background: #87d3ad; /* Old browsers */
-background: -moz-linear-gradient(top, #87d3ad 1%, #fcfcfc 98%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#87d3ad), color-stop(98%,#fcfcfc)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #87d3ad 1%,#fcfcfc 98%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #87d3ad 1%,#fcfcfc 98%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #87d3ad 1%,#fcfcfc 98%); /* IE10+ */
-background: linear-gradient(to bottom, #87d3ad 1%,#fcfcfc 98%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87d3ad', endColorstr='#fcfcfc',GradientType=0 ); /* IE6-9 */
+	background: #87d3ad; /* Old browsers */
+	background: -moz-linear-gradient(top, #87d3ad 1%, #fcfcfc 98%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#87d3ad), color-stop(98%,#fcfcfc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #87d3ad 1%,#fcfcfc 98%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #87d3ad 1%,#fcfcfc 98%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #87d3ad 1%,#fcfcfc 98%); /* IE10+ */
+	background: linear-gradient(to bottom, #87d3ad 1%,#fcfcfc 98%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87d3ad', endColorstr='#fcfcfc',GradientType=0 ); /* IE6-9 */
 
 	-moz-box-shadow: 10px 10px 5px 0px rgb(96,108,136);
 	-webkit-box-shadow: 10px 10px 5px 0px rgb(96,108,136);
@@ -46,4 +46,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87d3ad', end
 	font-size:80pt;
 	color: #6D1B0F;
 	text-align:center;
+}
+
+.boiteItemMenu{
+	
+	position :relative;
+	float:left;
+	width: 20%;
+	height : 70%;
+	border : 2px solid red;
+
+}
+
+
+.boitItemMenuImg{
+	position :relative;
+	float:left;
+	width: 50%;
+	height : 100%;
+	border : 2px solid green;
+
+}
+.boitItemMenuText{
+	position :relative;
+	float:left;
+	width: 50%;
+	height : 100%;
+	border : 2px solid blue;
+
 }
