@@ -1,0 +1,13 @@
+{% extends "FloBenAnatomEasyBundle::base.html.twig" %}
+
+{% block title %}Accueil enseignant{% endblock title %}
+{% block body %}
+
+{% include "FloBenAnatomEasyBundle:Teacher:teachermenu.html.twig" %}
+{{ parent() }} 
+  <div class="page-header">
+<h1>Bonjour "nom" !</h1>
+</div>
+
+
+{% endblock body %}

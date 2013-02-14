@@ -8,15 +8,14 @@
           </button>
           <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
           <div class="nav-collapse collapse">  
-            <ul class="nav">
-                <li>
-                    <a href="{{ path('anatomeasy_teacher_index') }}" title="Status">Accueil enseignement</a>
-                </li> 
-            </ul>
-            
+
+            <form action="{{path('anatomeasy_teacher_index') }}" method="POST" class="navbar-form pull-right"> 
+
+              <input name="email" class="span2" type="text" placeholder="Email Enseignant">
+              <input class="span2" type="password" placeholder="Mot de passe">
+              <button type="submit" class="btn">connexion</button> 
+            </form> 
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-    
-

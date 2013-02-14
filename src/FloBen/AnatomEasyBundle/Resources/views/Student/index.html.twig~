@@ -9,31 +9,6 @@
 <div id="devoir" class="well itemMenu">
 <h1 class="titreMenu">Devoirs</h1>
         <div class="row-fluid">
-<<<<<<< HEAD
-            <ul class="thumbnails">
-              <li class="span3">
-                <a href="#" class="thumbnail">
-                </a>
-              </li>
-              <li class="span3">
-                <a href="#" class="thumbnail">
-                <img src="apple-touch-icon.png"/>
-                nom du bouton
-                </a>
-              </li>
-              <li class="span3">
-                <a href="#" class="thumbnail">
-                </a>
-              </li>
-              <li class="span3">
-                <a href="#" class="thumbnail">
-                  
-                </a>
-              </li>
-            </ul>
-=======
-            
->>>>>>> 41cdc10f35e75a0d671dd4d26aaeffa19d6bd30b
          </div>
 </div>
 <div id="cours" class="well itemMenu">
@@ -41,7 +16,7 @@
 	<div class="row-fluid">
 		<ul class="thumbnails">
               <li class="span3">
-                <a href="{{path('anatomeasy_student_cours', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le système respiratoire</a>
+                <a href="{{path('anatomeasy_student_cours', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le systeme respiratoire</a>
               </li>
               <li class="span3">
                 <a href="{{path('anatomeasy_student_cours', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le tube digestif </a>

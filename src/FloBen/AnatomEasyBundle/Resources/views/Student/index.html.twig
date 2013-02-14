@@ -2,9 +2,9 @@
 
 {% block title %}Connection{% endblock title %}
 {% block body %}
+{{ parent() }}
 
 {% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
-{{ parent() }}
 <h1>Bonjour "nom" !</h1>
 <div id="devoir" class="well itemMenu">
 <h1 class="titreMenu">Devoirs</h1>
