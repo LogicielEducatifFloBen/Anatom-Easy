@@ -1,0 +1,19 @@
+{% extends "FloBenAnatomEasyBundle::base.html.twig" %}
+
+{% block title %}Connection{% endblock title %}
+{% block body %}
+
+{% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
+{{ parent() }}
+
+
+{% if idNiveau=="CE1" %}
+    {% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
+    {% else %}
+{% endif %}
+
+<h1>{{idCours}}</h1>
+<h1>{{idNiveau}}</h1>
+
+
+{% endblock body %}
