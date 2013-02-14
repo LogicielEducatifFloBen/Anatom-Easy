@@ -5,7 +5,7 @@ namespace FloBen\AnatomEasyBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
+use Symfony\Component\HttpFoundation\Response;
 /**
  * Student controller.
  *
@@ -23,12 +23,22 @@ class StudentController extends Controller
     }  
 	
 	 /**
-     * @Route("/cours/{id}", name="anatomeasy_student_cours")
+     * @Route("/cours/{id}", name="anatomeasy_student_niveaux")
      * @Template()
      */
-    public function coursAction($id)
+    public function niveauxAction($id)
     {
-        return array();
+        return array('idCours' => $id);
     }
+	
+	/**
+     * @Route("/cours/{idCours}/{idNiveau}", name="anatomeasy_student_cours")
+	 * @Template()
+     */
+    public function coursAction($idCours,$idNiveau)
+    {
+		return array('idCours' =>$idCours,'idNiveau' =>$idNiveau);
+    }
+
 }
 

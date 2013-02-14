@@ -1,0 +1,26 @@
+{% extends "FloBenAnatomEasyBundle::base.html.twig" %}
+
+{% block title %}Connection{% endblock title %}
+{% block body %}
+
+{% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
+{{ parent() }}
+
+<h1>Niveaux!</h1>
+<div id="cours" class="well itemMenu">
+	<a href="{{path('anatomeasy_student_cours', {'idCours': idCours ,'idNiveau':'CE1'}) }}" class="thumbnail"><h1 class="titreMenu">CE1</h1></a>
+</div>
+
+<div id="cours" class="well itemMenu">
+	<a href="{{path('anatomeasy_student_cours', {'idCours': idCours ,'idNiveau':'CE2'}) }}" class="thumbnail"><h1 class="titreMenu">CE2</h1></a>
+</div>
+
+<div id="cours" class="well itemMenu">
+	<a href="{{path('anatomeasy_student_cours', {'idCours': idCours ,'idNiveau':'CM1'}) }}" class="thumbnail"><h1 class="titreMenu">CM1</h1></a>
+</div>
+
+<div id="cours" class="well itemMenu">
+	<a href="{{path('anatomeasy_student_cours', {'idCours': idCours ,'idNiveau':'CM2'}) }}" class="thumbnail"><h1 class="titreMenu">CM2</h1></a>
+</div>
+
+{% endblock body %}
