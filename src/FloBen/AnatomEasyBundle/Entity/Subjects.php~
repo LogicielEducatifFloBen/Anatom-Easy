@@ -34,4 +34,57 @@ class Subjects
     {
         return $this->id;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->exercice = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Set id
+     *
+     * @param string $id
+     * @return Subjects
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    
+        return $this;
+    }
+
+    /**
+     * Add exercice
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Exercice $exercice
+     * @return Subjects
+     */
+    public function addExercice(\FloBen\AnatomEasyBundle\Entity\Exercice $exercice)
+    {
+        $this->exercice[] = $exercice;
+    
+        return $this;
+    }
+
+    /**
+     * Remove exercice
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Exercice $exercice
+     */
+    public function removeExercice(\FloBen\AnatomEasyBundle\Entity\Exercice $exercice)
+    {
+        $this->exercice->removeElement($exercice);
+    }
+
+    /**
+     * Get exercice
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExercice()
+    {
+        return $this->exercice;
+    }
 }

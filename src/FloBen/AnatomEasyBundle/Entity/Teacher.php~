@@ -22,7 +22,7 @@ class Teacher extends BaseUser
     /**
      * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
      */
-    protected $groupe; 
+    protected $group; 
     
     /**
      * Get id
@@ -33,44 +33,50 @@ class Teacher extends BaseUser
     {
         return $this->id;
     }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->groupe = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
-     * Add groupe
+     * Add group
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Group $groupe
+     * @param \FloBen\AnatomEasyBundle\Entity\Group $group
      * @return Teacher
      */
-    public function addGroupe(\FloBen\AnatomEasyBundle\Entity\Group $groupe)
+    public function addGroupe(\FloBen\AnatomEasyBundle\Entity\Group $group)
     {
-        $this->groupe[] = $groupe;
+        $this->group[] = $group;
     
         return $this;
     }
 
     /**
-     * Remove groupe
+     * Remove group
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Group $groupe
+     * @param \FloBen\AnatomEasyBundle\Entity\Group $group
      */
-    public function removeGroupe(\FloBen\AnatomEasyBundle\Entity\Group $groupe)
+    public function removeGroupe(\FloBen\AnatomEasyBundle\Entity\Group $group)
     {
-        $this->groupe->removeElement($groupe);
+        $this->group->removeElement($group);
     }
 
     /**
-     * Get groupe
+     * Get group
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
     public function getGroupe()
     {
-        return $this->groupe;
+        return $this->group;
     }
 }

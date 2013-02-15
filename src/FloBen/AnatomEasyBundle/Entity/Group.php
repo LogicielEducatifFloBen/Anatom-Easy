@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Group
  * @ORM\Entity
- * @ORM\Table(name="Group")
+ * @ORM\Table(name="`Group`")
  */ 
 class Group
 {
@@ -18,12 +18,6 @@ class Group
      * @ORM\GeneratedValue(strategy="AUTO")
      */ 
     protected $id;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
-    protected $name;
 
     /** 
      * @ORM\ManyToOne(targetEntity="Level", inversedBy="group")
@@ -36,6 +30,12 @@ class Group
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $teacher;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    protected $name;
      
     /**
      * student

@@ -74,4 +74,78 @@ class Student extends BaseUser
     {
         return $this->group;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->homework = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add homework
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Homework $homework
+     * @return Student
+     */
+    public function addHomework(\FloBen\AnatomEasyBundle\Entity\Homework $homework)
+    {
+        $this->homework[] = $homework;
+    
+        return $this;
+    }
+
+    /**
+     * Remove homework
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Homework $homework
+     */
+    public function removeHomework(\FloBen\AnatomEasyBundle\Entity\Homework $homework)
+    {
+        $this->homework->removeElement($homework);
+    }
+
+    /**
+     * Get homework
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getHomework()
+    {
+        return $this->homework;
+    }
+
+    /**
+     * Add sandbox
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox
+     * @return Student
+     */
+    public function addSandbox(\FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox)
+    {
+        $this->sandbox[] = $sandbox;
+    
+        return $this;
+    }
+
+    /**
+     * Remove sandbox
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox
+     */
+    public function removeSandbox(\FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox)
+    {
+        $this->sandbox->removeElement($sandbox);
+    }
+
+    /**
+     * Get sandbox
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSandbox()
+    {
+        return $this->sandbox;
+    }
 }
