@@ -1,7 +1,13 @@
 @font-face {
     font-family: "caricature";
-    src: url("font/caricature.ttf");
+    src: url("font/fun.ttf");
 }
+
+@font-face {
+    font-family: "caricature3d";
+    src: url("font/pop.ttf");
+}
+
 
 body{
 	background: #CEA0D8;
@@ -58,27 +64,89 @@ body{
 	margin-top:2%;
 	width: 30%;
 	height : 50%;
-	border : 2px solid red;
 
 }
 
+.boiteItemMenuTitre{
+	position :relative;
+	float:left;
+	width: 50%;
+	height : 100%;
+
+}
 
 .boitItemMenuImg{
 	position :relative;
 	float:left;
-	width: 50%;
+	width: 100%;
 	height : 100%;
-	border : 2px solid green;
-
+	
 }
 .boitItemMenuText{
 	position :relative;
 	float:left;
-	width: 50%;
+	width: 100%;
 	height : 100%;
-	border : 2px solid blue;
-
 }
+
+
+.boitItemMenuText h2{
+	font-family: "caricature3d";
+	font-size:20pt;
+	color: #228450;
+	text-align:center;
+}
+
+.boiteItemMenuBtnBox{
+	position :relative;
+	float:left;
+	width: 45%;
+	height :100%;
+}
+
+.boiteItemMenuBtn{
+	position :relative;
+	float:left;
+	width: 90%;
+	height :10%;
+	
+}
+
+.boiteItemMenuBtn {
+   border: 2px solid #63323b;
+   background: #91c6b2;
+   background: -webkit-gradient(linear, left top, left bottom, from(#91c6b2), to(#91c6b2));
+   background: -webkit-linear-gradient(top, #91c6b2, #91c6b2);
+   background: -moz-linear-gradient(top, #91c6b2, #91c6b2);
+   background: -ms-linear-gradient(top, #91c6b2, #91c6b2);
+   background: -o-linear-gradient(top, #91c6b2, #91c6b2);
+   
+   -webkit-border-radius: 22px;
+   -moz-border-radius: 22px;
+   border-radius: 22px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #63323b;
+   font-size: 24px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.boiteItemMenuBtn:hover {
+   border-color: #91c6b2;
+   background: #63323b;
+   color: #91c6b2;
+   }
+.boiteItemMenuBtn:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+}
+.boiteItemMenuBtn a {
+	font-size: 15px;
+}
+
 
 
 /**************************************** STUDENT NAVIGATION BAR *********************************/
@@ -207,6 +275,8 @@ background: #63323B; /* Old browsers */
 	height:100%;
 	width: 20%;
 }
+
+
 
 
 /***************************************** COURS *************************************************/
