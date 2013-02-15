@@ -10,20 +10,15 @@
 <h3>{{ test }}</h3>
 <p>
     <form {{ form_enctype(form) }} method="post">
-        <div class="input-append">
-           {{ form_widget(form) }}
-          <input type="submit"  class="btn  btn-primary btn-success"  ><i class="icon-plus icon-white"></i></button>
+        <div class="input-append"> 
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }} 
+    {{ form_errors(form.name) }}
+    {{ form_widget(form.name) }} 
+          <button type="submit"  class="btn  btn-primary btn-success" ><i class="icon-plus icon-white"></i></button>
           
         </div> 
-    </form> 
-    <form action="{{ path('anatomeasy_teacher_index') }}" method="post">
-        <div class="input-append">
-          <input type="text" id="name" name="_name"  required="required"  placeholder="Créer une classe"/>
-          <input type="hidden"  id="id" name="_id"  value="{{ app.user.id }}"/>
-          <button class="btn  btn-primary btn-success" type="button"><i class="icon-plus icon-white"></i></button>
-          
-        </div> 
-    </form> 
+    </form>  
    
 </p>
 </div>
