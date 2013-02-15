@@ -95,44 +95,4 @@ class Homework
     {
         return $this->student;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add homeworkHasExercice
-     *
-     * @param \FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice $homeworkHasExercice
-     * @return Homework
-     */
-    public function addHomeworkHasExercice(\FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice $homeworkHasExercice)
-    {
-        $this->homeworkHasExercice[] = $homeworkHasExercice;
-    
-        return $this;
-    }
-
-    /**
-     * Remove homeworkHasExercice
-     *
-     * @param \FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice $homeworkHasExercice
-     */
-    public function removeHomeworkHasExercice(\FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice $homeworkHasExercice)
-    {
-        $this->homeworkHasExercice->removeElement($homeworkHasExercice);
-    }
-
-    /**
-     * Get homeworkHasExercice
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getHomeworkHasExercice()
-    {
-        return $this->homeworkHasExercice;
-    }
 }

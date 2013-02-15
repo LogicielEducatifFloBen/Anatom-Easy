@@ -7,15 +7,29 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
-          <div class="nav-collapse collapse">  
+          <div class="nav-collapse collapse">
+          <form action="{{ path('fos_user_security_check') }}" method="post" class="navbar-form pull-right">
 
-            <form action="{{path('anatomeasy_teacher_index') }}" method="POST" class="navbar-form pull-right"> 
+            <input type="text" id="username" name="_username"  required="required"  placeholder="Email Enseignant"/>
 
-              <input name="email" class="span2" type="text" placeholder="Email Enseignant">
-              <input class="span2" type="password" placeholder="Mot de passe">
-              <button type="submit" class="btn">connexion</button> 
-            </form> 
+            <input class="span2" type="password" id="password" name="_password" placeholder="Mot de passe"/>
+
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+
+            <input type="submit" value="Connexion" />
+        </form> 
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
+    
+     
+
+
+
+
+
+
+
+
+

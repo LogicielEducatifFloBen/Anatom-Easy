@@ -124,44 +124,4 @@ class Group
     {
         return $this->teacher;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add student
-     *
-     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
-     * @return Group
-     */
-    public function addStudent(\FloBen\AnatomEasyBundle\Entity\Student $student)
-    {
-        $this->student[] = $student;
-    
-        return $this;
-    }
-
-    /**
-     * Remove student
-     *
-     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
-     */
-    public function removeStudent(\FloBen\AnatomEasyBundle\Entity\Student $student)
-    {
-        $this->student->removeElement($student);
-    }
-
-    /**
-     * Get student
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getStudent()
-    {
-        return $this->student;
-    }
 }

@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class IndexController extends Controller
 {
     /**
-     * @Route("/", name="anatomeasy_index_index")
+     * @Route("", name="anatomeasy_index_index")
      * @Template()
      */
     public function indexAction()

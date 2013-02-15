@@ -7,14 +7,32 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
-          <div class="nav-collapse collapse">  
-            <ul class="nav">
-                <li>
-                    <a href="{{ path('anatomeasy_teacher_index') }}" title="Status">Accueil enseignement</a>
-                </li> 
-            </ul>
-            
+          <div class="nav-collapse collapse">
+            {% if error %}
+                <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+            {% endif %}
+          <form action="{{ path('fos_user_security_check') }}" method="post" class="navbar-form pull-right">
+
+            <input type="text" id="username" name="_username"  required="required"  placeholder="Email Enseignant"/>
+
+            <input class="span2" type="password" id="password" name="_password" placeholder="Mot de passe"/>
+
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+
+            <input type="submit" value="Connexion" />
+        </form> 
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
+    
+     
+
+
+
+
+
+
+
+
+
