@@ -38,6 +38,7 @@ class Teacher extends BaseUser
     {
         return $this->email;
     }
+
     /**
      * Add group
      *

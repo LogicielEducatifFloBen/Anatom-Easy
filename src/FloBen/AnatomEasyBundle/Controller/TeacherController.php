@@ -46,6 +46,7 @@ class TeacherController extends Controller
                     'label' => ' ',
                     'attr' => array('class' => 'span1')))
                  ->getForm();
+                 
  
     // On récupère la requête
     $request = $this->get('request');

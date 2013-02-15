@@ -38,16 +38,11 @@ class Teacher extends BaseUser
     {
         return $this->email;
     }
+<<<<<<< HEAD
+=======
+
     
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
-        parent::__construct();
-    }
-    
+>>>>>>> 6ebd34ffbbd8b92c95c3b0c85a3f34198a934cd4
     /**
      * Add group
      *

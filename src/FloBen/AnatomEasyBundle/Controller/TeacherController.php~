@@ -44,7 +44,7 @@ class TeacherController extends Controller
                  ->add('level', 'entity', array(
                     'class' => 'FloBenAnatomEasyBundle:Level',
                     'label' => ' ',
-                    'attr' => array('class' => 'span2')))
+                    'attr' => array('class' => 'span1')))
                  ->getForm();
  
     // On récupère la requête
