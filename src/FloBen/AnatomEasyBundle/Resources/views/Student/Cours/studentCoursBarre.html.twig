@@ -1,0 +1,47 @@
+{% extends "FloBenAnatomEasyBundle::base.html.twig" %}
+
+{% block title %}Connection{% endblock title %}
+{% block body %}
+
+{{ parent() }}
+
+
+	<div id="navBar">
+		<div id="retourMenuBox">
+			<div id="retourMenuBoxImg">
+				<img src="/css/img/icone_retour_main.png"/>
+			</div>
+			<div id="retourMenuBoxTxt">
+				<a href="{{path('anatomeasy_student_index')}}">Menu principal</span>
+			</div>
+		</div>
+		<div id="coursPrecedBox">
+			<div id="coursPrecedBoxImg">
+				<img src="/css/img/goBefore.png"/>
+			</div>
+			<div id="coursPrecedBoxTxt">
+				{% block coursPrecedent %}
+				{% endblock %}
+			</div>
+		</div>
+		
+		<div id="navBarTitre">
+			<h1>{% block titreCours %}
+				{% endblock %}</h1>
+		</div>
+		
+		<div id="coursSuivantBox">
+			<div id="coursSuivantBoxImg">
+				<img src="/css/img/goNext.png"/>
+			</div>
+			<div id="coursSuivantBoxTxt">
+				{% block coursSuivant %}
+				{% endblock %}
+			</div>
+		</div>
+		
+		
+		
+	</div>
+
+{% endblock body %}

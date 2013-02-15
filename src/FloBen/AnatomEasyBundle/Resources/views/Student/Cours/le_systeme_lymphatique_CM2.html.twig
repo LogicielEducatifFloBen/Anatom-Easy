@@ -1,0 +1,13 @@
+{% extends "FloBenAnatomEasyBundle:Student/Cours:studentCoursBarre.html.twig" %}
+
+{% block title %}Connection{% endblock title %}
+{% block body %}
+
+{{ parent() }}
+	{% block titreCours %}le systeme lymphatique (CM2){% endblock titreCours %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_lymphatique" ,'idNiveau':'CM1'}) }}">Cours precedent (CM1)</a>{% endblock coursPrecedent %}
+	{% block coursSuivant %}<a href="">c'est la fin</a>{% endblock coursSuivant %}
+	<div id="global">
+		<span>ezggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsdsgssssssssssssssssssssssssssssssssssssssssssssssssssssssssssd</span>
+	</div>
+{% endblock body %}

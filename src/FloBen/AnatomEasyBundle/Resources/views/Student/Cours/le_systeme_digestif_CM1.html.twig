@@ -1,0 +1,13 @@
+{% extends "FloBenAnatomEasyBundle:Student/Cours:studentCoursBarre.html.twig" %}
+
+{% block title %}Le systeme digestif CM1{% endblock title %}
+{% block body %}
+
+{{ parent() }}
+	{% block titreCours %}Le systeme digestif (CM1){% endblock titreCours %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_digestif" ,'idNiveau':'CE2'}) }}">Cours precedent (CE2)</a>{% endblock coursPrecedent %}
+	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_digestif" ,'idNiveau':'CM2'}) }}">Cours suivant (CM2)</a>{% endblock coursSuivant %}
+	<div id="global">
+		<span>ezggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsdsgssssssssssssssssssssssssssssssssssssssssssssssssssssssssssd</span>
+	</div>
+{% endblock body %}
