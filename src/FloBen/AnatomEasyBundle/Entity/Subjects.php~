@@ -1,0 +1,37 @@
+<?php
+
+namespace FloBen\AnatomEasyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Subjects
+ * @ORM\Entity
+ * @ORM\Table(name="Subjects")
+ */
+class Subjects
+{
+    /**
+     * @var string
+     * @ORM\Id
+     * @ORM\Column(type="string")
+     */
+    protected $id; 
+     
+    /**
+     * exercice
+     * 
+     * @ORM\OneToMany(targetEntity="Exercice", mappedBy="subjects")
+     */
+    protected $exercice;
+
+    /**
+     * Get id
+     *
+     * @return string 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

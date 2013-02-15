@@ -2,22 +2,44 @@
 
 namespace FloBen\AnatomEasyBundle\Entity;
 
+use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Student
- */
-class Student
+ * @ORM\Entity
+ * @ORM\Table(name="Student")
+ */ 
+class Student extends BaseUser
 {
     /**
      * @var integer
-     */
-    private $id;
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */ 
+    protected $id; 
 
     /**
-     * @var \FloBen\AnatomEasyBundle\Entity\User
+     * @var \FloBen\AnatomEasyBundle\Entity\Group
+     * @ORM\ManyToOne(targetEntity="Group", inversedBy="student")
+     * @ORM\JoinColumn(name="group_id", referencedColumnName="id", onDelete="Set Null")
      */
-    private $user;
+    protected $group;
+     
+    /**
+     * homework
+     *
+     * @ORM\OneToMany(targetEntity="Homework", mappedBy="student")
+     */
+    protected $homework;
+     
+    /**
+     * sandbox
+     *
+     * @ORM\OneToMany(targetEntity="Sandbox", mappedBy="student")
+     */
+    protected $sandbox;
 
 
     /**
@@ -31,25 +53,99 @@ class Student
     }
 
     /**
-     * Set user
+     * Set group
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\User $user
+     * @param \FloBen\AnatomEasyBundle\Entity\Group $group
      * @return Student
      */
-    public function setUser(\FloBen\AnatomEasyBundle\Entity\User $user = null)
+    public function setGroup(\FloBen\AnatomEasyBundle\Entity\Group $group = null)
     {
-        $this->user = $user;
+        $this->group = $group;
     
         return $this;
     }
 
     /**
-     * Get user
+     * Get group
      *
-     * @return \FloBen\AnatomEasyBundle\Entity\User 
+     * @return \FloBen\AnatomEasyBundle\Entity\Group 
      */
-    public function getUser()
+    public function getGroup()
     {
-        return $this->user;
+        return $this->group;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->homework = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add homework
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Homework $homework
+     * @return Student
+     */
+    public function addHomework(\FloBen\AnatomEasyBundle\Entity\Homework $homework)
+    {
+        $this->homework[] = $homework;
+    
+        return $this;
+    }
+
+    /**
+     * Remove homework
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Homework $homework
+     */
+    public function removeHomework(\FloBen\AnatomEasyBundle\Entity\Homework $homework)
+    {
+        $this->homework->removeElement($homework);
+    }
+
+    /**
+     * Get homework
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getHomework()
+    {
+        return $this->homework;
+    }
+
+    /**
+     * Add sandbox
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox
+     * @return Student
+     */
+    public function addSandbox(\FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox)
+    {
+        $this->sandbox[] = $sandbox;
+    
+        return $this;
+    }
+
+    /**
+     * Remove sandbox
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox
+     */
+    public function removeSandbox(\FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox)
+    {
+        $this->sandbox->removeElement($sandbox);
+    }
+
+    /**
+     * Get sandbox
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSandbox()
+    {
+        return $this->sandbox;
     }
 }

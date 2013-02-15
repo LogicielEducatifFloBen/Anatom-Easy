@@ -1,0 +1,81 @@
+<?php
+
+namespace FloBen\AnatomEasyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Result
+ * @ORM\Entity
+ * @ORM\Table(name="Result")
+ */ 
+class Result
+{
+    /**
+     * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */ 
+    protected $id;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(type="datetime")
+     */
+    protected $date;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $todoData;
+     
+    /**
+     * homeworkHasExercice
+     * 
+     * @ORM\OneToMany(targetEntity="HomeworkHasExercice", mappedBy="result")
+     */
+    protected $homeworkHasExercice;
+     
+    /**
+     * sandbox
+     *
+     * @ORM\OneToMany(targetEntity="Sandbox", mappedBy="result")
+     */
+    protected $sandbox;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set todoData
+     *
+     * @param string $todoData
+     * @return Result
+     */
+    public function setTodoData($todoData)
+    {
+        $this->todoData = $todoData;
+    
+        return $this;
+    }
+
+    /**
+     * Get todoData
+     *
+     * @return string 
+     */
+    public function getTodoData()
+    {
+        return $this->todoData;
+    }
+}
