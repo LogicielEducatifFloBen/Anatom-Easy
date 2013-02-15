@@ -12,7 +12,7 @@
     <form {{ form_enctype(form) }} method="post">
         <div class="input-append">
            {{ form_widget(form) }}
-          <input type="submit"  class="btn  btn-primary btn-success"  ><i class="icon-plus icon-white"></i></button>
+          <button type="submit"  class="btn  btn-primary btn-success" ><i class="icon-plus icon-white"></i></button>
           
         </div> 
     </form> 

@@ -38,9 +38,13 @@ class TeacherController extends Controller
           $group = new Group;
   
     $form = $this->createFormBuilder($group) 
-                 ->add('name', 'text')  
+                 ->add('name', 'text',array(
+                                'label' => ' ',
+                                'attr' => array('placeholder' => "Créer une classe")))
                  ->add('level', 'entity', array(
-                    'class' => 'FloBenAnatomEasyBundle:Level'))
+                    'class' => 'FloBenAnatomEasyBundle:Level',
+                    'label' => ' ',
+                    'attr' => array('class' => 'span2')))
                  ->getForm();
  
     // On récupère la requête
@@ -65,7 +69,8 @@ class TeacherController extends Controller
 
          
 
-        return array(   
+        return array(  
+           'form' => $form->createView(),
            'test' => $currentTeacher->getEmail()
         ); 
     }

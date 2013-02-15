@@ -38,10 +38,13 @@ class TeacherController extends Controller
           $group = new Group;
   
     $form = $this->createFormBuilder($group) 
-                 ->add('name', 'text',array('label' => ' '))  
+                 ->add('name', 'text',array(
+                                'label' => ' ',
+                                'attr' => array('placeholder' => "Créer une classe")))
                  ->add('level', 'entity', array(
                     'class' => 'FloBenAnatomEasyBundle:Level',
-                    'label' => ' '))
+                    'label' => ' ',
+                    'attr' => array('class' => 'span1')))
                  ->getForm();
  
     // On récupère la requête
