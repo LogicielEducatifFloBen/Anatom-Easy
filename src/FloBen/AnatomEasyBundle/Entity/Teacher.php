@@ -38,14 +38,7 @@ class Teacher extends BaseUser
     {
         return $this->email;
     }
-    
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+
     
     /**
      * Add group
