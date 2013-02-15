@@ -6,8 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Group
- * @ORM\Entity
- * @ORM\Table(name="Group")
+ * @ORM\Entity 
  */ 
 class Group
 {
@@ -18,12 +17,6 @@ class Group
      * @ORM\GeneratedValue(strategy="AUTO")
      */ 
     protected $id;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string")
-     */
-    protected $name;
 
     /** 
      * @ORM\ManyToOne(targetEntity="Level", inversedBy="group")
@@ -36,6 +29,12 @@ class Group
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $teacher;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    protected $name;
      
     /**
      * student
@@ -123,5 +122,45 @@ class Group
     public function getTeacher()
     {
         return $this->teacher;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add student
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
+     * @return Group
+     */
+    public function addStudent(\FloBen\AnatomEasyBundle\Entity\Student $student)
+    {
+        $this->student[] = $student;
+    
+        return $this;
+    }
+
+    /**
+     * Remove student
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
+     */
+    public function removeStudent(\FloBen\AnatomEasyBundle\Entity\Student $student)
+    {
+        $this->student->removeElement($student);
+    }
+
+    /**
+     * Get student
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudent()
+    {
+        return $this->student;
     }
 }

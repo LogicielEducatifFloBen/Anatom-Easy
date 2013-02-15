@@ -38,9 +38,10 @@ class TeacherController extends Controller
           $group = new Group;
   
     $form = $this->createFormBuilder($group) 
-                 ->add('name', 'text') 
-                 ->add('Level', 'entity', array(
-                    'class' => 'FloBenAnatomEasyBundle:Level'))
+                 ->add('name', 'text',array('label' => ' '))  
+                 ->add('level', 'entity', array(
+                    'class' => 'FloBenAnatomEasyBundle:Level',
+                    'label' => ' '))
                  ->getForm();
  
     // On récupère la requête
@@ -56,7 +57,7 @@ class TeacherController extends Controller
       if ($form->isValid()) { 
       
         $em = $this->getDoctrine()->getManager();
-        //$group->setTeacher($currentTeacher);
+        $group->setTeacher($currentTeacher); 
         $em->persist($group);
         $em->flush(); 
       }

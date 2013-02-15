@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Sandbox
  * @ORM\Entity
- * @ORM\Table(name="Sandbox")
+ * @ORM\Table(name="`Sandbox`")
  */ 
 class Sandbox
 {
