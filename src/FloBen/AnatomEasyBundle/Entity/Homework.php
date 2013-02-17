@@ -27,7 +27,7 @@ class Homework
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Student
-     * @ORM\ManyToOne(targetEntity="Student", inversedBy="homework")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="homework")
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $student;
@@ -38,8 +38,14 @@ class Homework
      * @ORM\OneToMany(targetEntity="HomeworkHasExercice", mappedBy="homework")
      */
     protected $homeworkHasExercice;
-
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -76,10 +82,10 @@ class Homework
     /**
      * Set student
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
+     * @param \FloBen\AnatomEasyBundle\Entity\User $student
      * @return Homework
      */
-    public function setStudent(\FloBen\AnatomEasyBundle\Entity\Student $student = null)
+    public function setStudent(\FloBen\AnatomEasyBundle\Entity\User $student = null)
     {
         $this->student = $student;
     
@@ -89,20 +95,13 @@ class Homework
     /**
      * Get student
      *
-     * @return \FloBen\AnatomEasyBundle\Entity\Student 
+     * @return \FloBen\AnatomEasyBundle\Entity\User 
      */
     public function getStudent()
     {
         return $this->student;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Add homeworkHasExercice
      *

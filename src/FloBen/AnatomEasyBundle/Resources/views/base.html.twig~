@@ -1,8 +1,9 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}{% endblock %} - Anatom-Easy</title>
+        <title>{% block title %}Anatom-Easy{% endblock %} </title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css" />
@@ -13,51 +14,12 @@
 
     </head>
     <body>
-        <div class="container symfony-content">
-            {% block body %}
-                
-
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            <div>
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            </div>
-            {% endif %}
- 
-            {% for key, message in app.session.getFlashes() %}
-            <div class="{{ key }}">
-                {{ message|trans({}, 'FOSUserBundle') }}
-            </div>
-            {% endfor %}
-     
-            <div>
-                {% block fos_user_content %}
-                {% endblock fos_user_content %}
-            </div>
-        
-            {% endblock %}
+        <div class="container symfony-content"> 
         </div>
         {% block javascripts %} 
-            <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+            <script type="text/javascript" src="/css/bootstrap/js/bootstrap.js"></script>
         {% endblock %}
     </body>
 </html>
-
-
- 
-
-
-
-
-
-
-
-
-
-
 
 

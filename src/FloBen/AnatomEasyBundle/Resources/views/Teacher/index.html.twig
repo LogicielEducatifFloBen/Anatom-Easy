@@ -5,23 +5,87 @@
 
 {% include "FloBenAnatomEasyBundle:Teacher:teachermenu.html.twig" %}
 {{ parent() }} 
-  <div class="page-header" style="padding-top:30px;">
+  <div class="page-header" style="margin-top:60px;">
 <h1>Bonjour {{ app.user.username }} !</h1>
 <h3>{{ test }}</h3>
-<p>
-    <form {{ form_enctype(form) }} method="post">
-        <div class="input-append"> 
-    {{ form_errors(form.name) }}
-    {{ form_widget(form.name) }} 
-    {{ form_errors(form.level) }}
-    {{ form_widget(form.level) }} 
-          <button type="submit"  class="btn  btn-primary btn-success" ><i class="icon-plus icon-white"></i></button>
-          
-        </div> 
-    </form>  
-   
-</p>
 </div>
+<p>
+    <form {{ form_enctype(formClasse) }} method="post"> 
+        <div class="input-append">  
+            {{ form_widget(formClasse.name) }}  
+            {{ form_widget(formClasse.level) }}  
+            {{ form_rest(formClasse) }}
+       
+          <button type="submit"  class="btn  btn-primary btn-success" ><i class="icon-plus icon-white"></i></button>
+        </div>  
+    </form>
+       
+</p>
+<p> 
+         
+        {% for classe in classes %}
+    <table class="table table-bordered table-striped table-hover table-condensed"> 
+        <caption class="lead">{{ classe.name }}, classe de {{ classe.level }} 
+            <a href="#myModal" role="button"  id="{{ classe.id }}" class="btn  btn-success" data-toggle="modal">
+                <i class="icon-plus icon-white"></i> Ajouter un élève
+            </a> 
+        </caption>
+        <thead>
+            <tr>
+                <th>Elèves</th>  
+                <th>Devoirs</th> 
+            </tr>
+        </thead>
+        <tbody> 
+        {% for eleve in classe.student %}
+            <tr>
+                <td>{{eleve.username}}</td>
+                <td></td>
+            </tr>
+        {% endfor %}  
+        </tbody> 
+    </table>
+        {% endfor %}  
+    
+<!-- Form Modal nouvel eleve -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Ajouter un élève</h3>
+    </div> <form action="{{ path('anatomeasy_teacher_index') }}" id="formStudent" {{ form_enctype(formClasse) }} method="POST" class="fos_user_registration_register">
+        <div class="modal-body">
+            <p> 
+                <div class="input-append">  
+                    
+                    {{ form_widget(formStudent.username) }}  
+                    {{ form_widget(formStudent.password) }}  
+                    {{ form_widget(formStudent.group) }}  
+                    {{ form_rest(formStudent) }} 
+                </div>  
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+            <button class="btn btn-primary">Ajouter</button>
+        </div>
+    </form>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript">/*<![CDATA[*/    (function () {   
+         $("caption a").click(function() {  
+            $('#form_group').val($(this).attr("id"));
+        });
+        $("#form_group").css("visibility","hidden").addClass("span1");   
+    })();/*]]>*/</script>
+    
+</p>
 {% endblock body %}
 
 

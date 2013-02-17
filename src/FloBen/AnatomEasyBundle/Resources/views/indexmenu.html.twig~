@@ -8,19 +8,23 @@
           </button>
           <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
           <div class="nav-collapse collapse">
-            {% if error %}
-                <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-            {% endif %}
-          <form action="{{ path('fos_user_security_check') }}" method="post" class="navbar-form pull-right">
+ 
+            {% if is_granted("ROLE_TEACHER") %} 
+                    <a href="{{ path('anatomeasy_teacher_index') }}" title="Espace enseignant">Espace enseignant</a>
+            
+            {% else %}
+            <form action="{{ path('anatomeasy_teacher_index') }}" method="post" class="navbar-form pull-right">
 
-            <input type="text" id="username" name="_username"  required="required"  placeholder="Email Enseignant"/>
+            <input type="text" id="username" class="span2" name="_username"  required="required"  placeholder="Login enseignant"/>
 
-            <input class="span2" type="password" id="password" name="_password" placeholder="Mot de passe"/>
+            <input class="span2" type="password" class="span2" id="password" name="_password" placeholder="Mot de passe"/>
 
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <input type="checkbox"id="remember_me" name="_remember_me" value="on" />
 
-            <input type="submit" value="Connexion" />
-        </form> 
+            <input type="submit" class="btn"  value="Connexion" />
+        </form>
+            {% endif %} 
+ 
           </div><!--/.nav-collapse -->
         </div>
       </div>

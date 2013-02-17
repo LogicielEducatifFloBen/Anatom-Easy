@@ -7,6 +7,7 @@ use FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice;
 /**
  * Exercice
  * @ORM\Entity 
+ * @ORM\Table(name="`Exercice`")
  */ 
 class Exercice
 {

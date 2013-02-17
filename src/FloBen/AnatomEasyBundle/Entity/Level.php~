@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Level
  * @ORM\Entity
- * @ORM\Table(name="Level")
+ * @ORM\Table(name="`Level`")
  */ 
 class Level
 {

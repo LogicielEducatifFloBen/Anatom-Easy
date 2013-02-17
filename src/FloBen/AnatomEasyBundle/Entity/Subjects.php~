@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Subjects
  * @ORM\Entity
- * @ORM\Table(name="Subjects")
+ * @ORM\Table(name="`Subjects`")
  */
 class Subjects
 {

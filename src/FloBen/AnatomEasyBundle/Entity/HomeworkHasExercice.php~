@@ -8,7 +8,7 @@ use FloBen\AnatomEasyBundle\Entity\Exercice;
 /**
  * HomeworkHasExercice
  * @ORM\Entity
- * @ORM\Table(name="HomeworkHasExercice")
+ * @ORM\Table(name="`HomeworkHasExercice`")
  */
 class HomeworkHasExercice
 {
@@ -27,21 +27,21 @@ class HomeworkHasExercice
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Exercice
-     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homework")
+     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homeworkHasExercice")
      * @ORM\JoinColumn(name="exercice_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $exercice;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Homework
-     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homework")
+     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homeworkHasExercice")
      * @ORM\JoinColumn(name="homework_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $homework;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Result
-     * @ORM\ManyToOne(targetEntity="Result", inversedBy="homework")
+     * @ORM\ManyToOne(targetEntity="Result", inversedBy="homeworkHasExercice")
      * @ORM\JoinColumn(name="result_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $result;

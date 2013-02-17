@@ -7,12 +7,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use FloBen\AnatomEasyBundle\Entity\Teacher;
+use FloBen\AnatomEasyBundle\Entity\User;
 use FloBen\AnatomEasyBundle\Entity\Group;
 
 
 /**
- * Teacher controller.
+ * Teacher controller. 
  *
  * @Route("/teacher")
  */
@@ -24,7 +24,7 @@ class TeacherController extends Controller
      */
     public function indexAction()
     {
-        // On teste que l'utilisateur dispose bien du rôle ROLE_AUTEUR
+        // On teste que l'utilisateur dispose bien du rôle ROLE_TEACHER
         if( ! $this->get('security.context')->isGranted('ROLE_TEACHER') )
         {
             // Sinon on déclenche une exception "Accès Interdit"
@@ -33,11 +33,12 @@ class TeacherController extends Controller
         
         
         
-        $currentTeacher = $this->container->get('security.context')->getToken()->getUser();
+        $currentTeacher = $this->container->get('security.context')->getToken()->getUser(); 
+        $test=$currentTeacher->getEmail();
         
-          $group = new Group;
-  
-    $form = $this->createFormBuilder($group) 
+        //groupes de l'enseignant
+        $group = new Group; 
+        $formClasse = $this->createFormBuilder($group) 
                  ->add('name', 'text',array(
                                 'label' => ' ',
                                 'attr' => array('placeholder' => "Créer une classe")))
@@ -46,74 +47,54 @@ class TeacherController extends Controller
                     'label' => ' ',
                     'attr' => array('class' => 'span1')))
                  ->getForm();
-                 
- 
-    // On récupère la requête
-    $request = $this->get('request');
- 
-    // On vérifie qu'elle est de type POST
-    if ($request->getMethod() == 'POST') {
-      // On fait le lien Requête <-> Formulaire
-      $form->bind($request);
- 
-      // On vérifie que les valeurs rentrées sont correctes
-      // (Nous verrons la validation des objets en détail plus bas dans ce chapitre)
-      if ($form->isValid()) { 
-      
-        $em = $this->getDoctrine()->getManager();
-        $group->setTeacher($currentTeacher); 
-        $em->persist($group);
-        $em->flush(); 
-      }
-    }
-    
-
+        
+                     
+        $student = new User();
          
-
-        return array(  
-           'form' => $form->createView(),
-           'test' => $currentTeacher->getEmail()
-        ); 
-    }
-    
-    
-}
-/*
-
-    /**
-     * Creates a new Event entity.
-     *
-     * @Route("/create", name="admin_schedule_event_create")
-     * @Method("POST")
-     * @Template("IDCISimpleScheduleBundle:Event:new.html.twig")
-     */
-     /*
-    public function createAction(Request $request)
-    {
-        $entity  = new Event();
-        $form = $this->createForm(new EventType(), $entity);
-        $form->bind($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
-
-            $this->get('session')->getFlashBag()->add(
-                'info',
-                $this->get('translator')->trans('%entity%[%id%] has been created', array(
-                    '%entity%' => 'Event',
-                    '%id%'     => $entity->getId()
-                ))
-            );
-
-            return $this->redirect($this->generateUrl('admin_schedule_event_show', array('id' => $entity->getId())));
+        $formStudent = $this->createFormBuilder($student) 
+                 ->add('username', 'text',array(
+                                'label' => ' ',
+                                'attr' => array('placeholder' => "Nom d'utilisateur",
+                                                'class'       => 'span2')))
+                 ->add('password', 'password', array( 
+                    'label' => ' ',
+                    'attr' => array('class'       => 'span2',
+                                    'placeholder' => "mot de passe")))
+                 ->add('group', 'entity', array(  
+                    'class' => 'FloBenAnatomEasyBundle:Group' ))
+                 ->getForm();  
+           
+        $em = $this->getDoctrine()->getManager();
+        
+        //ajout
+        $request = $this->get('request'); 
+        // On vérifie qu'elle est de type POST 
+        if ($request->getMethod() == 'POST') {
+            $formStudent->bind($request); 
+            if ($formStudent->isValid()) {
+                $student->setEmail(rand (0,9999999999999999))
+                        ->addRole('ROLE_STUDENT') ;
+                $em->persist($student);
+                $em->flush();
+            } else{ 
+                $formClasse->bind($request);
+                if ($formClasse->isValid()) {
+                    $group->setTeacher( $currentTeacher ); 
+                    $em->persist($group);
+                    $em->flush(); 
+                }else $test="prout"; 
+            }
         }
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-    
-        */
+        
+        //classes de l'enseignant
+        $entity = $em->getRepository('FloBenAnatomEasyBundle:Group')
+                     ->findByTeacher($currentTeacher->getId());
+        return array(  
+            'formClasse' => $formClasse->createView(),
+            'formStudent' => $formStudent->createView(),
+            'classes'    => $entity, 
+            'test'       => $test
+        ); 
+    } 
+}
+ 
