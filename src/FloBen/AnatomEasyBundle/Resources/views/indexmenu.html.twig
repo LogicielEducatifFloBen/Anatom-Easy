@@ -10,21 +10,30 @@
           </button>
           <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
           <div class="nav-collapse collapse">
- 
-            {% if is_granted("ROLE_TEACHER") %} 
-                    <a href="{{ path('anatomeasy_teacher_index') }}" title="Espace enseignant">Espace enseignant</a>
             
+            {% if is_granted("ROLE_TEACHER") %} 
+                    <ul class="nav">
+                <li>
+                    <a href="{{ path('anatomeasy_teacher_index') }}" title="Status">Accueil enseignement</a>
+                    
+                </li>  
+            </ul>
+            <ul class="nav pull-right"> 
+                <li>
+                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                </li> 
+            </ul>
             {% else %}
             <form action="{{ path('fos_user_security_check') }}" method="post" class="navbar-form pull-right">
+                <div class="input-append">
+                    <input type="text" class="input-medium" id="username"   name="_username"  required="required"  placeholder="Login enseignant"/>
 
-            <input type="text" id="username" class="span2" name="_username"  required="required"  placeholder="Login enseignant"/>
+                    <input   class="input-small" type="password"  id="password" name="_password" placeholder="Mot de passe"/> 
+                    <input type="checkbox"id="remember_me" name="_remember_me" value="on" />
 
-            <input class="span2" type="password" class="span2" id="password" name="_password" placeholder="Mot de passe"/>
-
-            <input type="checkbox"id="remember_me" name="_remember_me" value="on" />
-
-            <input type="submit" class="btn"  value="Connexion" />
-        </form>
+                    <input type="submit" class="btn"  value="Connexion" />
+                </div>
+            </form>
             {% endif %} 
  
           </div><!--/.nav-collapse -->

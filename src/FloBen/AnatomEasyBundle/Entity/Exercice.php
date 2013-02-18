@@ -51,9 +51,26 @@ class Exercice
      *
      * @ORM\OneToMany(targetEntity="Sandbox", mappedBy="exercice")
      */
-    protected $sandbox;
+    protected $sandbox; 
 
-
+    /**
+     * tostring
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return '[' . $this->level . ']' . $this->subjects . ' : ' . $this->title;
+    } 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -88,29 +105,6 @@ class Exercice
     }
 
     /**
-     * Set subject
-     *
-     * @param string $subject
-     * @return Exercice
-     */
-    public function setSubject($subject)
-    {
-        $this->subject = $subject;
-    
-        return $this;
-    }
-
-    /**
-     * Get subject
-     *
-     * @return string 
-     */
-    public function getSubject()
-    {
-        return $this->subject;
-    }
-
-    /**
      * Set level
      *
      * @param \FloBen\AnatomEasyBundle\Entity\Level $level
@@ -133,37 +127,6 @@ class Exercice
         return $this->level;
     }
 
-    /**
-     * Set subjectsSubjectscol
-     *
-     * @param \FloBen\AnatomEasyBundle\Entity\Subjects $subjectsSubjectscol
-     * @return Exercice
-     */
-    public function setSubjectsSubjectscol(\FloBen\AnatomEasyBundle\Entity\Subjects $subjectsSubjectscol = null)
-    {
-        $this->subjectsSubjectscol = $subjectsSubjectscol;
-    
-        return $this;
-    }
-
-    /**
-     * Get subjectsSubjectscol
-     *
-     * @return \FloBen\AnatomEasyBundle\Entity\Subjects 
-     */
-    public function getSubjectsSubjectscol()
-    {
-        return $this->subjectsSubjectscol;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
     /**
      * Set subjects
      *

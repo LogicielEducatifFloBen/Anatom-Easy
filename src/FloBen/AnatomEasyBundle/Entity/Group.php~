@@ -52,7 +52,7 @@ class Group
      */
     public function __toString()
     {
-        return $this->name.", classe de [".$this->level."]";
+        return "[".$this->level."]". $this->name ;
     }
     
     

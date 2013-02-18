@@ -9,6 +9,9 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use FloBen\AnatomEasyBundle\Entity\User;
 use FloBen\AnatomEasyBundle\Entity\Group;
+use FloBen\AnatomEasyBundle\Entity\Homework; 
+use FloBen\AnatomEasyBundle\Form\HomeworkType; 
+use FloBen\AnatomEasyBundle\Form\ExerciceType; 
 
 
 /**
@@ -33,10 +36,10 @@ class TeacherController extends Controller
         
         
         
-        $currentTeacher = $this->container->get('security.context')->getToken()->getUser(); 
-        $test=$currentTeacher->getEmail();
+        $currentTeacher = $this->container->get('security.context')->getToken()->getUser();
+        $test=$currentTeacher->getEmail();//test
         
-        //groupes de l'enseignant
+        //formulaire nouvelle classe
         $group = new Group; 
         $formClasse = $this->createFormBuilder($group) 
                  ->add('name', 'text',array(
@@ -48,9 +51,8 @@ class TeacherController extends Controller
                     'attr' => array('class' => 'span1')))
                  ->getForm();
         
-                     
-        $student = new User();
-         
+        //formulaire nouvel élève
+        $student = new User(); 
         $formStudent = $this->createFormBuilder($student) 
                  ->add('username', 'text',array(
                                 'label' => ' ',
@@ -63,10 +65,18 @@ class TeacherController extends Controller
                  ->add('group', 'entity', array(  
                     'class' => 'FloBenAnatomEasyBundle:Group' ))
                  ->getForm();  
-           
+        
+        //formulaire nouveau devoir
+        $homework = new Homework;  
+        $formHomework = $this->createForm(new HomeworkType, $homework);
+        
         $em = $this->getDoctrine()->getManager();
         
-        //ajout
+        //classes de l'enseignant
+        $groups = $em->getRepository('FloBenAnatomEasyBundle:Group')
+                     ->findByTeacher($currentTeacher->getId());
+        
+        //ajout dans la bdd eleve/classe
         $request = $this->get('request'); 
         // On vérifie qu'elle est de type POST 
         if ($request->getMethod() == 'POST') {
@@ -75,24 +85,32 @@ class TeacherController extends Controller
                 $student->setEmail(rand (0,9999999999999999))
                         ->addRole('ROLE_STUDENT') ;
                 $em->persist($student);
-                $em->flush();
+                $em->flush(); 
+                //empeche de refaire un ajout en cas de rafraichissement
+                return $this->redirect($this->generateUrl('anatomeasy_teacher_index'));
             } else{ 
                 $formClasse->bind($request);
                 if ($formClasse->isValid()) {
                     $group->setTeacher( $currentTeacher ); 
                     $em->persist($group);
                     $em->flush(); 
-                }else $test="prout"; 
+                    return $this->redirect($this->generateUrl('anatomeasy_teacher_index'));
+                }else{ 
+                    $formHomework->bind($request);
+                    if ($formHomework->isValid()) {
+                        $homework->setTeacher( $currentTeacher ); 
+                        $em->persist($group);
+                        $em->flush(); 
+                        //return $this->redirect($this->generateUrl('anatomeasy_teacher_index'));
+                    }else $test="prout";
+                }
             }
         }
-        
-        //classes de l'enseignant
-        $entity = $em->getRepository('FloBenAnatomEasyBundle:Group')
-                     ->findByTeacher($currentTeacher->getId());
         return array(  
             'formClasse' => $formClasse->createView(),
+            'formDevoir' => $formHomework->createView(),
             'formStudent' => $formStudent->createView(),
-            'classes'    => $entity, 
+            'classes'    => $groups, 
             'test'       => $test
         ); 
     } 
