@@ -10,14 +10,12 @@
 <h3>{{ test }}</h3>
 </div>
 <p>
-    <form {{ form_enctype(formClasse) }} method="post"> 
-        <div class="input-append">  
+    <form {{ form_enctype(formClasse) }} method="post"  class="input-append">  
             {{ form_widget(formClasse.name) }}  
             {{ form_widget(formClasse.level) }}  
             {{ form_rest(formClasse) }}
        
-          <button type="submit"  class="btn  btn-success" ><i class="icon-plus icon-white"></i></button>
-        </div>  
+          <button type="submit"  class="btn  btn-success" ><i class="icon-plus icon-white"></i></button> 
     </form>
        
 </p>
@@ -25,158 +23,55 @@
          
         {% for classe in classes %}
     <table class="table table-bordered table-striped table-hover table-condensed"> 
-        <caption class="lead">{{ classe.name }}, classe de {{ classe.level }} 
-            <a href="#Modal" role="button"  id="homework_{{ classe.id }}" class="btn btn-small btn-success" data-toggle="modal">
-                <i class="icon-plus icon-white"></i> Ajouter un devoir
-            </a> 
-            <a href="#Modal" role="button"  id="student_{{ classe.id }}" class="btn btn-small btn-primary" data-toggle="modal">
-                <i class="icon-plus icon-white"></i> Ajouter un élève
-            </a> 
+        <caption class="lead">{{ classe.name }}, classe de {{ classe.level }}  
+        
+            <a href="{{ path('anatomeasy_teacher_group', { 'id': classe.id }) }}" role="button"  id="homework_{{ classe.id }}" class="btn btn-small btn-success" data-toggle="modal">
+            <i class="icon-zoom-in icon-white"></i> Voir la classe 
+            </a>  
         </caption>
         <thead>
             <tr>
-                <th>Elèves</th>  
-                <th>Devoirs</th> 
+                <th><i class="icon-user"></i> Elèves</th>  
+                <th> <i class="icon-list-alt"></i> Devoirs</th> 
             </tr>
         </thead>
         <tbody> 
         {% for eleve in classe.student %}
             <tr>
                 <td>{{eleve.username}}</td>
-                <td></td>
+                <td>{% for homework in eleve.homework %}
+                         {{homework}} 
+                    {% endfor %}
+                </td>
             </tr>
-        {% endfor %}  
+        {% endfor %} 
+            <tr>
+                <td >
+                    <form  class="input-append span5" action="{{ path('anatomeasy_teacher_index') }}" {{ form_enctype(formClasse) }} method="POST" class="fos_user_registration_register"> 
+                    
+                        {{form_widget(classeForms[loop.index-1].username)}} 
+                        {{form_widget(classeForms[loop.index-1].password)}}  
+                        {{form_widget(classeForms[loop.index-1].group)}}  
+                        {{form_widget(classeForms[loop.index-1]._token)}} 
+                            <button type="submit" class="btn"><i class="icon-user icon-white"></i> Ajouter un élève</button>  
+                    </form>
+                </td>
+                <td>
+                </td>
+            </tr> 
         </tbody> 
     </table>
+    <hr/>
         {% endfor %}  
-    
-<!-- Form Modal nouvel eleve -->
-<div id="Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="classeModalLabel" aria-hidden="true">
-    <div class="modal-header"> 
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="classeModalLabel"></h3>
-    </div> 
-    <form action="{{ path('anatomeasy_teacher_index') }}" id="formStudent" {{ form_enctype(formClasse) }} method="POST" class="fos_user_registration_register">
-        <div class="modal-body">
-            <p> 
-                <div class="input-append">  
-                    
-                    {{ form_widget(formStudent.username) }}  
-                    {{ form_widget(formStudent.password) }}  
-                    {{ form_widget(formStudent.group) }}  
-                    {{ form_rest(formStudent) }} 
-                </div>  
-            </p>
-        </div>
-        <div class="modal-footer form-actions">
-            <button class="btn" class="close"  data-dismiss="modal" aria-hidden="true">Annuler</button>
-            <button type="submit" class="btn btn-primary">Ajouter</button>
-        </div>
-    </form>
-    <form action="{{ path('anatomeasy_teacher_index') }}" id="formHomework" {{ form_enctype(formClasse) }} method="POST" >
-        <div class="modal-body">
-            <p> 
-                <div class="input-append">   
-                    {{ form_widget(formDevoir.deadline) }} 
-                    {{ form_widget(formDevoir.homeworkHasExercice) }}  
-                    {{ form_rest(formStudent) }} 
-                </div>  
-            </p>
-        </div>
-        <div class="modal-footer form-actions">
-            <button class="btn" class="close"  data-dismiss="modal" aria-hidden="true">Annuler</button>
-            <button type="submit" class="btn btn-primary">Ajouter</button>
-        </div>
-    </form>
-</div> 
-    
-    <script type="text/javascript">/*<![CDATA[*/    (function () {   
-        $("caption a").click(function() {
-            var formName=$(this).attr("id").split('_')[0]; 
-            $("#Modal form").each( function() {
-              $(this).css('visibility', 'hidden').css('height', '0px');
-            });
-            $("#Modal").attr('style','width:600px;margin-left:-300px;'); 
-            if(formName=="student"){
-                $('#classeModalLabel').html("Ajouter un élève");
-                $('#formStudent #form_group').val($(this).attr("id").split('_')[1]);
-                $("#Modal #formStudent").css('visibility', 'visible').css('height', ''); 
-            }else if (formName=="homework"){
-            $("#Modal").attr('style','width:940px;margin-left:-470px;');
-                $('#classeModalLabel').html("Ajouter un devoir à la classe");
-                $("#Modal #formHomework").css('visibility', 'visible').css('height', '');
-                multExerciceForm();
-            } 
-        });
-        $("#form_group").css("visibility","hidden").addClass("span1");
         
-        //submit form with enter key (bootstrap modal with form bug)
-        $("#Modal form").keypress(function(e) {
-            if (e.keyCode == 13 && e.target.type != "textarea") {
-                $(this).submit();
-            }
-        });
-        function multExerciceForm(){
-            var $container = $('div#floben_anatomeasybundle_homeworktype_homeworkHasExercice');
-             
-              // On ajoute un lien pour ajouter une nouvelle exercice
-              var $lienAjout = $('<a href="#" id="ajout_exercice" class="btn btn-small btn-success"><i class="icon-plus icon-white"></i>Ajouter un exercice</a>');
-              $container.append($lienAjout);
-             
-              // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
-              $lienAjout.click(function(e) {
-                ajouterExercice($container);
-                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-                return false;
-              });
-             
-              // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-              var index = $container.find(':input').length;
-             
-              // On ajoute un premier champ directement s'il n'en existe pas déjà un.
-              if (index == 0) {
-                ajouterExercice($container);
-              } else {
-                // Pour chaque exercice déjà existante, on ajoute un lien de suppression
-                $container.children('div').each(function() {
-                  ajouterLienSuppression($(this));
-                });
-              }
-             
-              // La fonction qui ajoute un formulaire Exercice
-              function ajouterExercice($container) {
-                // Dans le contenu de l'attribut « data-prototype », on remplace :
-                // - le texte "__name__label__" qu'il contient par le label du champ
-                // - le texte "__name__" qu'il contient par le numéro du champ
-                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Exercice n°' + (index+1))
-                                                                    .replace(/__name__/g, index));
-             
-                // On ajoute au prototype un lien pour pouvoir supprimer l'exercice
-                ajouterLienSuppression($prototype);
-             
-                // On ajoute le prototype modifié à la fin de la balise <div>
+        
+    <script type="text/javascript">/*<![CDATA[*/    (function () {
+         
+          
+            var $container = $('div #floben_anatomeasybundle_grouptype_student');
+            
+                var $prototype = $($container.attr('data-prototype'));
                 $container.append($prototype);
-             
-                // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
-                index++;
-              }
-             
-              // La fonction qui ajoute un lien de suppression d'une catégorie
-              function ajouterLienSuppression($prototype) {
-                // Création du lien
-                $lienSuppression = $('<a href="#" class="btn btn-danger btn-mini ">Supprimer</a>');
-             
-                // Ajout du lien
-                $prototype.append($lienSuppression);
-             
-                // Ajout du listener sur le clic du lien
-                $lienSuppression.click(function(e) {
-                  $prototype.remove();
-                  e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-                  return false;
-                });
-              }
-        }
     })();/*]]>*/</script>
     
     

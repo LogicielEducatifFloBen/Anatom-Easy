@@ -7,17 +7,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button> 
+          
           <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
           <div class="nav-collapse collapse">
             
             {% if is_granted("ROLE_TEACHER") %} 
-                    <ul class="nav">
+             <ul class="nav">
                 <li>
                     <a href="{{ path('anatomeasy_teacher_index') }}" title="Status">Accueil enseignement</a>
                     
                 </li>  
             </ul>
+            {% elseif is_granted("ROLE_TEACHER") %} 
             <ul class="nav pull-right"> 
                 <li>
                     <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
@@ -28,10 +30,12 @@
                 <div class="input-append">
                     <input type="text" class="input-medium" id="username"   name="_username"  required="required"  placeholder="Login enseignant"/>
 
-                    <input class="span2" class="input-small" type="password"  id="password" name="_password" placeholder="Mot de passe"/> 
-                    <input type="checkbox"id="remember_me" name="_remember_me" value="on" />
-
+                    <input   class="input-small" type="password" id="password" name="_password" placeholder="Mot de passe"/> 
                     <input type="submit" class="btn"  value="Connexion" />
+                    <div style="height:14px;margin-left:10px">
+                        <input type="checkbox" style="margin:3px 3px 0px 3px ; float:left;" id="remember_me" name="_remember_me" checked />
+                        <label for="remember_me" style="color: #999999;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);">Se rappeler de moi</label>
+                    </div>
                 </div>
             </form>
             {% endif %} 

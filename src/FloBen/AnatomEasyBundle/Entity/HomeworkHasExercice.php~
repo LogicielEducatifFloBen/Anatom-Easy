@@ -27,14 +27,14 @@ class HomeworkHasExercice
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Exercice
-     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homeworkHasExercice")
+     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homeworkHasExercice",cascade={"merge"} )
      * @ORM\JoinColumn(name="exercice_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $exercice;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Homework
-     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homeworkHasExercice")
+     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homeworkHasExercice",cascade={"all"} )
      * @ORM\JoinColumn(name="homework_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $homework;
@@ -46,7 +46,6 @@ class HomeworkHasExercice
      */
     protected $result;
 
-
     /**
      * Get id
      *
@@ -55,30 +54,7 @@ class HomeworkHasExercice
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set done
-     *
-     * @param boolean $done
-     * @return HomeworkHasExercice
-     */
-    public function setDone($done)
-    {
-        $this->done = $done;
-    
-        return $this;
-    }
-
-    /**
-     * Get done
-     *
-     * @return boolean 
-     */
-    public function getDone()
-    {
-        return $this->done;
-    }
+    } 
 
     /**
      * Set exercice

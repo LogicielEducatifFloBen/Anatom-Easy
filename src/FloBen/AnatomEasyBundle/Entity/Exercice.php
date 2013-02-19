@@ -2,8 +2,7 @@
 
 namespace FloBen\AnatomEasyBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice;
+use Doctrine\ORM\Mapping as ORM; 
 /**
  * Exercice
  * @ORM\Entity 
@@ -20,21 +19,22 @@ class Exercice
     protected $id;
 
     /**
-     * @var string
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var \FloBen\AnatomEasyBundle\Entity\Type
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="exercice" ,cascade={"merge"} )
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id", onDelete="Set Null")
      */
-    protected $title; 
+    protected $type;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Level
-     * @ORM\ManyToOne(targetEntity="Level", inversedBy="exercice")
+     * @ORM\ManyToOne(targetEntity="Level", inversedBy="exercice" ,cascade={"merge"}  )
      * @ORM\JoinColumn(name="level_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $level;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Subjects
-     * @ORM\ManyToOne(targetEntity="Subjects", inversedBy="exercice")
+     * @ORM\ManyToOne(targetEntity="Subjects", inversedBy="exercice" ,cascade={"merge"} )
      * @ORM\JoinColumn(name="subjects_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $subjects;
@@ -60,7 +60,7 @@ class Exercice
      */
     public function __toString()
     {
-        return '[' . $this->level . ']' . $this->subjects . ' : ' . $this->title;
+        return  ' [ ' . $this->level . ' ]  ' .$this->type .' : '. $this->subjects  ;
     } 
     /**
      * Constructor
@@ -79,29 +79,29 @@ class Exercice
     public function getId()
     {
         return $this->id;
-    }
+    } 
 
     /**
-     * Set title
+     * Set type
      *
-     * @param string $title
+     * @param \FloBen\AnatomEasyBundle\Entity\Type $type
      * @return Exercice
      */
-    public function setTitle($title)
+    public function setType(\FloBen\AnatomEasyBundle\Entity\Type $type = null)
     {
-        $this->title = $title;
+        $this->type = $type;
     
         return $this;
     }
 
     /**
-     * Get title
+     * Get type
      *
-     * @return string 
+     * @return \FloBen\AnatomEasyBundle\Entity\Type 
      */
-    public function getTitle()
+    public function getType()
     {
-        return $this->title;
+        return $this->type;
     }
 
     /**

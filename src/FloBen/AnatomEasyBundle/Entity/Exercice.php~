@@ -2,8 +2,7 @@
 
 namespace FloBen\AnatomEasyBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice;
+use Doctrine\ORM\Mapping as ORM; 
 /**
  * Exercice
  * @ORM\Entity 
@@ -21,21 +20,21 @@ class Exercice
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Type
-     * @ORM\ManyToOne(targetEntity="Type", inversedBy="exercice")
+     * @ORM\ManyToOne(targetEntity="Type", inversedBy="exercice" ,cascade={"merge"} )
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $type;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Level
-     * @ORM\ManyToOne(targetEntity="Level", inversedBy="exercice")
+     * @ORM\ManyToOne(targetEntity="Level", inversedBy="exercice" ,cascade={"merge"}  )
      * @ORM\JoinColumn(name="level_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $level;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Subjects
-     * @ORM\ManyToOne(targetEntity="Subjects", inversedBy="exercice")
+     * @ORM\ManyToOne(targetEntity="Subjects", inversedBy="exercice" ,cascade={"merge"} )
      * @ORM\JoinColumn(name="subjects_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $subjects;
@@ -61,7 +60,7 @@ class Exercice
      */
     public function __toString()
     {
-        return '[' . $this->level . ']' . $this->subjects . ' : ' . $this->title;
+        return  $this->type .' [ ' . $this->level . ' ]  ' . $this->subjects  ;
     } 
     /**
      * Constructor
@@ -80,15 +79,15 @@ class Exercice
     public function getId()
     {
         return $this->id;
-    }
+    } 
 
     /**
      * Set type
      *
      * @param \FloBen\AnatomEasyBundle\Entity\Type $type
-     * @return Type
+     * @return Exercice
      */
-    public function setSubjects(\FloBen\AnatomEasyBundle\Entity\Subjects $type = null)
+    public function setType(\FloBen\AnatomEasyBundle\Entity\Type $type = null)
     {
         $this->type = $type;
     

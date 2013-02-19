@@ -5,11 +5,11 @@ namespace FloBen\AnatomEasyBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Subjects
+ * Type
  * @ORM\Entity
- * @ORM\Table(name="`Subjects`")
+ * @ORM\Table(name="`Type`")
  */
-class Subjects
+class Type
 {
     /**
      * @var string
@@ -21,7 +21,7 @@ class Subjects
     /**
      * exercice
      * 
-     * @ORM\OneToMany(targetEntity="Exercice", mappedBy="subjects")
+     * @ORM\OneToMany(targetEntity="Exercice", mappedBy="type")
      */
     protected $exercice;
 
@@ -57,7 +57,7 @@ class Subjects
      * Set id
      *
      * @param string $id
-     * @return Subjects
+     * @return Type
      */
     public function setId($id)
     {
@@ -70,7 +70,7 @@ class Subjects
      * Add exercice
      *
      * @param \FloBen\AnatomEasyBundle\Entity\Exercice $exercice
-     * @return Subjects
+     * @return Type
      */
     public function addExercice(\FloBen\AnatomEasyBundle\Entity\Exercice $exercice)
     {

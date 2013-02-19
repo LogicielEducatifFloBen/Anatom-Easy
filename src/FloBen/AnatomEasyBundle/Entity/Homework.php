@@ -3,6 +3,7 @@
 namespace FloBen\AnatomEasyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Homework
@@ -27,7 +28,7 @@ class Homework
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Student
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="homework")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="homework" )
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $student;
@@ -38,6 +39,21 @@ class Homework
      * @ORM\OneToMany(targetEntity="HomeworkHasExercice", mappedBy="homework")
      */
     protected $homeworkHasExercice;
+    
+
+    /**
+     * Set deadline
+     *
+     * @param \HomeworkHasExercice $homeworkHasExercice
+     * @return HomeworkHasExercice
+     */
+    public function setHomeworkHasExercice($homeworkHasExercice)
+    {
+        $this->homeworkHasExercice = $homeworkHasExercice;
+    
+        return $this;
+    } 
+         
     /**
      * Constructor
      */
@@ -45,7 +61,8 @@ class Homework
     {
         $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+     
+
     /**
      * Get id
      *

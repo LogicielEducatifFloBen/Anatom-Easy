@@ -25,6 +25,17 @@ class Subjects
      */
     protected $exercice;
 
+
+    /**
+     * tostring
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return  $this->id  ;
+    } 
+
     /**
      * Get id
      *
