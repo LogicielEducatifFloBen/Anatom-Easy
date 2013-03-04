@@ -18,8 +18,6 @@ class IndexController extends Controller
      * @Template()
      */
     public function indexAction()
-    {
-        
     { 
         if(  $this->get('security.context')->isGranted('ROLE_TEACHER') )
         {

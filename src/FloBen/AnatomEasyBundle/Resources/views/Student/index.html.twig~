@@ -74,6 +74,8 @@
                     <img src="../../css/img/stomach.png" class="img-rounded" alt="Le tube digestif">Le tube digestif
                 </a>
             </li> 
+            </li>
+            <li class="span1"></li>
             <li class="span2">
                 <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" class="thumbnail">
                     <img src="../../css/img/cellule-malade.png" class="img-rounded" alt="Le systeme lymphatique">Le systeme lymphatique

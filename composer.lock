@@ -1,5 +1,5 @@
 {
-    "hash": "e0e3abf253cf7159bedb282872b3435e",
+    "hash": "a26794867108c8b846abe88fb6caf61f",
     "packages": [
         {
             "name": "doctrine/common",
@@ -1315,6 +1315,58 @@
                 "templating"
             ],
             "time": "2013-02-09 18:21:53"
+        },
+        {
+            "name": "winzou/console-bundle",
+            "version": "dev-master",
+            "target-dir": "CoreSphere/ConsoleBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/winzou/ConsoleBundle.git",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/winzou/ConsoleBundle/zipball/1.0.1",
+                "reference": "1.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/console": ">=2.1.0,<3.0",
+                "symfony/framework-bundle": ">=2.1.0,<3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "CoreSphere\\ConsoleBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laszlo Korte",
+                    "email": "coresphere@laszlokorte.de"
+                },
+                {
+                    "name": "Marmus Ullman",
+                    "email": "mail@markus-ullmann.de"
+                },
+                {
+                    "name": "Alexandre winzou Bacco",
+                    "homepage": "http://www.tutoriel-symfony2.fr/"
+                }
+            ],
+            "description": "This bundle allows you accessing the symfony2 console via your browser",
+            "keywords": [
+                "console",
+                "javascript",
+                "symfony"
+            ],
+            "time": "2013-02-22 08:46:21"
         }
     ],
     "packages-dev": null,
@@ -1324,6 +1376,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "twig/extensions": 20,
-        "kriswallsmith/assetic": 20
+        "winzou/console-bundle": 20
     }
 }
