@@ -4,6 +4,7 @@ namespace FloBen\AnatomEasyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FloBen\AnatomEasyBundle\Entity\Exercice;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * HomeworkHasExercice
@@ -25,16 +26,14 @@ class HomeworkHasExercice
      */
     protected $done;
 
-    /**
-     * @var \FloBen\AnatomEasyBundle\Entity\Exercice
-     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homeworkHasExercice" )
+    /** 
+     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homeworkHasExercice", cascade={"persist"} )
      * @ORM\JoinColumn(name="exercice_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $exercice;
 
-    /**
-     * @var \FloBen\AnatomEasyBundle\Entity\Homework
-     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homeworkHasExercice" )
+    /** 
+     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homeworkHasExercice", cascade={"persist"} )
      * @ORM\JoinColumn(name="homework_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $homework;
@@ -55,16 +54,20 @@ class HomeworkHasExercice
     {
         return $this->id;
     } 
+    
+    public function __construct()
+    {  
+        $this->done = false;
+    }
 
     /**
      * Set exercice
-     *
-     * @param \FloBen\AnatomEasyBundle\Entity\Exercice $exercice
+     *  
      * @return HomeworkHasExercice
      */
-    public function setExercice(\FloBen\AnatomEasyBundle\Entity\Exercice $exercice = null)
-    {
-        $this->exercice = $exercice;
+    public function setExercice( $exercices )
+    { 
+        $this->exercice = $exercices;
     
         return $this;
     }

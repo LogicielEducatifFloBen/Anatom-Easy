@@ -3,6 +3,7 @@
 namespace FloBen\AnatomEasyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM; 
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Exercice
  * @ORM\Entity 
@@ -61,7 +62,7 @@ class Exercice
     public function __toString()
     {
         return  ' [ ' . $this->level . ' ]  ' .$this->type .' : '. $this->subjects  ;
-    } 
+    }  
     /**
      * Constructor
      */
@@ -79,7 +80,7 @@ class Exercice
     public function getId()
     {
         return $this->id;
-    } 
+    }
 
     /**
      * Set type

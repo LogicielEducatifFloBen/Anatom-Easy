@@ -39,8 +39,7 @@ class Group
      
     /**
      * user
-     * 
-     
+     *  
      * @ORM\OneToMany(targetEntity="User", mappedBy="group")
      */
     protected $student;

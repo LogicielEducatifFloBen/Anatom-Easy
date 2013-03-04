@@ -11,7 +11,7 @@ class GroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder 
-            ->add('student', 'collection', array('type'         => new UserType(),
+            ->add('student', 'collection', array('type'         => new NewStudentType(),
                                                   'allow_add'    => true, 
                                                   'by_reference' => false)) 
         ;

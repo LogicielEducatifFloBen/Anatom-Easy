@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Level
  * @ORM\Entity
  * @ORM\Table(name="`Level`")
+ * @ORM\Entity(repositoryClass="FloBen\AnatomEasyBundle\Repository\Level")
  */ 
 class Level
 {

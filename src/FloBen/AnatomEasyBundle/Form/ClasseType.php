@@ -6,14 +6,15 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class GroupType extends AbstractType
+class ClasseType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder 
-            ->add('student', 'collection', array('type'         => new UserType(),
-                                                  'allow_add'    => true, 
-                                                  'by_reference' => false)) 
+        $builder
+            ->add('name',null,array('label'=>'Nom',
+                                     'attr' =>array('class'=>'span2')))
+            ->add('level',null,array('label'=>'Niveau',
+                                     'attr' =>array('class'=>'span1'))) 
         ;
     }
 

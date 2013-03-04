@@ -13,11 +13,13 @@ class HomeworkType extends AbstractType
         $builder
             ->add('deadline', 'date',array(
                                     'widget' => 'single_text',
-                                    'label' => 'Date limite (exclu)',
+                                    'label' => 'Date limite (exclue)',
                                     'format' => 'yyyy-MM-dd'))
+                                    
             ->add('homeworkHasExercice', 'collection', array(
                                                   'type'         => new HomeworkHasExerciceType(),
                                                   'allow_add'    => true, 
+                                                  'allow_remove'    => true, 
                                                   'by_reference' => false,
                                                   'label'        => 'Exercice(s)'))
         ;

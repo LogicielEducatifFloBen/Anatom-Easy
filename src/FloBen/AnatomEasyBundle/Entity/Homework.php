@@ -26,9 +26,8 @@ class Homework
      */
     protected $deadline;
 
-    /**
-     * @var \FloBen\AnatomEasyBundle\Entity\Student
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="homework" )
+    /** 
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="homework", cascade={"remove"} )
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $student;
@@ -36,24 +35,11 @@ class Homework
     /**
      * homeworkHasExercice
      * 
-     * @ORM\OneToMany(targetEntity="HomeworkHasExercice", mappedBy="homework")
+     * @ORM\OneToMany(targetEntity="HomeworkHasExercice", mappedBy="homework", cascade={"remove"})
      */
     protected $homeworkHasExercice;
     
-
-    /**
-     * Set deadline
-     *
-     * @param \HomeworkHasExercice $homeworkHasExercice
-     * @return HomeworkHasExercice
-     */
-    public function setHomeworkHasExercice($homeworkHasExercice)
-    {
-        $this->homeworkHasExercice = $homeworkHasExercice;
-    
-        return $this;
-    } 
-         
+ 
     /**
      * Constructor
      */
@@ -127,10 +113,12 @@ class Homework
      */
     public function addHomeworkHasExercice(\FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice $homeworkHasExercice)
     {
-        $this->homeworkHasExercice[] = $homeworkHasExercice;
+        if($this->homeworkHasExercice->contains($homeworkHasExercice)){
+            $this->homeworkHasExercice->add($homeworkHasExercice);
+        } 
     
         return $this;
-    }
+    } 
 
     /**
      * Remove homeworkHasExercice
@@ -141,6 +129,19 @@ class Homework
     {
         $this->homeworkHasExercice->removeElement($homeworkHasExercice);
     }
+    /**
+    
+     * Set homeworkHasExercice
+     *
+     * @param \HomeworkHasExercice $homeworkHasExercice
+     * @return HomeworkHasExercice
+     */
+    public function setHomeworkHasExercice($homeworkHasExercice)
+    {
+        $this->homeworkHasExercice = $homeworkHasExercice;
+    
+        return $this;
+    } 
 
     /**
      * Get homeworkHasExercice

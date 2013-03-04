@@ -4,15 +4,17 @@ namespace FloBen\AnatomEasyBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use JMS\SecurityExtraBundle\Annotation\Secure;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template; 
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use FloBen\AnatomEasyBundle\Entity\User;
-use FloBen\AnatomEasyBundle\Entity\Group;
+use FloBen\AnatomEasyBundle\Entity\Group;  
 use FloBen\AnatomEasyBundle\Entity\Homework;  
-use FloBen\AnatomEasyBundle\Form\ExerciceType; 
-use FloBen\AnatomEasyBundle\Form\UserType; 
-use FloBen\AnatomEasyBundle\Form\GroupType; 
+use FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice;  
+use FloBen\AnatomEasyBundle\Form\NewStudentType; 
+use FloBen\AnatomEasyBundle\Form\GroupNewStudentType; 
+use FloBen\AnatomEasyBundle\Form\Type\RegistrationFormType; 
+use FloBen\AnatomEasyBundle\Form\HomeworkType; 
+use FloBen\AnatomEasyBundle\Form\ClasseType; 
 
 
 /**
@@ -60,8 +62,9 @@ class TeacherController extends Controller
                     'attr' => array('class' => 'span1')))
                  ->getForm();
         
-          
+        //formulaire nouvel éleve
         $studentForms = array();
+        $studentFormsViews = array();
         $pupils = array();
         foreach ($groups as $index => $groupTmp) {
             $pupil= new User();  
@@ -70,7 +73,7 @@ class TeacherController extends Controller
                   ->addRole('ROLE_STUDENT') ; 
             
             $pupils []  = $pupil;  
-            $studentForms []  = $this->createForm(new UserType, $pupil);  
+            $studentForms []  = $this->createForm(new NewStudentType(), $pupil);  
             $studentFormsViews [ ] = $studentForms [$index]->createView(); 
         } 
 
@@ -83,45 +86,23 @@ class TeacherController extends Controller
                 $formClasse->bind($request);
                 if ($formClasse->isValid()) {//group
                     $em->persist($group);
-                    $em->flush();
-                    return $this->redirect($this->generateUrl('anatomeasy_teacher_index'));
-                }else{ 
+                    $em->flush(); 
+                }else{
                             $tmp=$studentForms[0];
                             $tmp->bind($request);  
                         if ($tmp->isValid()) { 
-                            foreach($pupils as $index => $pupil){//on stocke uniquement les eleves 
+                            foreach($pupils as $index => $pupil){//on stocke uniquement l'éleve dont le form a été remplie
                                 if($pupil->getUsername()!=""){
-                                    $test.= $pupil->getUsername();
+                                    $pwd=$pupil->getPassword()."{". $pupil->getSalt()."}" ;
+                                    $pupil->setPassword($pwd);
+                                    $pupil->setEnabled(true);
                                     $em->persist($pupil);
-                                    $em->flush();
-                                    return $this->redirect($this->generateUrl('anatomeasy_teacher_index')); 
+                                    $em->flush(); 
                                  }
                              }
                         } 
-                    
                 }
-                
-                    /*}else{ 
-                    $formHomework->bind($request);
-                    if ($formHomework->isValid()) {
-                        
-                        foreach ($homework->getHomeworkHasExercice() as $homeworkHasExercice) { 
-                    
-                            // if it were a ManyToOne relationship, remove the relationship like this
-                            // $tag->setHomeworkHasExercice(null);
-
-                            $em->persist($homeworkHasExercice);
-
-                            // if you wanted to delete the Tag entirely, you can also do that
-                            // $em->remove($tag);
-                        }
-                        $em->persist($homework);
-                        $em->flush(); 
-                        //return $this->redirect($this->generateUrl('anatomeasy_teacher_index'));
-                       
-                    
-                }
-                     */ 
+            return $this->redirect($this->generateUrl('anatomeasy_teacher_index'));
         }
         return array(  
             'formClasse'  => $formClasse->createView(), 
@@ -133,10 +114,10 @@ class TeacherController extends Controller
     
     
     /**
-     * @Route("/classe/{id}", name="anatomeasy_teacher_group")
+     * @Route("/classe/{idGroup}", name="anatomeasy_teacher_group")
      * @Template()
      */
-    public function groupAction()
+    public function groupAction($idGroup)
     {
         
         // On teste que l'utilisateur dispose bien du rôle ROLE_TEACHER
@@ -151,14 +132,112 @@ class TeacherController extends Controller
         
         //on récupere les entités
         $currentTeacher = $this->container->get('security.context')->getToken()->getUser();
-        $groups = $em->getRepository('FloBenAnatomEasyBundle:Group')
-                     ->findByTeacher($currentTeacher->getId());
+        $group = $em->getRepository('FloBenAnatomEasyBundle:Group')
+                     ->find($idGroup);
         $test=$currentTeacher->getEmail();//test, output var
+        if($group->getTeacher()!==$currentTeacher){
+            throw new AccessDeniedHttpException('Ce n\'est pas votre classe');
+        }
         
+        
+        $classForm=$this->createForm(new ClasseType, $group);
+        
+        $homework = new Homework();
+        $homeworkForm=$this->createForm(new HomeworkType, $homework); 
+        
+
+        //ajout dans la bdd
+        $request = $this->get('request'); 
+        // On vérifie qu'elle est de type POST 
+        if ($request->getMethod() == 'POST') {
+             
+            $homeworkForm->bind($request);
+            if ($homeworkForm->isValid()) { 
+                
+                foreach ($group->getStudent() as $student) {
+                    $homeworkTmp = new Homework($homework);
+                    $homeworkTmp->setDeadline($homework->getDeadline());
+                    $homeworkTmp->setStudent($student);
+                    $em->persist($homeworkTmp);
+                    
+                    foreach ($homework->getHomeworkHasExercice() as $homeworkHasExercice) {
+                    // permet la suppression dans la bdd de homeworkHasExercice  
+                        $homeworkHasExerciceTmp = new HomeworkHasExercice($homeworkHasExercice);
+                        $homeworkHasExerciceTmp->setExercice($homeworkHasExercice->getExercice());
+                        $homeworkHasExerciceTmp->setHomework($homeworkTmp);
+                        
+                        
+                        $em->persist($homeworkHasExerciceTmp);
+                    } 
+                }
+                    $em->flush();  
+            }
+        }
     
         return array(   
+            'classe'      => $group,
+            'classeForm'  => $classForm->createView(),
+            'devoirForm'  => $homeworkForm->createView(),
             'test'        => $test
-        );  
+        );
+    }
+    
+    
+    
+    /**
+     * @Route("/classe/{idGroup}/nouveau_devoir", name="anatomeasy_teacher_group_new_homework") 
+     */
+    public function addHomeworkToGroupAction($idGroup)
+    {
+    
+        
+        // On teste que l'utilisateur dispose bien du rôle ROLE_TEACHER
+        if( ! $this->get('security.context')->isGranted('ROLE_TEACHER') )
+        {
+            // Sinon on déclenche une exception "Accès Interdit"
+            throw new AccessDeniedHttpException('Accès limité aux enseignants');
+        }
+        $em = $this->getDoctrine()->getManager();
+        
+        
+        //on récupere les entités
+        $currentTeacher = $this->container->get('security.context')->getToken()->getUser();
+        $group = $em->getRepository('FloBenAnatomEasyBundle:Group')
+                     ->find($idGroup);
+        $test=$currentTeacher->getEmail();//test, output var
+        if($group->getTeacher()!==$currentTeacher){
+            throw new AccessDeniedHttpException('Ce n\'est pas votre classe');
+        }
+        
+        $homework = new Homework();
+        $homeworkForm=$this->createForm(new HomeworkType, $homework); 
+        
+        //ajout dans la bdd
+        $request = $this->get('request'); 
+        // On vérifie qu'elle est de type POST 
+        if ($request->getMethod() == 'POST') {
+             
+                $homeworkForm->bind($request);
+                if ($homeworkForm->isValid()) { 
+                    
+                    foreach ($group->getStudent() as $student) {
+                        $homeworkTmp = new Homework($homework);
+                        $homeworkTmp->setDeadline($homework->getDeadline());
+                        $homeworkTmp->setStudent($student);
+                        $em->persist($homeworkTmp);
+                        
+                        foreach ($homework->getHomeworkHasExercice() as $homeworkHasExercice) {
+                        
+                            $homeworkHasExerciceTmp = new HomeworkHasExercice($homeworkHasExercice);
+                            $homeworkHasExerciceTmp->setExercice($homeworkHasExercice->getExercice())
+                                                   ->setHomework($homeworkTmp); 
+                            $em->persist($homeworkHasExerciceTmp);
+                        } 
+                    }
+                        $em->flush();  
+                }
+        }
+        return $this->redirect($this->generateUrl('anatomeasy_teacher_group', array('idGroup'=>$idGroup))); 
     }
 }
  

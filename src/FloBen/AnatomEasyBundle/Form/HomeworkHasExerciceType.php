@@ -11,8 +11,11 @@ class HomeworkHasExerciceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder 
-             ->add('exercice', 'entity', array(  
-                'class' => 'FloBenAnatomEasyBundle:Exercice' ))
+            ->add('exercice', new ExerciceType(), array(  
+                                                  'label' => ' ', 
+                                                  ))
+                    
+                
         ;
     } 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

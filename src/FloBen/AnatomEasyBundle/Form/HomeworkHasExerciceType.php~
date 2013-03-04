@@ -10,16 +10,17 @@ class HomeworkHasExerciceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('exercice',new ExerciceType())
+        $builder 
+            ->add('exercice', 'collection', array('type'         => new ExerciceType(),
+                                                  'by_reference' => false,
+                                                  'allow_add'    => true, 
+                                                  'allow_delete'    => true, 
+                                                  'label' => ' ', 
+                                                  ))
+                    
+                
         ;
-    } 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice' 
-        ));
-    }
+    }  
 
     public function getName()
     {

@@ -152,10 +152,10 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->teachGroup = new \Doctrine\Common\Collections\ArrayCollection();
         $this->homework = new \Doctrine\Common\Collections\ArrayCollection();
         $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
-         parent::__construct();
     }
     
     /**

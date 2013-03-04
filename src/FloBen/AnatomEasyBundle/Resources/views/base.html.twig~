@@ -1,23 +1,34 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Anatom-Easy{% endblock %} </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+        <title>Anatom-Easy - {% block title %}{% endblock %} </title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-responsive.css" />
 		<link rel="stylesheet" type="text/css" href="/css/mainStyle.css" />
-        <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
         {% endblock %}
 
     </head>
     <body>
-        <div class="container symfony-content"> 
+        <div class="container symfony-content">
+            {% block body %} 
+                {% include "FloBenAnatomEasyBundle::indexmenu.html.twig" %} 
+
+                    
+        
+            {% endblock %}
         </div>
-        {% block javascripts %} 
+            <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
             <script type="text/javascript" src="/css/bootstrap/js/bootstrap.js"></script>
+            <script type="text/javascript">/*<![CDATA[*/     
+         $(window).bind('beforeunload', function(){ 
+          //  return "Es-tu sûr de vouloir partir?";
+        });
+     /*]]>*/</script>
+        {% block javascripts %} 
         {% endblock %}
     </body>
 </html>

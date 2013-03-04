@@ -5,27 +5,25 @@ namespace FloBen\AnatomEasyBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use FloBen\AnatomEasyBundle\Repository\LevelRepository;
 
 class ExerciceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('level', 'entity', array(
-                    'class' => 'FloBenAnatomEasyBundle:Level',
+            ->add('level', null, array( 
                     'label' => ' ',
                     'attr' => array('class' => 'span1',
-                                    'style' => 'float:left;margin-right:20px;' )))
-            ->add('type', 'entity', array(
-                    'class' => 'FloBenAnatomEasyBundle:Type',
+                                    'style' => 'float:left' )))
+            ->add('type', null, array( 
                     'label' => ' ',
-                    'attr' => array('class' => 'span2  ',
-                                    'style' => 'float:left;margin-right:20px; ')))
-            ->add('subjects', 'entity', array(
-                    'class' => 'FloBenAnatomEasyBundle:Subjects',
+                    'attr' => array('class' => 'span2',
+                                    'style' => 'float:left;')))
+            ->add('subjects', null, array( 
                     'label' => ' ',
-                    'attr' => array('class' => 'span2  ',
-                                    'style' => 'float:left;margin-right:100px;  ')))
+                    'attr' => array('class' => 'span2',
+                                    'style' => 'float:left;')))
             
         ;
     }
