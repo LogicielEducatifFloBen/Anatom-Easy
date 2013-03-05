@@ -26,7 +26,7 @@ class Group
     protected $level;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Teacher", inversedBy="group")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="teachGroup")
      * @ORM\JoinColumn(name="teacher_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $teacher;
@@ -38,14 +38,31 @@ class Group
     protected $name;
      
     /**
-     * student
-     * 
-     
-     * @ORM\OneToMany(targetEntity="Student", mappedBy="group")
+     * user
+     *  
+     * @ORM\OneToMany(targetEntity="User", mappedBy="group")
      */
     protected $student;
 
-
+    /**
+     * To string
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return "[".$this->level."]". $this->name ;
+    }
+    
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -105,10 +122,10 @@ class Group
     /**
      * Set teacher
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Teacher $teacher
+     * @param \FloBen\AnatomEasyBundle\Entity\User $teacher
      * @return Group
      */
-    public function setTeacher(\FloBen\AnatomEasyBundle\Entity\Teacher $teacher = null)
+    public function setTeacher(\FloBen\AnatomEasyBundle\Entity\User $teacher = null)
     {
         $this->teacher = $teacher;
     
@@ -118,27 +135,20 @@ class Group
     /**
      * Get teacher
      *
-     * @return \FloBen\AnatomEasyBundle\Entity\Teacher 
+     * @return \FloBen\AnatomEasyBundle\Entity\User 
      */
     public function getTeacher()
     {
         return $this->teacher;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->student = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Add student
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
+     * @param \FloBen\AnatomEasyBundle\Entity\User $student
      * @return Group
      */
-    public function addStudent(\FloBen\AnatomEasyBundle\Entity\Student $student)
+    public function addStudent(\FloBen\AnatomEasyBundle\Entity\User $student)
     {
         $this->student[] = $student;
     
@@ -148,9 +158,9 @@ class Group
     /**
      * Remove student
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
+     * @param \FloBen\AnatomEasyBundle\Entity\User $student
      */
-    public function removeStudent(\FloBen\AnatomEasyBundle\Entity\Student $student)
+    public function removeStudent(\FloBen\AnatomEasyBundle\Entity\User $student)
     {
         $this->student->removeElement($student);
     }

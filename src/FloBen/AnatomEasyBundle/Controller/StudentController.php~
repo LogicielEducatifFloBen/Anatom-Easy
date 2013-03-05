@@ -5,7 +5,8 @@ namespace FloBen\AnatomEasyBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 /**
  * Student controller.
  *
@@ -19,20 +20,44 @@ class StudentController extends Controller
      */
     public function indexAction()
     {
-        return array();
-<<<<<<< HEAD
-    } 
-=======
-    }
+        // On teste que l'utilisateur dispose bien du rôle ROLE_STUDENT
+        if( ! $this->get('security.context')->isGranted('ROLE_STUDENT') )
+        {
+            // Sinon on déclenche une exception "Accès Interdit"
+            throw new AccessDeniedHttpException('Accès limité aux élèves');
+        }
+        $em = $this->getDoctrine()->getManager();
+        
+        
+        
+        //on récupere les entités
+        $currentStudent = $this->container->get('security.context')->getToken()->getUser();
+        $group = $em->getRepository('FloBenAnatomEasyBundle:Group')
+                    ->find($idGroup); 
+        if($group->getTeacher()!==$currentTeacher){
+            throw new AccessDeniedHttpException('Ce n\'est pas votre classe');
+        }
+        
+        return array(); 
+    }  
 	
 	 /**
-     * @Route("/cours/{id}", name="anatomeasy_student_cours")
+     * @Route("/cours/{id}", name="anatomeasy_student_niveaux")
      * @Template()
      */
-    public function coursAction($id)
+    public function niveauxAction($id)
     {
-        return array();
+        return array('idCours' => $id);
     }
->>>>>>> 41cdc10f35e75a0d671dd4d26aaeffa19d6bd30b
+	
+	/**
+     * @Route("/cours/{idCours}/{idNiveau}", name="anatomeasy_student_cours")
+	 * @Template()
+     */
+    public function coursAction($idCours,$idNiveau)
+    {
+		return array('idCours' =>$idCours,'idNiveau' =>$idNiveau);
+    }
+
 }
 

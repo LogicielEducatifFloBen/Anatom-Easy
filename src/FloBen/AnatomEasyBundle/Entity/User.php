@@ -6,11 +6,11 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Student
+ * User
  * @ORM\Entity
- * @ORM\Table(name="`Student`")
+ * @ORM\Table(name="`User`")
  */ 
-class Student extends BaseUser
+class User extends BaseUser
 {
     /**
      * @var integer
@@ -19,6 +19,12 @@ class Student extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */ 
     protected $id; 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Group", mappedBy="teacher")
+     */
+    protected $teachGroup; 
+    
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Group
@@ -56,7 +62,7 @@ class Student extends BaseUser
      * Set group
      *
      * @param \FloBen\AnatomEasyBundle\Entity\Group $group
-     * @return Student
+     * @return User
      */
     public function setGroup(\FloBen\AnatomEasyBundle\Entity\Group $group = null)
     {
@@ -74,20 +80,13 @@ class Student extends BaseUser
     {
         return $this->group;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->homework = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    
     
     /**
      * Add homework
      *
      * @param \FloBen\AnatomEasyBundle\Entity\Homework $homework
-     * @return Student
+     * @return User
      */
     public function addHomework(\FloBen\AnatomEasyBundle\Entity\Homework $homework)
     {
@@ -120,7 +119,7 @@ class Student extends BaseUser
      * Add sandbox
      *
      * @param \FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox
-     * @return Student
+     * @return User
      */
     public function addSandbox(\FloBen\AnatomEasyBundle\Entity\Sandbox $sandbox)
     {
@@ -147,5 +146,48 @@ class Student extends BaseUser
     public function getSandbox()
     {
         return $this->sandbox;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->teachGroup = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->homework = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add teachGroup
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Group $teachGroup
+     * @return User
+     */
+    public function addTeachGroup(\FloBen\AnatomEasyBundle\Entity\Group $teachGroup)
+    {
+        $this->teachGroup[] = $teachGroup;
+    
+        return $this;
+    }
+
+    /**
+     * Remove teachGroup
+     *
+     * @param \FloBen\AnatomEasyBundle\Entity\Group $teachGroup
+     */
+    public function removeTeachGroup(\FloBen\AnatomEasyBundle\Entity\Group $teachGroup)
+    {
+        $this->teachGroup->removeElement($teachGroup);
+    }
+
+    /**
+     * Get teachGroup
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTeachGroup()
+    {
+        return $this->teachGroup;
     }
 }

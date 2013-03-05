@@ -2,46 +2,42 @@
 
 namespace FloBen\AnatomEasyBundle\Entity;
 
-use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Student
- * @ORM\Entity
- * @ORM\Table(name="Student")
- */ 
-class Student extends BaseUser
+ */
+class Student
 {
     /**
      * @var integer
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */ 
-    protected $id; 
+     */
+    private $id;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Group
-     * @ORM\ManyToOne(targetEntity="Group", inversedBy="student")
-     * @ORM\JoinColumn(name="group_id", referencedColumnName="id", onDelete="Set Null")
      */
-    protected $group;
-     
-    /**
-     * homework
-     *
-     * @ORM\OneToMany(targetEntity="Homework", mappedBy="student")
-     */
-    protected $homework;
-     
-    /**
-     * sandbox
-     *
-     * @ORM\OneToMany(targetEntity="Sandbox", mappedBy="student")
-     */
-    protected $sandbox;
+    private $group;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $homework;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sandbox;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->homework = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -74,15 +70,7 @@ class Student extends BaseUser
     {
         return $this->group;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->homework = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->sandbox = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Add homework
      *

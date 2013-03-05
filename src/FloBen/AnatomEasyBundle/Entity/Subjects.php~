@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Subjects
  * @ORM\Entity
- * @ORM\Table(name="Subjects")
+ * @ORM\Table(name="`Subjects`")
  */
 class Subjects
 {
@@ -24,6 +24,17 @@ class Subjects
      * @ORM\OneToMany(targetEntity="Exercice", mappedBy="subjects")
      */
     protected $exercice;
+
+
+    /**
+     * tostring
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return  $this->id  ;
+    } 
 
     /**
      * Get id

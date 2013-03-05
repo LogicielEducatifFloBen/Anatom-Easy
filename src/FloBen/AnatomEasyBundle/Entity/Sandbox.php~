@@ -35,11 +35,10 @@ class Sandbox
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Student
-     * @ORM\ManyToOne(targetEntity="Student", inversedBy="sandbox")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="sandbox")
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $student;
-
 
     /**
      * Get id
@@ -49,29 +48,6 @@ class Sandbox
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Sandbox
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-    
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**
@@ -123,10 +99,10 @@ class Sandbox
     /**
      * Set student
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
+     * @param \FloBen\AnatomEasyBundle\Entity\User $student
      * @return Sandbox
      */
-    public function setStudent(\FloBen\AnatomEasyBundle\Entity\Student $student = null)
+    public function setStudent(\FloBen\AnatomEasyBundle\Entity\User $student = null)
     {
         $this->student = $student;
     
@@ -136,7 +112,7 @@ class Sandbox
     /**
      * Get student
      *
-     * @return \FloBen\AnatomEasyBundle\Entity\Student 
+     * @return \FloBen\AnatomEasyBundle\Entity\User 
      */
     public function getStudent()
     {

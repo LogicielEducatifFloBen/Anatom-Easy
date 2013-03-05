@@ -1,5 +1,6 @@
 {
-    "hash": "551f887b04493bfbc36867ae8ffa48c1",
+
+    "hash": "a26794867108c8b846abe88fb6caf61f",
     "packages": [
         {
             "name": "doctrine/common",
@@ -18,7 +19,6 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-19 22:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -68,7 +68,12 @@
                 "eventmanager",
                 "persistence",
                 "spl"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "time": "2012-09-19 22:55:18"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
         },
         {
             "name": "doctrine/dbal",
@@ -88,7 +93,6 @@
                 "doctrine/common": "2.3.*",
                 "php": ">=5.3.2"
             },
-            "time": "2013-01-07 20:03:43",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -131,7 +135,8 @@
                 "dbal",
                 "persistence",
                 "queryobject"
-            ]
+            ],
+            "time": "2013-01-07 20:03:43"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -163,7 +168,6 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "2013-01-12 13:20:23",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -200,7 +204,12 @@
                 "dbal",
                 "orm",
                 "persistence"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "time": "2013-01-12 13:20:23"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
         },
         {
             "name": "doctrine/orm",
@@ -225,7 +234,6 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2013-01-07 20:05:04",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -270,7 +278,8 @@
             "keywords": [
                 "database",
                 "orm"
-            ]
+            ],
+            "time": "2013-01-07 20:05:04"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -300,7 +309,6 @@
                 "twig/twig": "*",
                 "willdurand/propel-typehintable-behavior": "dev-master"
             },
-            "time": "2012-12-22 15:09:34",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -335,7 +343,8 @@
             "homepage": "http://friendsofsymfony.github.com",
             "keywords": [
                 "User management"
-            ]
+            ],
+            "time": "2012-12-22 15:09:34"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -354,7 +363,6 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-12-22 21:46:50",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -382,7 +390,12 @@
             "keywords": [
                 "highlight",
                 "sql"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "time": "2012-12-22 21:46:50"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
         },
         {
             "name": "jms/aop-bundle",
@@ -403,7 +416,6 @@
                 "jms/cg": "1.0.0",
                 "symfony/framework-bundle": "2.*"
             },
-            "time": "2012-01-02 12:50:26",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -426,7 +438,8 @@
             "keywords": [
                 "annotations",
                 "aop"
-            ]
+            ],
+            "time": "2012-01-02 12:50:26"
         },
         {
             "name": "jms/cg",
@@ -445,7 +458,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-02 12:40:52",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -467,7 +479,8 @@
             "description": "Toolset for generating PHP code",
             "keywords": [
                 "code generation"
-            ]
+            ],
+            "time": "2012-01-02 12:40:52"
         },
         {
             "name": "jms/di-extra-bundle",
@@ -504,7 +517,6 @@
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
-            "time": "2012-09-21 01:56:32",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -528,7 +540,12 @@
             "keywords": [
                 "annotations",
                 "dependency injection"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "time": "2012-09-21 01:56:32"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
         },
         {
             "name": "jms/metadata",
@@ -547,7 +564,6 @@
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-01-02 13:32:49",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -572,7 +588,12 @@
                 "metadata",
                 "xml",
                 "yaml"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "time": "2012-01-02 13:32:49"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
         },
         {
             "name": "jms/security-extra-bundle",
@@ -610,7 +631,6 @@
                 "symfony/validator": "*",
                 "symfony/yaml": "*"
             },
-            "time": "2012-09-06 09:12:03",
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
@@ -637,7 +657,12 @@
                 "expression",
                 "secure",
                 "security"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "time": "2012-09-06 09:12:03"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
         },
         {
             "name": "kriswallsmith/assetic",
@@ -665,7 +690,10 @@
                 "leafo/scssphp": "*",
                 "leafo/scssphp-compass": "*",
                 "mrclay/minify": "*",
+<<<<<<< HEAD
                 "phpunit/phpunit": "3.7.*",
+=======
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
                 "ptachoire/cssembed": "*",
                 "twig/twig": ">=1.6.0,<2.0"
             },
@@ -676,7 +704,10 @@
                 "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
                 "twig/twig": "Assetic provides the integration with the Twig templating engine"
             },
+<<<<<<< HEAD
             "time": "2013-02-11 18:18:06",
+=======
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -708,7 +739,8 @@
                 "assets",
                 "compression",
                 "minification"
-            ]
+            ],
+            "time": "2013-01-12 22:20:24"
         },
         {
             "name": "monolog/monolog",
@@ -735,7 +767,10 @@
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server"
             },
+<<<<<<< HEAD
             "time": "2012-08-29 11:53:20",
+=======
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -764,27 +799,27 @@
             "keywords": [
                 "log",
                 "logging"
-            ]
+            ],
+            "time": "2012-08-29 04:53:20"
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sensio/SensioDistributionBundle",
-                "reference": "v2.1.7"
+                "url": "https://github.com/sensio/SensioDistributionBundle.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioDistributionBundle/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/sensio/SensioDistributionBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2013-01-04 17:11:22",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -810,28 +845,36 @@
             "keywords": [
                 "configuration",
                 "distribution"
+<<<<<<< HEAD
             ]
+=======
+            ],
+            "time": "2013-02-04 19:54:42"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "v2.1.7"
+                "url": "https://github.com/sensio/SensioFrameworkExtraBundle.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/sensio/SensioFrameworkExtraBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
+<<<<<<< HEAD
                 "doctrine/common": ">=2.1,<2.4-dev",
+=======
+                "doctrine/common": ">=2.1,<2.5-dev",
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2013-01-04 17:06:26",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -857,21 +900,22 @@
             "keywords": [
                 "annotations",
                 "controllers"
-            ]
+            ],
+            "time": "2013-02-22 17:57:31"
         },
         {
             "name": "sensio/generator-bundle",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Sensio/Bundle/GeneratorBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sensio/SensioGeneratorBundle",
-                "reference": "v2.1.7"
+                "url": "https://github.com/sensio/SensioGeneratorBundle.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioGeneratorBundle/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/sensio/SensioGeneratorBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -883,7 +927,6 @@
                 "symfony/doctrine-bridge": "2.1.*",
                 "twig/twig": ">=1.8,<2.0-dev"
             },
-            "time": "2013-01-04 17:09:08",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -905,7 +948,8 @@
                     "email": "fabien@symfony.com"
                 }
             ],
-            "description": "This bundle generates code for you"
+            "description": "This bundle generates code for you",
+            "time": "2013-01-04 17:09:08"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -924,7 +968,6 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-10-25 01:30:40",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -954,10 +997,12 @@
             "keywords": [
                 "mail",
                 "mailer"
-            ]
+            ],
+            "time": "2012-10-25 01:30:40"
         },
         {
             "name": "symfony/assetic-bundle",
+<<<<<<< HEAD
             "version": "v2.1.1",
             "target-dir": "Symfony/Bundle/AsseticBundle",
             "source": {
@@ -969,6 +1014,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/v2.1.1",
                 "reference": "v2.1.1",
+=======
+            "version": "v2.1.2",
+            "target-dir": "Symfony/Bundle/AsseticBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/AsseticBundle.git",
+                "reference": "v2.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/v2.1.2",
+                "reference": "v2.1.2",
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
                 "shasum": ""
             },
             "require": {
@@ -988,7 +1046,10 @@
             "suggest": {
                 "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
             },
+<<<<<<< HEAD
             "time": "2013-01-31 17:56:17",
+=======
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1017,21 +1078,27 @@
                 "assets",
                 "compression",
                 "minification"
-            ]
+            ],
+            "time": "2013-02-23 22:29:21"
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/MonologBundle",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/MonologBundle.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/v2.1.7",
                 "reference": "v2.1.7",
+=======
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
                 "shasum": ""
             },
             "require": {
@@ -1039,13 +1106,16 @@
                 "php": ">=5.3.2",
                 "symfony/config": ">=2.1.0,<2.3-dev",
                 "symfony/dependency-injection": ">=2.1.0,<2.3-dev",
+<<<<<<< HEAD
                 "symfony/monolog-bridge": ">=2.1.0,<2.3-dev"
+=======
+                "symfony/monolog-bridge": "2.1.*"
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
             },
             "require-dev": {
                 "symfony/config": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-07 10:57:41",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1076,21 +1146,22 @@
             "keywords": [
                 "log",
                 "logging"
-            ]
+            ],
+            "time": "2013-01-28 10:06:42"
         },
         {
             "name": "symfony/swiftmailer-bundle",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "target-dir": "Symfony/Bundle/SwiftmailerBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/SwiftmailerBundle",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/SwiftmailerBundle.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/SwiftmailerBundle/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
@@ -1104,7 +1175,6 @@
                 "symfony/http-kernel": ">=2.1.0,<2.3-dev",
                 "symfony/yaml": ">=2.1.0,<2.3-dev"
             },
-            "time": "2013-01-04 17:04:29",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1131,24 +1201,29 @@
                 }
             ],
             "description": "Symfony SwiftmailerBundle",
-            "homepage": "http://symfony.com"
+            "homepage": "http://symfony.com",
+            "time": "2013-01-04 17:04:29"
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.1.7",
+            "version": "v2.1.8",
             "source": {
                 "type": "git",
-                "url": "git://github.com/symfony/symfony.git",
-                "reference": "v2.1.7"
+                "url": "https://github.com/symfony/symfony.git",
+                "reference": "v2.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/v2.1.7.zip",
-                "reference": "v2.1.7",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/v2.1.8",
+                "reference": "v2.1.8",
                 "shasum": ""
             },
             "require": {
+<<<<<<< HEAD
                 "doctrine/common": ">2.2,<2.4-dev",
+=======
+                "doctrine/common": ">=2.2,<3.0",
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
                 "php": ">=5.3.3",
                 "twig/twig": ">=1.9.1,<2.0-dev"
             },
@@ -1193,7 +1268,6 @@
                 "monolog/monolog": ">=1.0,<1.3-dev",
                 "propel/propel1": "dev-master"
             },
-            "time": "2013-01-17 21:21:51",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -1219,7 +1293,8 @@
             "homepage": "http://symfony.com",
             "keywords": [
                 "framework"
-            ]
+            ],
+            "time": "2013-02-23 21:28:36"
         },
         {
             "name": "twig/extensions",
@@ -1238,7 +1313,6 @@
             "require": {
                 "twig/twig": "1.*"
             },
-            "time": "2013-01-04 16:55:05",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1266,7 +1340,8 @@
                 "debug",
                 "i18n",
                 "text"
-            ]
+            ],
+            "time": "2013-01-04 16:55:05"
         },
         {
             "name": "twig/twig",
@@ -1285,7 +1360,10 @@
             "require": {
                 "php": ">=5.2.4"
             },
+<<<<<<< HEAD
             "time": "2013-02-09 18:21:53",
+=======
+>>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1315,7 +1393,60 @@
             "homepage": "http://twig.sensiolabs.org",
             "keywords": [
                 "templating"
-            ]
+            ],
+            "time": "2013-02-09 18:21:53"
+        },
+        {
+            "name": "winzou/console-bundle",
+            "version": "dev-master",
+            "target-dir": "CoreSphere/ConsoleBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/winzou/ConsoleBundle.git",
+                "reference": "1.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/winzou/ConsoleBundle/zipball/1.0.1",
+                "reference": "1.0.1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/console": ">=2.1.0,<3.0",
+                "symfony/framework-bundle": ">=2.1.0,<3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "CoreSphere\\ConsoleBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laszlo Korte",
+                    "email": "coresphere@laszlokorte.de"
+                },
+                {
+                    "name": "Marmus Ullman",
+                    "email": "mail@markus-ullmann.de"
+                },
+                {
+                    "name": "Alexandre winzou Bacco",
+                    "homepage": "http://www.tutoriel-symfony2.fr/"
+                }
+            ],
+            "description": "This bundle allows you accessing the symfony2 console via your browser",
+            "keywords": [
+                "console",
+                "javascript",
+                "symfony"
+            ],
+            "time": "2013-02-22 08:46:21"
         }
     ],
     "packages-dev": null,
@@ -1325,6 +1456,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "twig/extensions": 20,
-        "kriswallsmith/assetic": 20
+        "winzou/console-bundle": 20
     }
 }

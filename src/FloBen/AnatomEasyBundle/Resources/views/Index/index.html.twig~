@@ -1,33 +1,29 @@
 {% extends "FloBenAnatomEasyBundle::base.html.twig" %}
 
-{% block title %}Connection{% endblock title %}
+{% block title %}Accueil{% endblock title %}
 {% block body %}
 
-{% include "FloBenAnatomEasyBundle::indexmenu.html.twig" %}
-{{ parent() }}
+     
+        {{ parent() }}
 
-<div class="hero-unit">
+        <div class="hero-unit">
 
-    <h1>Anatom-Easy</h1>
-    <p>Connecte-toi et commence à apprendre !</p>
-</div>
-<div >
-    <h2>En choisissant ta classe</h2>
-    <form action="{{path('anatomeasy_student_index') }}" method="POST" class="form-inline"> 
-        <select class="span4" id="classe">
-          <option>CE1 classe de Mathilde</option> 
-          <option>CE2 classe de Mathilde</option> 
-          <option>CE2 classe de Bernard</option> 
-        </select>
-        <input class="span2" type="password" placeholder="Mot de passe">
-        <button type="submit" class="btn btn-primary">connexion</button> 
-    </form> 
-    <h2>ou en te connectant</h2>
-    <form action="{{path('anatomeasy_student_index') }}" method="POST" class="form-inline"> 
-        <input class="span2" type="text" placeholder="Ton identifiant">
-        <input class="span2" type="password" placeholder="Ton mot de passe">
-        <button type="submit" class="btn btn-primary">connexion</button> 
-    </form> 
-</div>
+            <h1>Anatom-Easy</h1>
+            <p>L'anatomie, c'est facile!</p>
+        </div>
+        <div > 
+            <form action="{{ path('fos_user_security_check') }}" method="post" >
+            <legend  >Connecte toi!</legend>
+                    <input type="text" class="input-medium" id="username"   name="_username"  required="required"  placeholder="Nom d'utilisateur"/>
 
-{% endblock body %}
+                    <input   class="input-small" type="password" id="password" name="_password" placeholder="Mot de passe"/>
+                    
+                        
+                        <label for="remember_me" class="checkbox"><input type="checkbox"   id="remember_me" name="_remember_me" checked >Se rappeler de moi</label> 
+                    <input type="submit" class="btn"  value="Connexion" />
+                    <div style="height:14px;margin-left:10px">
+                    </div>
+                </div>
+            </form>
+        </div>
+{% endblock body %} 

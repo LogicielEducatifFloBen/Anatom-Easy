@@ -3,6 +3,7 @@
 namespace FloBen\AnatomEasyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Homework
@@ -25,9 +26,8 @@ class Homework
      */
     protected $deadline;
 
-    /**
-     * @var \FloBen\AnatomEasyBundle\Entity\Student
-     * @ORM\ManyToOne(targetEntity="Student", inversedBy="homework")
+    /** 
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="homework", cascade={"remove"} )
      * @ORM\JoinColumn(name="student_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $student;
@@ -35,10 +35,19 @@ class Homework
     /**
      * homeworkHasExercice
      * 
-     * @ORM\OneToMany(targetEntity="HomeworkHasExercice", mappedBy="homework")
+     * @ORM\OneToMany(targetEntity="HomeworkHasExercice", mappedBy="homework", cascade={"remove"})
      */
     protected $homeworkHasExercice;
-
+    
+ 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+     
 
     /**
      * Get id
@@ -76,10 +85,10 @@ class Homework
     /**
      * Set student
      *
-     * @param \FloBen\AnatomEasyBundle\Entity\Student $student
+     * @param \FloBen\AnatomEasyBundle\Entity\User $student
      * @return Homework
      */
-    public function setStudent(\FloBen\AnatomEasyBundle\Entity\Student $student = null)
+    public function setStudent(\FloBen\AnatomEasyBundle\Entity\User $student = null)
     {
         $this->student = $student;
     
@@ -89,20 +98,13 @@ class Homework
     /**
      * Get student
      *
-     * @return \FloBen\AnatomEasyBundle\Entity\Student 
+     * @return \FloBen\AnatomEasyBundle\Entity\User 
      */
     public function getStudent()
     {
         return $this->student;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->homeworkHasExercice = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Add homeworkHasExercice
      *
@@ -111,10 +113,12 @@ class Homework
      */
     public function addHomeworkHasExercice(\FloBen\AnatomEasyBundle\Entity\HomeworkHasExercice $homeworkHasExercice)
     {
-        $this->homeworkHasExercice[] = $homeworkHasExercice;
+        if($this->homeworkHasExercice->contains($homeworkHasExercice)){
+            $this->homeworkHasExercice->add($homeworkHasExercice);
+        } 
     
         return $this;
-    }
+    } 
 
     /**
      * Remove homeworkHasExercice
@@ -125,6 +129,19 @@ class Homework
     {
         $this->homeworkHasExercice->removeElement($homeworkHasExercice);
     }
+    /**
+    
+     * Set homeworkHasExercice
+     *
+     * @param \HomeworkHasExercice $homeworkHasExercice
+     * @return HomeworkHasExercice
+     */
+    public function setHomeworkHasExercice($homeworkHasExercice)
+    {
+        $this->homeworkHasExercice = $homeworkHasExercice;
+    
+        return $this;
+    } 
 
     /**
      * Get homeworkHasExercice

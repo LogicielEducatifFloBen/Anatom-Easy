@@ -1,34 +1,37 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+ {% if is_granted("ROLE_TEACHER") %} 
+          
+ <div class="navbar navbar-inverse navbar-fixed-top" >
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="{{ path('anatomeasy_index_index') }}">Anatom-Easy</a>
+          </button> 
+          
+          <a class="brand" href="{{ path('anatomeasy_index_index') }}">Accueil enseignement</a>
           <div class="nav-collapse collapse">
-          <form action="{{ path('fos_user_security_check') }}" method="post" class="navbar-form pull-right">
-
-            <input type="text" id="username" name="_username"  required="required"  placeholder="Email Enseignant"/>
-
-            <input class="span2" type="password" id="password" name="_password" placeholder="Mot de passe"/>
-
-            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-
-            <input type="submit" value="Connexion" />
-        </form> 
+            
+            
+             <ul class="nav">
+                <li>
+                    <a href="{{ path('anatomeasy_student_index') }}"  >partie élève</a>
+                    
+                </li>  
+            </ul>
+            <ul class="nav pull-right"> 
+                <li>
+                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                </li> 
+            </ul> 
+            
+ 
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-    
-     
-
-
-
-
-
+<div style="height:50px; "></div>
+{% endif %}  
 
 
 

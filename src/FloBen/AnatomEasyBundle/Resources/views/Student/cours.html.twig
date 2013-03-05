@@ -1,6 +1,6 @@
 {% extends "FloBenAnatomEasyBundle::base.html.twig" %}
 
-{% block title %}Connection{% endblock title %}
+{% block title %}Cours - {{idCours}} - {{idNiveau}}{% endblock title %}
 {% block body %}
 
 {% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
@@ -20,8 +20,7 @@
 			{% else %}
 				{% if idNiveau == "CM2" %}
 					{% include "FloBenAnatomEasyBundle:Student/Cours:le_systeme_digestif_CM2.html.twig" %}
-				{% endif %}
-			
+				{% endif %} 
 			{% endif %}
 		{% endif %}
 	{% endif %}

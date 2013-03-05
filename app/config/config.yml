@@ -10,7 +10,7 @@ framework:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: "%kernel.debug%"
     form:            true
-    csrf_protection: true
+    csrf_protection: true 
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
@@ -60,20 +60,19 @@ swiftmailer:
     spool:     { type: memory }
     
 fos_user:
-    db_driver:     orm                                      # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
-    firewall_name: teacher                                  # Le nom du firewall duquel on utilisera ces utilisateurs
-    user_class:    FloBen\AnatomEasyBundle\Entity\Teacher   # La classe de l'entité User que nous venons de définir
+    db_driver:     orm              # Le type de BDD à utiliser, nous utilisons l'ORM Doctrine depuis le début
+    firewall_name: main             # Le nom du firewall duquel on utilisera ces utilisateurs
+    user_class:    FloBen\AnatomEasyBundle\Entity\User     # La classe de l'entité User que nous venons de définir
+    registration:
+        form:
+            type:               anatomeasybundle_user_registration
 
-
-
-
-
-
-
-
-
-
-
+services: 
+    anatomeasybundle_user_registration:
+        class: FloBen\AnatomEasyBundle\Form\Type\RegistrationFormType
+        tags:
+            - { name: form.type }
+        arguments: [%fos_user.model.user.class%]
 
 
 

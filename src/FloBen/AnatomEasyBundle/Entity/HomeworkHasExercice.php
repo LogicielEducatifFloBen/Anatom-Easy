@@ -4,6 +4,7 @@ namespace FloBen\AnatomEasyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FloBen\AnatomEasyBundle\Entity\Exercice;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * HomeworkHasExercice
@@ -25,27 +26,24 @@ class HomeworkHasExercice
      */
     protected $done;
 
-    /**
-     * @var \FloBen\AnatomEasyBundle\Entity\Exercice
-     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homework")
+    /** 
+     * @ORM\ManyToOne(targetEntity="Exercice", inversedBy="homeworkHasExercice", cascade={"persist"} )
      * @ORM\JoinColumn(name="exercice_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $exercice;
 
-    /**
-     * @var \FloBen\AnatomEasyBundle\Entity\Homework
-     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homework")
+    /** 
+     * @ORM\ManyToOne(targetEntity="Homework", inversedBy="homeworkHasExercice", cascade={"persist"} )
      * @ORM\JoinColumn(name="homework_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $homework;
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Result
-     * @ORM\ManyToOne(targetEntity="Result", inversedBy="homework")
+     * @ORM\ManyToOne(targetEntity="Result", inversedBy="homeworkHasExercice")
      * @ORM\JoinColumn(name="result_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $result;
-
 
     /**
      * Get id
@@ -55,40 +53,21 @@ class HomeworkHasExercice
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set done
-     *
-     * @param boolean $done
-     * @return HomeworkHasExercice
-     */
-    public function setDone($done)
-    {
-        $this->done = $done;
+    } 
     
-        return $this;
-    }
-
-    /**
-     * Get done
-     *
-     * @return boolean 
-     */
-    public function getDone()
-    {
-        return $this->done;
+    public function __construct()
+    {  
+        $this->done = false;
     }
 
     /**
      * Set exercice
-     *
-     * @param \FloBen\AnatomEasyBundle\Entity\Exercice $exercice
+     *  
      * @return HomeworkHasExercice
      */
-    public function setExercice(\FloBen\AnatomEasyBundle\Entity\Exercice $exercice = null)
-    {
-        $this->exercice = $exercice;
+    public function setExercice( $exercices )
+    { 
+        $this->exercice = $exercices;
     
         return $this;
     }

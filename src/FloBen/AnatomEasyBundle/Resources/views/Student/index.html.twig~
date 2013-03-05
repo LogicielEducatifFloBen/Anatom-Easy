@@ -1,54 +1,121 @@
 {% extends "FloBenAnatomEasyBundle::base.html.twig" %}
 
-{% block title %}Connection{% endblock title %}
+{% block title %}Accueil élève{% endblock title %}
 {% block body %}
+{{ parent() }}
 
 {% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
-{{ parent() }}
-<h1>Bonjour "nom" !</h1>
+<h1>Bonjour {{app.user.username}} !</h1>
+
+{% if  (app.user.homework and ("now"|date("d/m/Y") < app.user.homework[0].deadline|date("d/m/Y")))%} 
 <div id="devoir" class="well itemMenu">
 <h1 class="titreMenu">Devoirs</h1>
-        <div class="row-fluid">
-         </div>
+    <div class="row-fluid">
+    {% for devoir in app.user.homework %}
+        {% if "now"|date("d/m/Y") < devoir.deadline|date("d/m/Y") %}
+            <ul class="thumbnails">
+                {% if ((devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1) == 0 %}
+                    <li class="span2"> 
+                        <p class="text-error">A faire <strong>aujourd'hui</strong></p>
+                    </li>
+                    
+                {% elseif ((devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1) == 1 %}
+                    <li class="span2">
+                        <p class="text-warning">
+                        A faire avant le : {{devoir.deadline|date("d/m/Y")}}<br/>
+                        <strong>1 jour restant </strong>
+                        </p>
+                    </li> 
+                {% elseif ((devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1) <5 %}
+                    <li class="span2"> 
+                        <p class="text-info">
+                        A faire avant le : {{devoir.deadline|date("d/m/Y")}}<br/>
+                        <strong>{{(devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1 }} jour(s) restant(s)</strong>
+                        </p>
+                    </li>
+                
+                {% else %}
+                    <li class="span2"> 
+                        <p class="text-success">
+                        A faire avant le : {{devoir.deadline|date("d/m/Y")}}<br/>
+                        <strong>{{(devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1 }} jour(s) restant(s)</strong>
+                        </p>
+                    </li> 
+                {% endif %} 
+            </li>
+            {% for homeworkHasExercice in devoir.homeworkHasExercice %}
+                <li class="span2">
+                    <a href="#" class="thumbnail">
+                        <img src="../../css/img/{{homeworkHasExercice.exercice.type|e}}.jpg" class="img-rounded" alt="{{homeworkHasExercice.exercice.type|e}}">{{ homeworkHasExercice.exercice.level}} 
+                        {{ homeworkHasExercice.exercice.subjects}}
+                    </a>
+                </li> 
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endfor %}
+     </div>
 </div>
+
+{% endif %}
+
 <div id="cours" class="well itemMenu">
-	<h1 class="titreMenu">Cours</h1>
+	<h1 class="titreMenu">Cours</h1> 
+    <div class="row-fluid">
+        <ul class="thumbnails"> 
+            <li class="span2">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" class="thumbnail">
+                    <img src="../../css/img/lungs.png" class="img-rounded" alt="Le système respiratoire">Le système respiratoire
+                </a>
+            </li>
+            <li class="span1"></li>
+            <li class="span2">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail">
+                    <img src="../../css/img/stomach.png" class="img-rounded" alt="Le tube digestif">Le tube digestif
+                </a>
+            </li> 
+            </li>
+            <li class="span1"></li>
+            <li class="span2">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" class="thumbnail">
+                    <img src="../../css/img/cellule-malade.png" class="img-rounded" alt="Le systeme lymphatique">Le systeme lymphatique
+                </a>
+            </li> 
+        </ul>
+    </div>
+</div>
+	
+<div id="exercices" class="well itemMenu">
+	<h1 class="titreMenu">Exercices</h1>
+	<div class="row-fluid">
+        <ul class="thumbnails">
+              <li class="span3">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le systeme respiratoire</a>
+              </li>
+              <li class="span3">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_tube_digestif'}) }}" class="thumbnail"> Le tube digestif </a>
+              </li>
+              <li class="span3">
+	            <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_lymphatique'}) }}" class="thumbnail"> Le systeme lymphatique</a>
+              </li> 
+        </ul>
+    </div>
+</div>
+
+<div id="recreation" class="well itemMenu">
+	<h1 class="titreMenu">recreation</h1>
 	<div class="row-fluid">
 		<ul class="thumbnails">
               <li class="span3">
-                <a href="{{path('anatomeasy_student_cours', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le systeme respiratoire</a>
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Les vidéos</a>
               </li>
               <li class="span3">
-                <a href="{{path('anatomeasy_student_cours', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le tube digestif </a>
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_tube_digestif'}) }}" class="thumbnail"> Le liens</a>
               </li>
               <li class="span3">
-              <a href="{{path('anatomeasy_student_cours', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le systeme lymphatique</a>
+				<a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_lymphatique'}) }}" class="thumbnail"> Le systeme lymphatique</a>
               </li>
        
-            </ul>
-         </div>
-</div>
-<div id="exercices" class="well itemMenu">
-<h1 class="titreMenu">Exercices</h1>
-<div class="row-fluid">
-            <ul class="thumbnails">
-              <li class="span3">
-                <a href="#" class="thumbnail">cours1
-                </a>
-              </li>
-              <li class="span3">
-                <a href="#" class="thumbnail">
-                </a>
-              </li>
-              <li class="span3">
-                <a href="#" class="thumbnail">
-                </a>
-              </li>
-              <li class="span3">
-                <a href="#" class="thumbnail">
-                  
-                </a>
-              </li>
             </ul>
          </div>
 </div>

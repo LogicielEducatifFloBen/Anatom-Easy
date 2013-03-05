@@ -11,3 +11,8 @@ class FloBenAnatomEasyBundle extends Bundle
         return 'FOSUserBundle';
     }
 }
+
+//TODO suivre un éleve => adapter le niveau de l'exercice
+// avatar
+// puzzle
+// page exercice + validation du devoir
