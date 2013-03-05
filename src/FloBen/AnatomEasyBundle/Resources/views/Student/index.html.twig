@@ -4,11 +4,11 @@
 {% block body %}
 {{ parent() }}
 
-{% include "FloBenAnatomEasyBundle:Student:studentmenu.html.twig" %}
+
 <h1>Bonjour {{app.user.username}} !</h1>
 
 {% if  app.user.homework %} 
-{% if  ("now"|date("d/m/Y") < app.user.homework[0].deadline|date("d/m/Y")) %} 
+
 <div id="devoir" class="well itemMenu"> 
 <h1 class="titreMenu">Devoirs</h1>
     <div class="row-fluid">
@@ -57,8 +57,6 @@
     {% endfor %}
      </div>
 </div>
-
-{% endif %}
 {% endif %}
 
 <div id="cours" class="well itemMenu">
