@@ -16,7 +16,7 @@
 agentTest=null;
 function clippyAgent(optionArray, startAnimateAt){
     clippy.load('Merlin', function(agent) {
-        agent.moveTo($("body").width()-200,100); 
+        agent.moveTo($("body").width()-200,150); 
         agentTest=agent;
         setupEvent(optionArray); 
         if(startAnimateAt==undefined)
