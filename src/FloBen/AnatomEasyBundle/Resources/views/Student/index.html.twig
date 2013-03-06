@@ -5,7 +5,7 @@
 {{ parent() }}
 
 
-<h1>Bonjour {{app.user.username}} !</h1>
+<h1 id="titre">Bonjour {{app.user.username}} !</h1>
 
 {% if  app.user.homework %} 
 
@@ -82,14 +82,9 @@
        </div>
 	</div>
 	<div class="boiteItemMenu">
-		<div class="boiteItemMenuTitre">
-<<<<<<< HEAD
+		<div class="boiteItemMenuTitre">  
 			<div class="boitItemMenuImg">
-					<img src="../../css/img/stomach.png"/>
-=======
-			<div class="boitItemMenuImg">²
-					<img src="/css/img/stomach.png"/>
->>>>>>> 7ddaf959ac0f6a51db6d69626e2db4135fdf9e42
+					<img src="/css/img/stomach.png"/> 
 			</div>
 			<div class="boitItemMenuText">
 					<h2>Le systeme digestif </h2>
@@ -229,17 +224,16 @@
 {% endblock body %}
 {% block javascripts %}
  
-        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script>  
-        <script type="text/javascript">/*<![CDATA[*/    (function () { 
-            
-            var clippy = new Clippy();
-			
-			var optionArray= new Array();
-            optionArray[0]= {item:'#devoir',event:'click', action:clippy.getAgent().speak('test')};
-			
-			clippy.initClippy(optionArray);
-			 
-        })();/*]]>*/</script>
+        <script src="{{ asset('/css/clippy/build/clippy.min.js') }}" type="text/javascript" ></script> 
+        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script type="text/javascript">     
+            $(document).ready(function() { 
+                var optionArray= new Array();
+                optionArray[0]= {item:'#recreation',event:'click', action: 'speak', speech: 'test'  }; 
+                optionArray[1]= {item:'#devoir', event:'mouseover', action: 'speak', speech: 'test2', timeout:'1000'};
+                optionArray[2]= {action: 'speak', speech: 'Bienvenue',timeout:'2000'};
+                clippyAgent(optionArray);
+            }); </script>
 {% endblock javascripts %} 
 
 
