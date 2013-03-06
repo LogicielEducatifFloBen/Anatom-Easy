@@ -1,0 +1,66 @@
+{% extends "FloBenAnatomEasyBundle::base.html.twig" %}
+
+{% block title %}Exercice - {{idExercice}} - {{idTheme}}{% endblock title %}
+{% block body %}
+
+
+{{ parent() }}
+
+
+{% if idExercice == "qcm" %}
+	{% if idTheme == "le_systeme_digestif" %}
+		{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_digestif.html.twig" %}
+	{% else %}
+		{% if idTheme == "le_systeme_respiratoire" %}
+			{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_respiratoire.html.twig" %}
+		{% else %}
+			{% if idTheme == "le_systeme_lymphatique" %}
+				{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_lymphatique.html.twig" %}
+			{% else %}
+				<h1>error</h1>
+			{% endif %}
+		{% endif %}
+	{% endif %}
+    
+	{% else %}
+	{% if idExercice == "puzzle" %}
+		{% if idTheme == "le_systeme_digestif" %}
+			{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_digestif.html.twig" %}
+		{% else %}
+			{% if idTheme == "le_systeme_respiratoire" %}
+				{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_respiratoire.html.twig" %}
+			{% else %}
+				{% if idTheme == "le_systeme_lymphatique" %}
+					{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_lymphatique.html.twig" %}
+				{% else %}
+						<h1>error</h1>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+    
+	{% else %}
+	{% if idExercice == "pendu" %}
+		
+		{% if idTheme == "le_systeme_digestif" %}
+			{% include "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_digestif.html.twig" %}
+		{% else %}
+			{% if idTheme == "le_systeme_respiratoire" %}
+				{% include "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_respiratoire.html.twig" %}
+			{% else %}
+				{% if idTheme == "le_systeme_lymphatique" %}
+					{% include  "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_lymphatique.html.twig" %}
+				{% else %}
+					<h1>error</h1>
+				
+				{% endif %}
+			{% endif %}
+		{% endif %}	
+	
+	{% endif %}
+	
+{% endif %}
+{% endif %}
+
+
+
+{% endblock body %}
