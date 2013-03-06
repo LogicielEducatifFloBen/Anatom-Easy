@@ -23,7 +23,7 @@ function clippyAgent(optionArray){
 }
 function animateAgent(){
     agentTest.animate()
-    setTimeout("animateAgent()",(Math.floor(Math.random()*60000)+10000) );	 
+    setTimeout("animateAgent()",(Math.floor(Math.random()*40000)+5000) );	 
 }
 //instancie les evennements
 function setupEvent(optionArray){
@@ -36,7 +36,7 @@ function setupEvent(optionArray){
             $(optionArray[i].item).bind(optionArray[i].event, optionArray[i], agentEvent);
         }
     } 
-    animateAgent();  
+    setTimeout("animateAgent()",'5000');  
 }
 
 //lance la bonne anim d'aide
@@ -48,8 +48,7 @@ function agentEvent(event){
     if(agentTest!=null){
         if(option.timeout==undefined) {option.timeout='1';}
         if(option.gotoElement){  
-            var position = $(option.item).position();  
-            agentTest.stop();
+            var position = $(option.item).position(); 
             agentTest.moveTo(position.left+$(option.item).width()-200,position.top-$(window).scrollTop());
             option.timeout= (parseInt(option.timeout)+4000)+"";
         }
