@@ -4,9 +4,8 @@
 {% block body %}
 
 {{ parent() }} 
-  <div class="page-header" style="margin-top:60px;">
-<h1>Bonjour {{ app.user.username }} !</h1>
-<h3>{{ test }}</h3>
+  <div class="page-header" >
+<h1> Classe - {{classe}}</h1> 
 </div> 
 <p> 
         <table class="table table-bordered  "> 
@@ -17,11 +16,11 @@
                         , classe de 
                         {{form_widget(classeForm.level)}}
                         {{form_rest(classeForm)}}  
-                        <button type="submit" class="btn btn-mini "> modifier</button>   
+                        <button type="submit" class="btn btn-mini "> modifier la classe</button>   
                     </form> 
                     
         <!-- Button to trigger modal -->
-<a href="#myModal" data-target="#myModal" role="button" class="btn btn-success" data-toggle="modal"><i class="icon-plus icon-white"></i>Ajouter un devoir</a>
+<a href="#myModal" data-target="#myModal" role="button" class="btn btn-success" data-toggle="modal"><i class="icon-plus icon-white"></i>Ajouter un devoir    </a>
              
         </caption>
         <thead>
@@ -33,7 +32,7 @@
         <tbody> 
         {% for eleve in classe.student %}
             <tr>
-                <td>{{eleve.username}}</td>
+                <td><a href="{{ path('anatomeasy_teacher_student', { 'idStudent': eleve.id }) }}">{{eleve.username}}</a></td>
                 <td>{% for homework in eleve.homework %}
                         <div>
                          {{homework.deadline|date("d/m/Y")}} 
@@ -58,7 +57,7 @@
     <form action="{{ path('anatomeasy_teacher_group_new_homework', { 'idGroup': classe.id }) }}" {{ form_enctype(devoirForm) }} method="POST"> 
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-            <h3 id="myModalLabel">Nouveau devoir</h3>
+            <h3 id="myModalLabel">Ajouter un devoir de niveau {{ classe.level }}</h3>
         </div>
             <div class="modal-body">   
                 <fieldset> 
