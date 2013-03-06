@@ -9,9 +9,9 @@
 
 {% if  app.user.homework %} 
 
-<div id="devoir" class="well itemMenu"> 
+<div id="devoir" class="itemMenu"> 
 <h1 class="titreMenu">Devoirs</h1>
-    <div class="row-fluid">
+  
     {% for devoir in app.user.homework %}
         {% if "now"|date("d/m/Y") < devoir.deadline|date("d/m/Y") %}
             <ul class="thumbnails">
@@ -55,11 +55,11 @@
             </ul>
         {% endif %}
     {% endfor %}
-     </div>
+
 </div>
 {% endif %}
 
-<div id="cours" class="well itemMenu">
+<div id="cours" class="itemMenu">
 	<h1 class="titreMenu">Cours</h1>
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
@@ -69,17 +69,15 @@
 				</div>
 				<div class="boitItemMenuText">
 					<h2>Le systeme respiratoire </h2>
-					<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" class="thumbnail"></a>
 				</div>
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
 			<div class="boiteItemMenuBtn">
-				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail">cours nivEleve</a>
+				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >cours nivEleve</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-				
-				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail">cours tout niveaux</a>
+				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >cours tout niveaux</a>
 			</div>
        </div>
 	</div>
@@ -90,16 +88,15 @@
 			</div>
 			<div class="boitItemMenuText">
 					<h2>Le systeme digestif </h2>
-					<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail"></a>
 		    </div>
 	    </div>
 	   <div class="boiteItemMenuBtnBox">
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail">cours nivEleve</a>
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >cours nivEleve</a>
 			</div>
 			<div class="boiteItemMenuBtn">
 				
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail">cours tout niveaux</a>
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >cours tout niveaux</a>
 			</div>
        </div>
 	</div>
@@ -110,24 +107,24 @@
 			</div>
 			<div class="boitItemMenuText">
 					<h2>Le systeme lymphatique </h2>
-					<!--<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" class="thumbnail"> </a>-->
+					
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
 			
 			<div class="boiteItemMenuBtn">
 				
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail">cours nivEleve</a>
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >cours nivEleve</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" class="thumbnail">cours tout niveaux</a>
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >cours tout niveaux</a>
 			</div>
        </div>
 	</div>
 
 </div>
 	
-<div id="exercices" class="well itemMenu">
+<div id="exercices" class="itemMenu">
 	<h1 class="titreMenu">Exercices</h1>
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
@@ -137,28 +134,15 @@
 				</div>
 				<div class="boitItemMenuText">
 					<h2>QCM </h2>
-					<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" class="thumbnail"></a>
 				</div>
 			</div>
 		</div>
      </div>  
-	<div class="row-fluid">
-        <ul class="thumbnails">
-              <li class="span3">
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Le systeme respiratoire</a>
-              </li>
-              <li class="span3">
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_tube_digestif'}) }}" class="thumbnail"> Le tube digestif </a>
-              </li>
-              <li class="span3">
-	            <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_lymphatique'}) }}" class="thumbnail"> Le systeme lymphatique</a>
-              </li> 
-        </ul>
-    </div>
->>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
+	
+
 </div>
 
-<div id="recreation" class="well itemMenu">
+<div id="recreation" class=" itemMenu">
 	<h1 class="titreMenu">recreation</h1>
 	<div class="row-fluid">
 		<ul class="thumbnails">

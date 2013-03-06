@@ -6,22 +6,22 @@
         <title>Anatom-Easy - {% block title %}{% endblock %} </title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap/css/bootstrap-responsive.css" />
-		<link rel="stylesheet" type="text/css" href="../../css/mainStyle.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap/css/bootstrap-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="/css/mainStyle.css" />
         {% endblock %}
 
     </head>
     <body>
-        <div class="container symfony-content">
+      
             {% block body %}
                 
                 {% include "FloBenAnatomEasyBundle::indexmenu.html.twig" %} 
 
             {% endblock %}
-        </div>
+       
             <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-            <script type="text/javascript" src="../../css/bootstrap/js/bootstrap.js"></script>
+            <script type="text/javascript" src="/css/bootstrap/js/bootstrap.js"></script>
             <script type="text/javascript">/*<![CDATA[*/     
          $(window).bind('beforeunload', function(){ 
           //  return "Es-tu sûr de vouloir partir?";
@@ -30,6 +30,8 @@
         {% block javascripts %} 
         {% endblock %}
     </body>
+	
+	
 </html>
 
 
