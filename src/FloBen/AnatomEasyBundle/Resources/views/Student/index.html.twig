@@ -47,7 +47,7 @@
             {% for homeworkHasExercice in devoir.homeworkHasExercice %}
                 <li class="span2">
                     <a href="#" class="thumbnail">
-                        <img src="../../css/img/{{homeworkHasExercice.exercice.type|e}}.jpg" class="img-rounded" alt="{{homeworkHasExercice.exercice.type|e}}">{{ homeworkHasExercice.exercice.level}} 
+                        <img src="/css/img/{{homeworkHasExercice.exercice.type|e}}.jpg" class="img-rounded" alt="{{homeworkHasExercice.exercice.type|e}}">{{ homeworkHasExercice.exercice.level}} 
                         {{ homeworkHasExercice.exercice.subjects}}
                     </a>
                 </li> 
@@ -65,7 +65,7 @@
 		<div class="boiteItemMenuTitre">
 			<div class="boitItemMenuImg">
 				 <div class="boitItemMenuImg">
-					<img src="../../css/img/lungs.png"/>
+					<img src="/css/img/lungs.png"/>
 				</div>
 				<div class="boitItemMenuText">
 					<h2>Le systeme respiratoire </h2>
@@ -84,7 +84,7 @@
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
 			<div class="boitItemMenuImg">²
-					<img src="../../css/img/stomach.png"/>
+					<img src="/css/img/stomach.png"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>Le systeme digestif </h2>
@@ -103,11 +103,10 @@
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
-				  <img src="../../css/img/cellule-malade.png"/>
+				  <img src="/css/img/cellule-malade.png"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>Le systeme lymphatique </h2>
-					
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
@@ -128,36 +127,98 @@
 	<h1 class="titreMenu">Exercices</h1>
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
-			<div class="boitItemMenuImg">
-				 <div class="boitItemMenuImg">
-					<img src="../../css/img/interrogation.png"/>
-				</div>
-				<div class="boitItemMenuText">
-					<h2>QCM </h2>
-				</div>
+			 <div class="boitItemMenuImg">
+				  <img src="/css/img/interrogation.png"/>
+			</div>
+			<div class="boitItemMenuText">
+					<h2>QCM</h2>
 			</div>
 		</div>
-     </div>  
+		<div class="boiteItemMenuBtnBox">
+			<div class="boiteItemMenuBtn">
+				
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Le systeme digestif</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" >Le systeme respiratoire</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" >Le systeme lymphatique</a>
+			</div>
+       </div>
+	</div>
+	<div class="boiteItemMenu">
+		<div class="boiteItemMenuTitre">
+			 <div class="boitItemMenuImg">
+				  <img src="/css/img/little-pendu.png"/>
+			</div>
+			<div class="boitItemMenuText">
+					<h2>PENDU</h2>
+			</div>
+		</div>
+		<div class="boiteItemMenuBtnBox">
+			<div class="boiteItemMenuBtn">
+				
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Le systeme digestif</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" >Le systeme respiratoire</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" >Le systeme lymphatique</a>
+			</div>
+       </div>
+	</div>
+	<div class="boiteItemMenu">
+		<div class="boiteItemMenuTitre">
+			 <div class="boitItemMenuImg">
+				  <img src="/css/img/Puzzle.jpg"/>
+			</div>
+			<div class="boitItemMenuText">
+					<h2>PUZZLE</h2>
+			</div>
+		</div>
+		<div class="boiteItemMenuBtnBox">
+			<div class="boiteItemMenuBtn">
+				
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Le systeme digestif</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" >Le systeme respiratoire</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" >Le systeme lymphatique</a>
+			</div>
+       </div>
+	</div>
 	
-
+	
 </div>
 
-<div id="recreation" class=" itemMenu">
-	<h1 class="titreMenu">recreation</h1>
-	<div class="row-fluid">
-		<ul class="thumbnails">
-              <li class="span3">
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_respiratoire'}) }}" class="thumbnail"> Les vidéos</a>
-              </li>
-              <li class="span3">
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_tube_digestif'}) }}" class="thumbnail"> Le liens</a>
-              </li>
-              <li class="span3">
-				<a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_lymphatique'}) }}" class="thumbnail"> Le systeme lymphatique</a>
-              </li>
-       
-            </ul>
-         </div>
+<div id="recreation" class="itemMenu">
+	<h1 class="titreMenu">Recreation</h1>
+	<div class="boiteItemMenu">
+		<div class="boiteItemMenuTitre">
+			 <div class="boitItemMenuImg">
+				  <img src="/css/img/videos.gif"/>
+			</div>
+			<div class="boitItemMenuText">
+					<h2>VIDEOS</h2>
+			</div>
+		</div>
+		<div class="boiteItemMenuBtnBox">
+			<div class="boiteItemMenuBtn">
+				
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Le systeme digestif</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" >Le systeme respiratoire</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" >Le systeme lymphatique</a>
+			</div>
+       </div>
+	</div>
 </div>
 
 
