@@ -162,6 +162,35 @@ body{
 	color: #91c6b2;
 	text-decoration: none;
 }
+/**************************************** RECREATION *********************************/
+
+.itemRecreation{
+	border: 2px solid #63323b;
+	background:#91c6b2;
+	-webkit-border-radius: 22px;
+   -moz-border-radius: 22px;
+	border-radius: 22px;
+}
+
+.video{
+	margin-left: 5%;
+}
+
+.itemRecreation:hover{
+	background: #63323b;
+
+}
+/**************************************** page niveaux *********************************/
+.lienNiveau:hover{
+
+	background: #91c6b2;
+    margin-left:5%;
+   -moz-box-shadow: 0px 0px 0px 0px rgb(96,108,136);
+    -webkit-box-shadow:  0px 0px 0px 0px rgb(96,108,136);
+    -o-box-shadow: 0px 0px 0px 0px rgb(96,108,136);
+    box-shadow: 0px 0px 0px 0px rgb(96,108,136);
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=rgb(96,108,136), Direction=134, Strength=5);
+}
 
 
 
