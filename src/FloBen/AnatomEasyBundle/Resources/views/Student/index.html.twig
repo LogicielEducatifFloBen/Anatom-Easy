@@ -5,8 +5,24 @@
 {{ parent() }}
 
 
-<h1>Bonjour {{app.user.username}} !</h1>
 
+	<div id="navBar">
+		<div id="retourMenuBox" class="barreButton">
+			<div id="retourMenuBoxImg">
+				<img src="/css/img/logout.png"/>
+			</div>
+			<div id="retourMenuBoxTxt">
+				<a href="{{path('fos_user_security_logout')}}">deconnexion</span></a>
+			</div>
+		</div>
+		
+		
+		<div id="navBarTitre">
+			<h1>Bienvenue sur ta page {{app.user.username}}!</h1>
+		</div>
+
+		
+	</div>
 {% if  app.user.homework %} 
 
 <div id="devoir" class="itemMenu"> 
@@ -59,7 +75,7 @@
 </div>
 {% endif %}
 
-<h1>{{app.user.group.level}}</h1>
+
 <div id="cours" class="itemMenu">
 	<h1 class="titreMenu">Cours</h1>
 	<div class="boiteItemMenu">

@@ -50,7 +50,10 @@ body{
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=rgb(96,108,136), Direction=134, Strength=5);
 }
 
+#devoir{
+	margin-top:10%;
 
+}
 .titreMenu{
 	font-family: "caricature";
 	font-size:70pt;
