@@ -154,8 +154,7 @@
 	            <a href="{{path('anatomeasy_student_niveaux', {'id':'Le_systeme_lymphatique'}) }}" class="thumbnail"> Le systeme lymphatique</a>
               </li> 
         </ul>
-    </div>
->>>>>>> ce98b0f78cec3627b763346cc4bd09ea1981a3d4
+    </div> 
 </div>
 
 <div id="recreation" class="well itemMenu">
@@ -179,3 +178,18 @@
 
 
 {% endblock body %}
+{% block javascripts %}
+ 
+        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script>  
+        <script type="text/javascript">/*<![CDATA[*/    (function () {
+            var optionArray= new Array();
+            optionArray[0]= {item:'#devoir',event:'click', action:"agent.speak('test');" } 
+            initClippyWithEvent(optionArray); 
+        })();/*]]>*/</script>
+{% endblock javascripts %} 
+
+
+
+
+
+

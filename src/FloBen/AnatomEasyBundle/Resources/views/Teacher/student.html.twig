@@ -1,0 +1,38 @@
+{% extends "FloBenAnatomEasyBundle::base.html.twig" %}
+
+{% block title %}Accueil enseignant{% endblock title %}
+{% block body %}
+
+{% include "FloBenAnatomEasyBundle::indexmenu.html.twig" %}
+{{ parent() }} 
+  <div class="page-header" >
+<h1> {{ eleve.username}}, {{eleve.getGroup}}  </h1> 
+</div>
+<p>
+{% for homework in eleve.getHomework %} 
+<h3>Devoir pour le {{homework.deadline|date("d/m/Y")}}</h3>
+    <ul id="homeworkTab_{{homework.id}}" class="nav nav-tabs"> 
+    
+    {% for homeworkHasExercice in homework.getHomeworkHasExercice %} 
+        <li class="{% if loop.index == 1 %}active{% endif %}">
+            <a href="#homeworkHasExercice_{{homeworkHasExercice.id}}" data-toggle="tab">{{homeworkHasExercice.exercice}}</a>
+        </li> 
+    {% endfor %}
+    
+    </ul>
+    <div id="homeworkTabContent_{{homework.id}}" class="tab-content">
+    {% for homeworkHasExercice in homework.getHomeworkHasExercice %} 
+    
+        <div class="tab-pane fade{% if loop.index == 1 %} active in{% endif %}" id="homeworkHasExercice_{{homeworkHasExercice.id}}">
+            <p>resultats de {{homeworkHasExercice.exercice}}</p>
+        </div>
+    {% endfor %} 
+    </div>
+{% endfor %}
+</p>
+{% endblock body %}
+
+
+
+
+

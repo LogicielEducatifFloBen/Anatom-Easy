@@ -6,9 +6,10 @@
         <title>Anatom-Easy - {% block title %}{% endblock %} </title>
         <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" href="../../css/bootstrap/css/bootstrap-responsive.css" />
-		<link rel="stylesheet" type="text/css" href="../../css/mainStyle.css" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/css/bootstrap.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/css/bootstrap-responsive.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/clippy/build/clippy.css')}}"></script> 
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/mainStyle.css')}}" />
         {% endblock %}
 
     </head>
@@ -20,13 +21,9 @@
 
             {% endblock %}
         </div>
-            <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-            <script type="text/javascript" src="../../css/bootstrap/js/bootstrap.js"></script>
-            <script type="text/javascript">/*<![CDATA[*/     
-         $(window).bind('beforeunload', function(){ 
-          //  return "Es-tu sûr de vouloir partir?";
-        });
-     /*]]>*/</script>
+            <script type="text/javascript" src="{{ asset('css/jquery-1.9.1.min.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('css/bootstrap/js/bootstrap.js')}}"></script>
+            <script type="text/javascript" src="{{ asset('css/clippy/build/clippy.min.js')}}"></script> 
         {% block javascripts %} 
         {% endblock %}
     </body>

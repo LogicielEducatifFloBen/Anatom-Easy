@@ -112,9 +112,8 @@ class TeacherController extends Controller
         );  
     } 
     
-    
     /**
-     * @Route("/classe/{idGroup}", name="anatomeasy_teacher_group")
+     * @Route("/classe/group/{idGroup}", name="anatomeasy_teacher_group")
      * @Template()
      */
     public function groupAction($idGroup)
@@ -150,28 +149,12 @@ class TeacherController extends Controller
         $request = $this->get('request'); 
         // On vérifie qu'elle est de type POST 
         if ($request->getMethod() == 'POST') {
-             
-            $homeworkForm->bind($request);
-            if ($homeworkForm->isValid()) { 
-                
-                foreach ($group->getStudent() as $student) {
-                    $homeworkTmp = new Homework($homework);
-                    $homeworkTmp->setDeadline($homework->getDeadline());
-                    $homeworkTmp->setStudent($student);
-                    $em->persist($homeworkTmp);
-                    
-                    foreach ($homework->getHomeworkHasExercice() as $homeworkHasExercice) {
-                    // permet la suppression dans la bdd de homeworkHasExercice  
-                        $homeworkHasExerciceTmp = new HomeworkHasExercice($homeworkHasExercice);
-                        $homeworkHasExerciceTmp->setExercice($homeworkHasExercice->getExercice());
-                        $homeworkHasExerciceTmp->setHomework($homeworkTmp);
-                        
-                        
-                        $em->persist($homeworkHasExerciceTmp);
-                    } 
-                }
-                    $em->flush();  
-            }
+            
+            $classForm->bind($request);
+            if ($classForm->isValid()) {//group
+                $em->persist($group);
+                $em->flush(); 
+            } 
         }
     
         return array(   
@@ -184,8 +167,9 @@ class TeacherController extends Controller
     
     
     
+    
     /**
-     * @Route("/classe/{idGroup}/nouveau_devoir", name="anatomeasy_teacher_group_new_homework") 
+     * @Route("/classe/groupe/{idGroup}/nouveau_devoir", name="anatomeasy_teacher_group_new_homework") 
      */
     public function addHomeworkToGroupAction($idGroup)
     {
@@ -227,7 +211,7 @@ class TeacherController extends Controller
                         $em->persist($homeworkTmp);
                         
                         foreach ($homework->getHomeworkHasExercice() as $homeworkHasExercice) {
-                        
+                            //on créé une copie à chaque fois
                             $homeworkHasExerciceTmp = new HomeworkHasExercice($homeworkHasExercice);
                             $homeworkHasExerciceTmp->setExercice($homeworkHasExercice->getExercice())
                                                    ->setHomework($homeworkTmp); 
@@ -238,6 +222,38 @@ class TeacherController extends Controller
                 }
         }
         return $this->redirect($this->generateUrl('anatomeasy_teacher_group', array('idGroup'=>$idGroup))); 
+    }
+    
+    /**
+     * @Route("/classe/groupe/eleve/{idStudent}", name="anatomeasy_teacher_student")
+     * @Template()
+     */
+    public function studentAction($idStudent)
+    {
+        
+        // On teste que l'utilisateur dispose bien du rôle ROLE_TEACHER
+        if( ! $this->get('security.context')->isGranted('ROLE_TEACHER') )
+        {
+            // Sinon on déclenche une exception "Accès Interdit"
+            throw new AccessDeniedHttpException('Accès limité aux enseignants');
+        }
+        $em = $this->getDoctrine()->getManager();
+        
+        
+        
+        //on récupere les entités
+        $currentTeacher = $this->container->get('security.context')->getToken()->getUser();
+        $student = $em->getRepository('FloBenAnatomEasyBundle:User')
+                     ->find($idStudent);
+        $group = $student->getGroup();
+        $test=$student->getGroup() ;//test, output var
+         if( $student->getGroup()->getTeacher()!=$currentTeacher){
+            throw new AccessDeniedHttpException('Cet élève n\'est pas dans votre classe');
+        } 
+        return array(   
+            'eleve'      => $student, 
+            'test'        => $test
+        );
     }
 }
  
