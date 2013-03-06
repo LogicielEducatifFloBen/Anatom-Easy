@@ -83,7 +83,7 @@
 	</div>
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
-			<div class="boitItemMenuImg">²
+			<div class="boitItemMenuImg">
 					<img src="../../css/img/stomach.png"/>
 			</div>
 			<div class="boitItemMenuText">
@@ -179,7 +179,7 @@
         <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script>  
         <script type="text/javascript">/*<![CDATA[*/    (function () {
             var optionArray= new Array();
-            optionArray[0]= {item:'#devoir',event:'click', action:"agent.speak('test');" } 
+            optionArray[0]= {item:'#devoir',event:'click', action:function(agent) {agent.speak('test');} };
             initClippyWithEvent(optionArray); 
         })();/*]]>*/</script>
 {% endblock javascripts %} 

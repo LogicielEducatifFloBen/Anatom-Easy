@@ -1,10 +1,10 @@
 
 function initClippyWithEvent(optionArray){
     clippy.load('Links', function(agent) {
-        agent.animate();
         agent.show();
+        agent.animate();
         for (i=0;i<optionArray.length;i++){   
-            $(optionArray[i]['item']).on(optionArray[i]['event'] , optionArray[i]['action'].call()); 
+            $(optionArray[i]['item']).on(optionArray[i]['event'] , optionArray[i].action ); 
         }
     });
 }
