@@ -10,15 +10,15 @@
     color: black;
     padding: 8px;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 5px; 
 
 }
 
 .clippy-content {
     max-width: 200px;
     min-width: 120px;
-    font-family: "Microsoft Sans", sans-serif;
-    font-size: 10pt;
+    font-family: "Helvetica", sans-serif;
+    font-size: 16pt;
 }
 
 .clippy-tip {

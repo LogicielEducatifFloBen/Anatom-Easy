@@ -1,6 +1,6 @@
 {% extends "FloBenAnatomEasyBundle::base.html.twig" %}
 
-{% block title %}Accueil élève{% endblock title %}
+{% block title %}Accueil &eacute;l&egrave;ve{% endblock title %}
 {% block body %}
 {{ parent() }}
 
@@ -89,10 +89,10 @@
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
-			<div class="boiteItemMenuBtn">
+			<div class="boiteItemMenuBtn coursWithLevel">
 				<a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_respiratoire' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
-			<div class="boiteItemMenuBtn">
+			<div class="boiteItemMenuBtn coursWithoutLevel">
 				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Choisi un niveau</a>
 			</div>
        </div>
@@ -107,11 +107,10 @@
 		    </div>
 	    </div>
 	   <div class="boiteItemMenuBtnBox">
-			<div class="boiteItemMenuBtn">
+			<div class="boiteItemMenuBtn coursWithLevel">
                 <a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
-			<div class="boiteItemMenuBtn">
-				
+			<div class="boiteItemMenuBtn coursWithoutLevel"> 
                 <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Choisi un niveau</a>
 			</div>
        </div>
@@ -127,11 +126,11 @@
 		</div>
 		<div class="boiteItemMenuBtnBox">
 			
-			<div class="boiteItemMenuBtn">
+			<div class="boiteItemMenuBtn coursWithLevel">
 				
                 <a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_lymphatique' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
-			<div class="boiteItemMenuBtn">
+			<div class="boiteItemMenuBtn coursWithoutLevel">
                 <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Choisi un niveau</a>
 			</div>
        </div>
@@ -141,7 +140,7 @@
 	
 <div id="exercices" class="itemMenu">
 	<h1 class="titreMenu">Exercices</h1>
-	<div class="boiteItemMenu">
+	<div class="boiteItemMenu qcm">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
 				  <img src="/css/img/interrogation.png"/>
@@ -163,7 +162,7 @@
 			</div>
        </div>
 	</div>
-	<div class="boiteItemMenu">
+	<div class="boiteItemMenu pendu">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
 				  <img src="{{asset('/css/img/little-pendu.png')}}"/>
@@ -184,7 +183,7 @@
 			</div>
        </div>
 	</div>
-	<div class="boiteItemMenu">
+	<div class="boiteItemMenu pussle">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
 				  <img src="/css/img/corps.gif"/>
@@ -260,13 +259,18 @@
         <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
         <script type="text/javascript">     
             $(document).ready(function() { 
-                var optionArray= new Array();
-                optionArray[0]= {action: 'speak', speech: 'Bienvenue sur Anatom-easy !' }; 
-                optionArray[1]= {item:'#devoir h1  ', event:'mouseenter', action: 'speak', speech: 'ici , tu peux consulter tes devoirs !' };
-                optionArray[2]= {item:'#cours h1', event:'mouseenter', action: 'speak', speech: 'ici , tu peux consulter les le\347ons !' }; 
-                optionArray[3]= {item:'#exercices h1', event:'mouseenter', action: 'speak', speech: 'ici , tu peux t\'exercer en t\'amusant !' };
+                var optionArray= new Array(); 
+                optionArray[0]= {item:'#devoir h1  ', event:'mouseenter', action: 'speak', speech: 'ici , tu peux consulter tes devoirs !' };
+                optionArray[1]= {item:'#cours h1', event:'mouseenter', action: 'speak', speech: 'ici , tu peux consulter les le\347ons !' }; 
+                optionArray[2]= {item:'#exercices h1', event:'mouseenter', action: 'speak', speech: 'ici , tu peux t\'exercer en t\'amusant !' };
                 optionArray[3]= {item:'#recreation h1', event:'mouseenter', action: 'speak', speech: 'ici , tu trouveras d\'autres activit\351s !' };
-                clippyAgent(optionArray,10000);
+                optionArray[4]= {item:'#cours .coursWithLevel', event:'mouseenter', action: 'speak', speech: 'acc\351der directement au cours de {{app.user.group.level}}!' };
+                optionArray[5]= {item:'#cours .coursWithoutLevel', event:'mouseenter', action: 'speak', speech: 'choisir le niveau du cours.' };
+                optionArray[6]= {item:'#exercices .qcm img', event:'mouseenter', action: 'speak', speech: 'Le Questionnaire \340 choix multiple : trouve les bonnes r\351ponses' }; 
+                optionArray[7]= {item:'#exercices .puzzle img', event:'mouseenter', action: 'speak', speech: 'Replace les pi\350ces au bon endroit' }; 
+                optionArray[8]= {item:'#exercices .pendu img', event:'mouseenter', action: 'speak', speech: 'Le Pendu : Trouve le mot myst\350re avec le moins d\'essai possible!' }; 
+                optionArray[9]= {item:'#exercices .qcm img', event:'mouseenter', action: 'speak', speech: 'Questions ' }; 
+                clippyAgent(optionArray,'La page d\'accueil! D\'ici, tu peux acc\351der \340 toutes les activit\351s!',8000);
             }); </script>
 {% endblock javascripts %} 
 
