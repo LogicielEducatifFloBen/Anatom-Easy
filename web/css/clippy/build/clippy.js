@@ -664,7 +664,7 @@ clippy.Balloon = function (targetEl) {
 
 clippy.Balloon.prototype = {
 
-    WORD_SPEAK_TIME:320,
+    WORD_SPEAK_TIME:400,
     CLOSE_BALLOON_DELAY:2000,
 
     _setup:function () {
@@ -677,7 +677,7 @@ clippy.Balloon.prototype = {
 
     reposition:function () {
         var sides = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-
+        
         for (var i = 0; i < sides.length; i++) {
             var s = sides[i];
             this._position(s);
@@ -710,7 +710,7 @@ clippy.Balloon.prototype = {
             case 'top-left':
                 // right side of the balloon next to the right side of the agent
                 left = o.left + w - bW;
-                top = o.top - bH - this._BALLOON_MARGIN;
+                top =   bH - this._BALLOON_MARGIN;
                 break;
             case 'top-right':
                 // left side of the balloon next to the left side of the agent

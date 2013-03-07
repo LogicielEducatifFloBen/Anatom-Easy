@@ -14,11 +14,13 @@
  */
 
 agentTest=null;
-function clippyAgent(optionArray){
+function clippyAgent(optionArray, startAnimateAt){
     clippy.load('Merlin', function(agent) {
-        agent.moveTo($("body").width()-200,100); 
+        agent.moveTo($("body").width()-200,150); 
         agentTest=agent;
         setupEvent(optionArray); 
+        if(startAnimateAt==undefined)
+        setTimeout("animateAgent()",startAnimateAt);  
     });
 }
 function animateAgent(){
@@ -36,7 +38,6 @@ function setupEvent(optionArray){
             $(optionArray[i].item).bind(optionArray[i].event, optionArray[i], agentEvent);
         }
     } 
-    setTimeout("animateAgent()",'5000');  
 }
 
 //lance la bonne anim d'aide
@@ -49,6 +50,7 @@ function agentEvent(event){
         if(option.timeout==undefined) {option.timeout='1';}
         if(option.gotoElement){  
             var position = $(option.item).position(); 
+            agentTest.stop(); 
             agentTest.moveTo(position.left+$(option.item).width()-200,position.top-$(window).scrollTop());
             option.timeout= (parseInt(option.timeout)+4000)+"";
         }
