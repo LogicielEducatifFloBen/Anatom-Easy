@@ -63,7 +63,7 @@
                 {% endif %} 
             </li>
             {% for homeworkHasExercice in devoir.homeworkHasExercice %}
-                <li class="span3">
+                <li class="span2">
                     <a href="{{path('anatomeasy_student_exercices', {'idExercice': homeworkHasExercice.exercice.type ,'idTheme':  homeworkHasExercice.exercice.subjects|split(' ')|join('_') ,'idNiveau': app.user.group.level}) }}" >
                         <div class="boiteItemMenuTitre">
 			                 <div class="boitItemMenuImg">
@@ -155,7 +155,7 @@
 	<div class="boiteItemMenu qcm">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
-				  <img src="/css/img/interrogation.png"/>
+				  <img src="/css/img/QCM.png"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>QCM</h2>
@@ -164,13 +164,13 @@
 		<div class="boiteItemMenuBtnBox">
 			<div class="boiteItemMenuBtn">
 				
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'qcm' ,'idTheme': 'le_systeme_digestif' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'QCM' ,'idTheme': 'La_digestion' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'qcm' ,'idTheme': 'le_systeme_respiratoire' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'QCM' ,'idTheme': 'La_respiration' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'qcm' ,'idTheme': 'le_systeme_lymphatique' ,'idNiveau':app.user.group.level}) }}" >Le systeme lymphatique</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'QCM' ,'idTheme': 'Le_systeme_immunitaire' ,'idNiveau':app.user.group.level}) }}" >Le systeme lymphatique</a>
 			</div>
        </div>
 	</div>
@@ -185,13 +185,13 @@
 		</div>
 		<div class="boiteItemMenuBtnBox">
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'pendu' ,'idTheme': 'le_systeme_digestif' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_digestion' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'pendu' ,'idTheme': 'le_systeme_respiratoire' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_respiration' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'pendu' ,'idTheme': 'le_systeme_lymphatique' ,'idNiveau':app.user.group.level}) }}" >Le systeme lymphatique</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'Le_systeme_immunitaire' ,'idNiveau':app.user.group.level}) }}" >Le systeme lymphatique</a>
 			</div>
        </div>
 	</div>
@@ -206,13 +206,13 @@
 		</div>
 		<div class="boiteItemMenuBtnBox">
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'puzzle' ,'idTheme': 'le_systeme_digestif' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_digestion' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'puzzle' ,'idTheme': 'le_systeme_respiratoire' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_respiration' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
 			</div>
 			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'puzzle' ,'idTheme': 'le_systeme_lymphatique' ,'idNiveau':app.user.group.level}) }}" >Le systeme lymphatique</a>
+                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'Le_systeme_immunitaire' ,'idNiveau':app.user.group.level}) }}" >Le systeme lymphatique</a>
 			</div>
        </div>
 	</div>

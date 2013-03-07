@@ -127,4 +127,27 @@ class HomeworkHasExercice
     {
         return $this->result;
     }
+
+    /**
+     * Set done
+     *
+     * @param boolean $done
+     * @return HomeworkHasExercice
+     */
+    public function setDone($done)
+    {
+        $this->done = $done;
+    
+        return $this;
+    }
+
+    /**
+     * Get done
+     *
+     * @return boolean 
+     */
+    public function getDone()
+    {
+        return $this->done;
+    }
 }

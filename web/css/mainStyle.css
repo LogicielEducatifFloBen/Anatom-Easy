@@ -384,3 +384,23 @@ background: #63323B; /* Old browsers */
 	text-align:center;
 
 }
+
+/*jeu du pendu*/ 
+#pendu-container,#secret-word-container,#letters-container{
+
+	font-size:24pt;
+    margin:50px;
+} 
+#pendu-container{
+    height:362px;
+}
+.jeu-pendu .pendu-letters{
+    padding:5px; 
+    text-transform : uppercase;
+    color:grey;
+}
+.jeu-pendu .clickable{ 
+    cursor:pointer; 
+    color:green;
+}
+

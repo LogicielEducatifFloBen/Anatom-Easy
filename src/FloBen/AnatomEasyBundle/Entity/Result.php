@@ -20,20 +20,19 @@ class Result
     protected $id;
 
     /**
-     * @var\DateTime
      * @ORM\Column(type="datetime")
      */
     protected $date;
 
     /**
      * @var string
-     * @ORM\Column(type="int", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $integer;
 
     /**
      * @var string
-     * @ORM\Column(type="int", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $secondSpent;
      
@@ -180,5 +179,51 @@ class Result
     public function getSandbox()
     {
         return $this->sandbox;
+    }
+
+    /**
+     * Set integer
+     *
+     * @param \int $integer
+     * @return Result
+     */
+    public function setInteger(\int $integer)
+    {
+        $this->integer = $integer;
+    
+        return $this;
+    }
+
+    /**
+     * Get integer
+     *
+     * @return \int 
+     */
+    public function getInteger()
+    {
+        return $this->integer;
+    }
+
+    /**
+     * Set secondSpent
+     *
+     * @param \int $secondSpent
+     * @return Result
+     */
+    public function setSecondSpent(\int $secondSpent)
+    {
+        $this->secondSpent = $secondSpent;
+    
+        return $this;
+    }
+
+    /**
+     * Get secondSpent
+     *
+     * @return \int 
+     */
+    public function getSecondSpent()
+    {
+        return $this->secondSpent;
     }
 }
