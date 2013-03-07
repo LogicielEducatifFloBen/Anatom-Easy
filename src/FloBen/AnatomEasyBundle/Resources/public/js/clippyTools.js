@@ -14,18 +14,26 @@
  */
 
 agentTest=null;
-function clippyAgent(optionArray, startAnimateAt){
+function clippyAgent(optionArray,welcomeMsg, startAnimateAt){
     clippy.load('Merlin', function(agent) {
-        agent.moveTo($("body").width()-200,150); 
+        agent.moveTo($("body").width()-200,200); 
         agentTest=agent;
-        setupEvent(optionArray); 
-        if(startAnimateAt==undefined)
-        setTimeout("animateAgent()",startAnimateAt);  
+        if(startAnimateAt==undefined){startAnimateAt='5000';}
+        
+        if(welcomeMsg==undefined){welcomeMsg="Bienvenue !";} 
+        agentTest.speak(welcomeMsg) 
+        setTimeout(function(){startAnimateAgent(optionArray);},startAnimateAt,optionArray);
     });
 }
-function animateAgent(){
-    agentTest.animate()
-    setTimeout("animateAgent()",(Math.floor(Math.random()*40000)+5000) );	 
+
+function startAnimateAgent(optionArray){ 
+    setupEvent(optionArray); 
+     animateAgentLoop() ;	 
+} 
+
+function animateAgentLoop(){
+    agentTest.animate();
+    setTimeout("animateAgentLoop()",(Math.floor(Math.random()*20000)+10000) );	 
 }
 //instancie les evennements
 function setupEvent(optionArray){
@@ -37,7 +45,7 @@ function setupEvent(optionArray){
         }else{
             $(optionArray[i].item).bind(optionArray[i].event, optionArray[i], agentEvent);
         }
-    } 
+    }  
 }
 
 //lance la bonne anim d'aide
@@ -48,14 +56,19 @@ function agentEvent(event){
     var action=option.action;
     if(agentTest!=null){
         if(option.timeout==undefined) {option.timeout='1';}
-        if(option.gotoElement){  
-            var position = $(option.item).position(); 
+        var position = $(option.item).position(); 
+        if(option.gotoElement){ 
+            if(option.xPos==undefined) {option.xPos= -200;}
             agentTest.stop(); 
-            agentTest.moveTo(position.left+$(option.item).width()-200,position.top-$(window).scrollTop());
+            agentTest.moveTo(position.left+$(option.item).width()+option.xPos,position.top-$(window).scrollTop());
             option.timeout= (parseInt(option.timeout)+4000)+"";
         }
-        if(action =="speak"){
-            setTimeout(function(){agentTest.speak(option.speech);},option.timeout,event);	  
+        if(action =="speak"){ 
+            setTimeout(function(){
+                agentTest.stop();
+                agentTest.stopCurrent();
+                agentTest.speak(option.speech);  
+            },option.timeout,option);	  
         }else{
             
         } 
