@@ -404,3 +404,20 @@ background: #63323B; /* Old browsers */
     color:green;
 }
 
+#global{
+font-family: "ecolier";
+
+}
+
+#global span{
+	font-size:20pt;
+	color:#63323b;
+}
+
+#global h1{
+	font-size:28pt;
+	color:#63323b;
+	background: #91c6b2;
+	border: 2px solid #63323b;
+	text-align:center;
+}

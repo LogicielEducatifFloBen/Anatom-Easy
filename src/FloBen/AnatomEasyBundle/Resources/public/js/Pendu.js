@@ -101,4 +101,5 @@ function removeAccent(s){
 function startChrono(){
     chrono++;
     setTimeout(function() {startChrono();}, 1000);
-}
+} 
+             
