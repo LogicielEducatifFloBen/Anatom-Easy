@@ -63,6 +63,15 @@ class StudentController extends Controller
     {
 		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' =>$idNiveau);
     }
+	
+	/**
+     * @Route("/recreation/{idMedia}", name="anatomeasy_student_recreation")
+	 * @Template()
+     */
+    public function recreationAction($idMedia)
+    {
+		return array('idMedia' =>$idMedia);
+    }
 
 }
 

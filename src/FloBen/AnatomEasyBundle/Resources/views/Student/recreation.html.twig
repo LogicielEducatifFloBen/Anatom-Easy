@@ -1,0 +1,25 @@
+{% extends "FloBenAnatomEasyBundle::base.html.twig" %}
+
+{% block title %}Recreation - {{idMedia}}{% endblock title %}
+{% block body %}
+
+
+{{ parent() }}
+
+
+
+	{% if idMedia == "videos" %}
+		{% include "FloBenAnatomEasyBundle:Student/Recreation:videos.html.twig" %}
+	{% else %}
+		{% if idMedia == "lectures" %}
+			{% include "FloBenAnatomEasyBundle:Student/Recreation:lectures.html.twig" %}
+		{% else %}
+			{% if idMedia == "jeux" %}
+				{% include "FloBenAnatomEasyBundle:Student/Recreation:jeux.html.twig" %}
+			{% endif %}
+		{% endif %}
+	{% endif %}
+    
+
+
+{% endblock body %}
