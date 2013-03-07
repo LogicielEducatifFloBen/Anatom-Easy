@@ -22,7 +22,7 @@ class HomeworkHasExercice
     protected $id;
 
     /**
-     * @var boolean
+     * @ORM\Column(type="boolean");
      */
     protected $done;
 

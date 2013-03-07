@@ -7,14 +7,14 @@
 {{ parent() }}
 
 
-{% if idExercice == "qcm" %}
-	{% if idTheme == "le_systeme_digestif" %}
+{% if idExercice == "QCM" %}
+	{% if idTheme == "La_digestion" %}
 		{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_digestif.html.twig" %}
 	{% else %}
-		{% if idTheme == "le_systeme_respiratoire" %}
+		{% if idTheme == "La_respiration" %}
 			{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_respiratoire.html.twig" %}
 		{% else %}
-			{% if idTheme == "le_systeme_lymphatique" %}
+			{% if idTheme == "Le_système_immunitaire" %}
 				{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_lymphatique.html.twig" %}
 			{% else %}
 				<h1>error</h1>
@@ -23,14 +23,14 @@
 	{% endif %}
     
 	{% else %}
-	{% if idExercice == "puzzle" %}
-		{% if idTheme == "le_systeme_digestif" %}
+	{% if idExercice == "Puzzle" %}
+		{% if idTheme == "La_digestion" %}
 			{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_digestif.html.twig" %}
 		{% else %}
-			{% if idTheme == "le_systeme_respiratoire" %}
+			{% if idTheme == "La_respiration" %}
 				{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_respiratoire.html.twig" %}
 			{% else %}
-				{% if idTheme == "le_systeme_lymphatique" %}
+				{% if idTheme == "Le_système_immunitaire" %}
 					{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_lymphatique.html.twig" %}
 				{% else %}
 						<h1>error</h1>
@@ -39,15 +39,15 @@
 		{% endif %}
     
 	{% else %}
-	{% if idExercice == "pendu" %}
+	{% if idExercice == "Pendu" %}
 		
-		{% if idTheme == "le_systeme_digestif" %}
+		{% if idTheme == "La_digestion" %}
 			{% include "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_digestif.html.twig" %}
 		{% else %}
-			{% if idTheme == "le_systeme_respiratoire" %}
+			{% if idTheme == "La_respiration" %}
 				{% include "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_respiratoire.html.twig" %}
 			{% else %}
-				{% if idTheme == "le_systeme_lymphatique" %}
+				{% if idTheme == "Le_système_immunitaire" %}
 					{% include  "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_lymphatique.html.twig" %}
 				{% else %}
 					<h1>error</h1>

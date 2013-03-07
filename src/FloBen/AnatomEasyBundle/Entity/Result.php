@@ -20,16 +20,22 @@ class Result
     protected $id;
 
     /**
-     * @var \DateTime
+     * @var\DateTime
      * @ORM\Column(type="datetime")
      */
     protected $date;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="int", nullable=true)
      */
-    protected $todoData;
+    protected $integer;
+
+    /**
+     * @var string
+     * @ORM\Column(type="int", nullable=true)
+     */
+    protected $secondSpent;
      
     /**
      * homeworkHasExercice
