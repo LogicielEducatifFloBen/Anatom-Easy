@@ -8,18 +8,29 @@
 	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_digestif" ,'idNiveau':'CE2'}) }}">Cours precedent (CE2)</a>{% endblock coursPrecedent %}
 	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_digestif" ,'idNiveau':'CM2'}) }}">Cours suivant (CM2)</a>{% endblock coursSuivant %}
 	<div id="global">
-		<span>eLes aliments que nous mangeons passent dans notre corps à travers le tube digestif. Le tube digestif comprend : la bouche, l’oesophage, l’estomac, l’intestin grêle (qui mesure 8m de longueur), le gros intestin et l’anus.
-Les aliments progressent le long de la paroi de l’intestin grâce aux contractions des muscles de cette paroi.
-Au cours de leur trajet dans le tube digestif, les aliments sont transformés en substances solubles très petites : les nutriments.
-Ils sont transformés grâce à l’action des sucs digestifs qui se trouvent dans les glandes digestives (glandes salivaires, foie, pancréas).
-Les nutriments passent dans le sang qui va les distribuer à tous les organes du corps. Les déchets (l’eau et les morceaux qui ne peuvent être réduits en petites particules) passent dans le gros intestin et sont rejetés dans les urines et dans les matières fécales.
-Langue
-Oesophage
-Estomac
-Pancréas
-Duodénum
-Le foie
-Gros intestin
-Intestin grêle</span>
+	
+	<h1>le trajet des aliments</h1>
+	<span>
+		Les aliments que nous mangeons passent dans notre corps à travers le tube digestif. Le tube digestif comprend : la bouche, l’oesophage, l’estomac, l’intestin grêle (qui mesure 8m de longueur), le gros intestin et l’anus.
+	Les aliments progressent le long de la paroi de l’intestin grâce aux contractions des muscles de cette paroi.
+	Au cours de leur trajet dans le tube digestif, les aliments sont transformés en substances solubles très petites : les nutriments.
+	Ils sont transformés grâce à l’action des sucs digestifs qui se trouvent dans les glandes digestives (glandes salivaires, foie, pancréas).
+	Les nutriments passent dans le sang qui va les distribuer à tous les organes du corps. Les déchets (l’eau et les morceaux qui ne peuvent être réduits en petites particules) passent dans le gros intestin et sont rejetés dans les urines et dans les matières fécales.
+	</span>
+<img src="/css/img/cours/tubeDigestif.png"/>
+
+<h1>C'est quoi les nutriments ?</h1>
+<span>Les aliments que nous mangeons ne peuvent pas passer dans notre corps tels qu’ils sont. Ils doivent être broyés, coupés en minuscules parties qu’on appelle les nutriments.
+</span>
+<span>
+Un nutriment est une substance nutritive soluble provenant de la digestion des aliments, utilisable par les organes.
+Exemple : le glucose est un nutriment utilisé par tous les organes.
+ 
+On appelle absorption intestinale le passage des nutriments à travers la paroi intestinale, depuis la cavité de l'intestin jusque dans le sang (ou, pour les produits de la digestion des lipides, passage dans la lymphe).
+ 
+On appelle villosités intestinales les petits replis, en forme de doigts, de 0,5 mm de long qui tapissent la paroi interne de l'intestin grêle. Leur nombre considérable (plus de 10 millions) crée une grande surface de contact entre les aliments et la paroi intestinale : 140 m2 chez un adulte. On parle de surface d'échange.
+L'absorption est aussi favorisée par la longueur de l'intestin grêle, qui est de 6,7 à 7,6 m.
+</span>
+<img src="/css/img/cours/nutriments.gif"/>
 	</div>
 {% endblock body %}
