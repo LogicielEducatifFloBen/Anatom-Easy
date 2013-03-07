@@ -8,6 +8,11 @@
     src: url("font/pop.ttf");
 }
 
+@font-face {
+    font-family: "ecolier";
+    src: url("font/Georgia Belle.ttf");
+}
+
 
 body{
 	background: #CEA0D8;
@@ -383,4 +388,22 @@ background: #63323B; /* Old browsers */
 	color: #63323B;
 	text-align:center;
 
+}
+
+#global{
+font-family: "ecolier";
+
+}
+
+#global span{
+	font-size:20pt;
+	color:#63323b;
+}
+
+#global h1{
+	font-size:28pt;
+	color:#63323b;
+	background: #91c6b2;
+	border: 2px solid #63323b;
+	text-align:center;
 }
