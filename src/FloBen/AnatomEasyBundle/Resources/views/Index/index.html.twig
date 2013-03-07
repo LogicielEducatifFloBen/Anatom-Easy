@@ -36,8 +36,8 @@
         <script type="text/javascript">     
             $(document).ready(function() {
                 var optionArray= new Array(); 
-                optionArray[0]= { item:'#submitButton',timeout:'5000', gotoElement:true,xPos:100};
-                optionArray[1]= { action: 'speak', speech: 'Connecte toi, et commence a apprendre!',timeout:'5000' }; 
+                optionArray[0]= { item:'#submitButton',timeout:'5000', gotoElement:true,gesture:true,xPos:200 };
+                optionArray[1]= { action: 'speak', speech: 'Connecte toi, et commence a apprendre !',timeout:'5000' }; 
                 clippyAgent(optionArray,'Bienvenue sur Anatom-easy !');
             }); </script>
 {% endblock javascripts %} 

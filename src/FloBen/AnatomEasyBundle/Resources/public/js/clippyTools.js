@@ -18,7 +18,7 @@ function clippyAgent(optionArray,welcomeMsg, startAnimateAt){
     clippy.load('Merlin', function(agent) {
         agent.moveTo($("body").width()-200,200); 
         agentTest=agent;
-        if(startAnimateAt==undefined){startAnimateAt=2000;}
+        if(startAnimateAt==undefined){startAnimateAt='5000';}
         
         if(welcomeMsg==undefined){welcomeMsg="Bienvenue !";} 
         agentTest.speak(welcomeMsg) 
@@ -56,15 +56,19 @@ function agentEvent(event){
     var action=option.action;
     if(agentTest!=null){
         if(option.timeout==undefined) {option.timeout='1';}
+        var position = $(option.item).position(); 
         if(option.gotoElement){ 
             if(option.xPos==undefined) {option.xPos= -200;}
-            var position = $(option.item).position(); 
             agentTest.stop(); 
             agentTest.moveTo(position.left+$(option.item).width()+option.xPos,position.top-$(window).scrollTop());
             option.timeout= (parseInt(option.timeout)+4000)+"";
         }
         if(action =="speak"){ 
-            setTimeout(function(){agentTest.stop();agentTest.stopCurrent();agentTest.speak(option.speech);},option.timeout,option);	  
+            setTimeout(function(){
+                agentTest.stop();
+                agentTest.stopCurrent();
+                agentTest.speak(option.speech);  
+            },option.timeout,option);	  
         }else{
             
         } 
