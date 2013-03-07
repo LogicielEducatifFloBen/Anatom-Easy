@@ -8,14 +8,17 @@
 
 
 	<div id="navBar">
-		<div id="retourMenuBox" class="barreButton">
-			<div id="retourMenuBoxImg">
-				<img src="/css/img/logout1.gif"/>
+		<a href="{{path('fos_user_security_logout')}}">
+			<div id="retourMenuBox" class="barreButton">
+				<div id="retourMenuBoxImg">
+					<img src="/css/img/logout1.gif"/>
+				</div>
+				<div id="retourMenuBoxTxt">
+					<span>deconnexion</span></a>
+				</div>
+			
 			</div>
-			<div id="retourMenuBoxTxt">
-				<a href="{{path('fos_user_security_logout')}}">deconnexion</span></a>
-			</div>
-		</div>
+		</a>
 		
 		
 		<div id="navBarTitre">
@@ -101,7 +104,7 @@
 				<a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_respiratoire' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
 			<div class="boiteItemMenuBtn coursWithoutLevel">
-				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Choisi un niveau</a>
+				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" >Choisi un niveau</a>
 			</div>
        </div>
 	</div>
@@ -138,8 +141,9 @@
 				
                 <a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_lymphatique' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
+
 			<div class="boiteItemMenuBtn coursWithoutLevel">
-                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Choisi un niveau</a>
+                <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_lymphatique'}) }}" >Choisi un niveau</a>
 			</div>
        </div>
 	</div>
@@ -238,7 +242,7 @@
 					  <img src="/css/img/lecture.png"/>
 				</div>
 				<div class="boitItemMenuText">
-						<h2>LECTURE</h2>
+						<h2>LECTURES</h2>
 				</div>
 			</div>
 		</a>
