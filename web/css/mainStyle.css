@@ -51,7 +51,7 @@ body{
 }
 
 #devoir{
-	margin-top:10%;
+	margin-top:8%;
 
 }
 .titreMenu{
@@ -201,7 +201,7 @@ body{
 	left: 0px;
 	height : 3%;
 	width :100%;
-	min-height: 80px;
+	min-height: 70px;
 	min-width: 1000px;
 	border : solid 2px #63323B;
 	border-style: dotted;
@@ -243,7 +243,7 @@ background: #63323B; /* Old browsers */
 	float: left;
 	height: 100%;
 	width: 10%;
-	border:2px solid black;
+	border:2px solid #91c6b2;
 }
 
 #retourMenuBoxImg{
@@ -280,7 +280,7 @@ background: #63323B; /* Old browsers */
 	float: left;
 	height: 100%;
 	width: 10%;
-	border:2px solid black;
+	border:2px solid #91c6b2;
 }
 
 #coursPrecedBoxImg{
@@ -308,7 +308,7 @@ background: #63323B; /* Old browsers */
 	float: right;
 	height: 100%;
 	width: 10%;
-	border:2px solid black;
+	border:2px solid #91c6b2;
 }
 
 #coursSuivantBoxImg{
