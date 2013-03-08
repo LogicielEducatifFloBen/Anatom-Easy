@@ -57,16 +57,15 @@ function clickLetter(letterdiv){
         var erreur=essais-essaiRestants;
         endGame(true,erreur,chrono);
     }
-} 
-
-function endGame(success,erreurs,temps){
+}  
+function endGame(success,erreurs,temps){ 
+        var score = 0;
+        if(success)var score = (essaiRestants/essais)*100; 
         $(".clickable").off('click').removeClass("clickable");
-        if(success){
-            alert("gagné !!");
-        }else{
-            alert("perdu :(");
-        
-        }
+        $.post(window.location.pathname+"/register", { 'success': success, 'score' :score, 'secondSpent':temps })
+        .done(function(data) {
+          alert("Data Loaded: " + data);
+        }); 
     
 }
 function showSecretWord(){
@@ -101,5 +100,6 @@ function removeAccent(s){
 function startChrono(){
     chrono++;
     setTimeout(function() {startChrono();}, 1000);
-} 
+}
+
              
