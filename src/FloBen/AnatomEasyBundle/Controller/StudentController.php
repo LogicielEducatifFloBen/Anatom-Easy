@@ -4,6 +4,7 @@ namespace FloBen\AnatomEasyBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -64,6 +65,16 @@ class StudentController extends Controller
 		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' =>$idNiveau);
     }
 	
+	
+	/**
+     * @Route("/exercices/{idExercice}/{idTheme}/{idNiveau}/register", name="anatomeasy_student_exercices_register_result")
+	 * @Method({"POST"})
+     */
+    public function registerResultAction($idExercice,$idTheme,$idNiveau)
+    {
+		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' =>$idNiveau);
+    }
+	
 	/**
      * @Route("/recreation/{idMedia}", name="anatomeasy_student_recreation")
 	 * @Template()
@@ -72,6 +83,10 @@ class StudentController extends Controller
     {
 		return array('idMedia' =>$idMedia);
     }
+    
+    
+	 
+    
 
 }
 
