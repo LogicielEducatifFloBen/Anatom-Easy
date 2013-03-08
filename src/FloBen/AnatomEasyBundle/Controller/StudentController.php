@@ -135,8 +135,10 @@ class StudentController extends Controller
             $sandbox->setResult( $result);
             $em->persist($sandbox);
         }
-        $em->flush();
-        return $test;   
+        $em->flush(); 
+        $response = new Response();  
+        $response->setStatusCode(200);  
+        return $response;
     }
 	
 	/**
