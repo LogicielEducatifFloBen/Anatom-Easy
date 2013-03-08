@@ -5,34 +5,32 @@
 
 {{ parent() }}
 	{% block titreCours %}Le systeme digestif (CE1){% endblock titreCours %}
-	{% block coursPrecedent %}<a href="">c'est la début</a>{% endblock coursPrecedent %}
+	{% block coursPrecedent %}<a href="">c'est la d&eacute;but</a>{% endblock coursPrecedent %}
 	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_digestif" ,'idNiveau':'CE2'}) }}">Cours suivant (CE2)</a>{% endblock coursSuivant %}
 	<div id="global">
-		<h1>ALIMENTATION</h1>
+		<h1>Les aliments qu'est-ce que c'est?</h1>
 		<span>
-Tous les aliments que je mange proviennent.
-<ul>
-<li>Soit des animaux : la viande, les œufs ou le lait. </li>
-<li>Soit des végétaux : les légumes, les fruits , céréales.</li>
-</ul>
-Certains se mangent crus, d'autres se mangent cuits.
-L'eau que je bois, par contre, ne vient ni d'un animal, ni d'un végétal. On la trouve dans la nature.
-
-Pour classer les aliments, on les sépare en 6 familles : 
-<ul>
-<li>La famille des viandes, œufs et poissons</li>
-<li>La famille des fruits et légumes</li>
-<li>La famille des féculents  (pain, céréales, pommes de terre…)</li>
-<li>La famille des matières grasses (huile, beurre, sucreries…)</li>
-<li>La famille des produits laitiers (lait, fromages, yaourts…)</li>
-<li>La famille des boissons</li>
-</ul>
-Pour être en bonne santé, je dois manger des aliments de chaque famille :
-<ul>
-<li>Des fruits et légumes, des produits laitiers, des féculents à chaque repas.</li>
-<li>De la viande, du poisson ou des œufs une fois par jour.</li>
-<li>Les produits gras et sucreries ne sont pas nécessaires tous les jours.</li>
-</ul>
-</span>
+			Tous les aliments que je mange proviennent : 
+			<ul>
+				<li>Soit des animaux : la viande, les oeufs ou le lait. </li>
+				<li>Soit des v&eacute;g&eacute;taux : les l&eacute;gumes, les fruits , c&eacute;r&eacute;ales.</li>
+			</ul>
+			Certains se mangent crus, d'autres se mangent cuits. L'eau que je bois, par contre, ne vient ni d'un animal, ni d'un v&eacute;g&eacute;tal. On la trouve dans la nature.
+			Pour classer les aliments, on les s&eacute;pare en 6 familles : 
+			<ul>
+			<li>La famille des viandes, œufs et poissons.</li>
+			<li>La famille des fruits et l&eacute;gumes.</li>
+			<li>La famille des f&eacute;culents  (pain, c&eacute;r&eacute;ales, pommes de terre ...).</li>
+			<li>La famille des mati&egrave;res grasses (huile, beurre, sucreries ...).</li>
+			<li>La famille des produits laitiers (lait, fromages, yaourts ... ).</li>
+			<li>La famille des boissons</li>
+			</ul>
+			Pour &ecirc;tre en bonne sant&eacute;, je dois manger des aliments de chaque famille :
+			<ul>
+			<li>Des fruits et l&eacute;gumes, des produits laitiers, des f&eacute;culents &agrave; chaque repas.</li>
+			<li>De la viande, du poisson ou des œufs une fois par jour.</li>
+			<li>Les produits gras et sucreries ne sont pas n&eacute;cessaires tous les jours.</li>
+			</ul>
+		</span>
 	</div>
 {% endblock body %}
