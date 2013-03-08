@@ -33,7 +33,7 @@ function startAnimateAgent(optionArray){
 
 function animateAgentLoop(){
     agentTest.animate();
-    setTimeout("animateAgentLoop()",(Math.floor(Math.random()*20000)+10000) );	 
+    setTimeout("animateAgentLoop()",(Math.floor(Math.random()*20000)+10000) );
 }
 //instancie les evennements
 function setupEvent(optionArray){

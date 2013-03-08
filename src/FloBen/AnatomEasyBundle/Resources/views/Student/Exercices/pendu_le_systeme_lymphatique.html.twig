@@ -1,11 +1,59 @@
 {% extends "FloBenAnatomEasyBundle:Student/Exercices:studentExercicesBarre.html.twig" %}
 
-{% block title %}Le systeme respiratoire CM2{% endblock title %}
+{% block title %}Le systeme lymphatique{% endblock title %}
 {% block body %}
 
 {{ parent() }}
-	{% block titreCours %}{{idExercice}} - Le systeme respiratoire ({{idNiveau}}){% endblock titreCours %}
-	<div id="global">
-		<span>ezggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsdsgssssssssssssssssssssssssssssssssssssssssssssssssssssssssssd</span>
+	{% block titreCours %}{{idExercice}} - Le systeme lymphatique ({{idNiveau}}){% endblock titreCours %}
+	<div id="global" class="jeu-pendu span11">
+		 <div id="pendu-container" class="span11 pagination-centered" >
+		    <table cellspacing="0" cellpadding="0" border="0" bgcolor="#F7F7E0">
+                <tbody>
+                    <tr>
+                        <td rowspan="5"><img src="{{ asset('/css/img/pendu/penduv7.gif') }}" border="0" width="140" height="362" name="7"></td>
+                        <td><img height="79" src="{{ asset('/css/img/pendu/penduv6.gif') }}" width="106" border="0" name="6"></td>
+                    </tr>
+                    <tr>
+                        <td><img height="90" src="{{ asset('/css/img/pendu/penduv5.gif') }}" width="106" border="0" name="5"></td>
+                    </tr>
+                    <tr>
+                        <td><img height="84" src="{{ asset('/css/img/pendu/penduv4.gif') }}" width="106" border="0" name="4">
+                        <img height="84" src="{{ asset('/css/img/pendu/penduv3.gif') }}" width="106" border="0" name="3"><img height="84" src="{{ asset('/css/img/pendu/penduv2.gif') }}" width="106" border="0" name="2"></td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#F7F7E0"><img height="109" src="{{ asset('/css/img/pendu/penduv1.gif') }}" width="106" border="0" name="1"><img height="109" src="{{ asset('/css/img/pendu/penduv0.gif') }}" width="106" border="0" name="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+		 </div>
+		 <div id="secret-word-container" class="span11 pagination-centered" >
+		    
+		 </div>
+		 <div id="letters-container" class="span11 pagination-centered">
+		    
+		 </div>
 	</div>
-{% endblock body %}
+a 
+{% endblock body %} 
+ 
+{% block javascripts %}
+ 
+    <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('/bundles/flobenanatomeasy/js/Pendu.js') }}" type="text/javascript" ></script> 
+    <script type="text/javascript">     
+        $(document).ready(function() { 
+            var optionArray= new Array();  
+            clippyAgent(optionArray,'Voici le pendu! Trouve le mot myst\350res en un minimum de lettres !',2000);
+                
+        
+    var mots=new Array();
+    mots['CE1']=new Array("Estomac", "Bouche");
+    mots['CE2']=$.merge(["Pancréas", "Fois"],mots['CE1']); 
+    mots['CM1']=$.merge(["Oesophage", "Intestin grêle" ],mots['CE2']);  
+    mots['CM2']=$.merge([ "Vésicule biliaire", "Diaphragme"],mots['CM1']);
+                startPendu('{{idNiveau}}',mots);
+        });
+    </script>  
+    
+    
+{% endblock javascripts %} 

@@ -8,11 +8,6 @@
     src: url("font/pop.ttf");
 }
 
-@font-face {
-    font-family: "ecolier";
-    src: url("font/Georgia Belle.ttf");
-}
-
 
 body{
 	background: #CEA0D8;
@@ -390,6 +385,25 @@ background: #63323B; /* Old browsers */
 
 }
 
+/*jeu du pendu*/ 
+#pendu-container,#secret-word-container,#letters-container{
+
+	font-size:24pt;
+    margin:50px;
+} 
+#pendu-container{
+    height:362px;
+}
+.jeu-pendu .pendu-letters{
+    padding:5px; 
+    text-transform : uppercase;
+    color:grey;
+}
+.jeu-pendu .clickable{ 
+    cursor:pointer; 
+    color:green;
+}
+
 #global{
 	font-family: "ecolier";
 }
@@ -427,3 +441,4 @@ background: #63323B; /* Old browsers */
 	width:100%;
 	
 }
+

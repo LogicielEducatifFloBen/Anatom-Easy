@@ -36,32 +36,16 @@ INSERT INTO `Level` (`id`) VALUES
 INSERT INTO `Subjects` (`id`) VALUES
 ('La digestion'),
 ('La respiration'),
-('Le système immunitaire');
+('Le systeme immunitaire');
 
 --
 -- Contenu de la table `Type`
 --
-
+ 
 INSERT INTO `Type` (`id`) VALUES
-('Puzzle');
-
---
--- Contenu de la table `Exercice`
---
-
-INSERT INTO `Exercice` (`id`, `type_id`, `level_id`, `subjects_id`) VALUES
-(1, 'Puzzle', 'CE1', 'La digestion'),
-(2, 'Puzzle', 'CE2', 'La digestion'),
-(3, 'Puzzle', 'CM1', 'La digestion'),
-(4, 'Puzzle', 'CM2', 'La digestion'),
-(5, 'Puzzle', 'CE1', 'La respiration'),
-(6, 'Puzzle', 'CE2', 'La respiration'),
-(7, 'Puzzle', 'CM1', 'La respiration'),
-(8, 'Puzzle', 'CM2', 'La respiration'),
-(9, 'Puzzle', 'CE1', 'Le système immunitaire'),
-(10, 'Puzzle', 'CE2', 'Le système immunitaire'),
-(11, 'Puzzle', 'CM1', 'Le système immunitaire'),
-(12, 'Puzzle', 'CM2', 'Le système immunitaire');
+('Pendu'),
+('Puzzle'),
+('QCM'); 
 
 --
 -- Contenu de la table `User`
