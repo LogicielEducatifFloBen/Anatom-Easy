@@ -51,13 +51,15 @@ function clickLetter(letterdiv){
         $('table img[name="'+essaiRestants+'"]').show();
     }
     if(essaiRestants<1){ 
-        sendResult(false,8,chrono); 
-        if(agentTest!=null){agentTest.stop(); agentTest.speak("Dommage ! le mot mystère était "+mot+" !");agentTest.play("Sad");}
+        if(agentTest!=null){agentTest.stop(); agentTest.speak("Dommage ! le mot mystère était "+mot+" !");agentTest.play("Sad");agentTest.speak("Une nouvelle partie va bientôt commencer!");}else alert("Dommage ! le mot mystère était "+mot+" ! Une partie vas bientôt recommencer");
+        sendResult(false,8,chrono);  
+        setTimeout(function() {document.location.reload(true)}, 15000);
     }
     if(lettreRestantes<1){
+        if(agentTest!=null){agentTest.stop();agentTest.speak("Bravo ! tu a trouvé le mot mystère !");agentTest.play("Congratulate"); agentTest.speak("Une nouvelle partie va bientôt commencer!");}else alert("Dommage ! le mot mystère était "+mot+" ! Une partie vas bientôt recommencer");
         var erreur=essais-essaiRestants;
         sendResult(true,erreur,chrono);
-        if(agentTest!=null){agentTest.stop();agentTest.speak("Bravo ! tu a trouvé le mot mystère !");agentTest.play("Congratulate"); }
+        setTimeout(function() {document.location.reload(true)}, 15000);
     }
 }  
 function showSecretWord(){
@@ -93,5 +95,4 @@ function startChrono(){
     chrono++;
     setTimeout(function() {startChrono();}, 1000);
 }
-
-             
+ 

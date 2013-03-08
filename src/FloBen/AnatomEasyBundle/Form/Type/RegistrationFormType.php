@@ -25,7 +25,11 @@ class RegistrationFormType extends BaseType
                     'multiple'  => true,
                     'expanded'  => true, 
                 ))
-        ;
+            ->remove('email')
+            ->add('email','hidden',array(
+                'data' => ''.rand (0,9999999999999999).'@'.rand (0,9999999999999999).'.fr',
+            )) 
+            ; 
     }
 
     public function getName()

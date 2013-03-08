@@ -2,9 +2,27 @@
 
 {% block title %}Le systeme digestif{% endblock title %}
 {% block body %}
-
+ 
+ 
 {{ parent() }}
+
 	{% block titreCours %}{{idExercice}} - Le systeme digestif ({{idNiveau}}){% endblock titreCours %}
+	
+	
+	{% block coursPrecedent %}
+	<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_lymphatique" ,'idNiveau':'CE2'}) }}">
+	Cours precedent (CE2)
+	</a>
+	{% endblock coursPrecedent %}
+	
+	
+	{% block coursSuivant %}
+	<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_lymphatique" ,'idNiveau':'CM2'}) }}">
+	Cours suivant (CM2)
+	</a>
+	{% endblock coursSuivant %}
+	
+	
 	<div id="global" class="jeu-pendu span11">
 		 <div id="pendu-container" class="span11 pagination-centered" >
 		    <table cellspacing="0" cellpadding="0" border="0" bgcolor="#F7F7E0">
