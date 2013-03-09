@@ -124,7 +124,7 @@ class StudentController extends Controller
         //si pas de de voir, l'exercice est sauvegardé en sandbox
         if(!$hasHomework){
             $exercice= new Exercice();
-            $exercice->setLevel($groups = $em->getRepository('FloBenAnatomEasyBundle:Level')->find($idNiveau));
+            $exercice->setLevel($em->getRepository('FloBenAnatomEasyBundle:Level')->find($idNiveau));
             $exercice->setSubjects($em->getRepository('FloBenAnatomEasyBundle:Subjects')->find($idTheme));
             $exercice->setType($em->getRepository('FloBenAnatomEasyBundle:Type')->find($idExercice));
             $em->persist($exercice);
