@@ -51,24 +51,15 @@ function clickLetter(letterdiv){
         $('table img[name="'+essaiRestants+'"]').show();
     }
     if(essaiRestants<1){ 
-        endGame(false,8,chrono);
+        sendResult(false,8,chrono); 
+        if(agentTest!=null){agentTest.stop(); agentTest.speak("Dommage ! le mot mystère était "+mot+" !");agentTest.play("Sad");}
     }
     if(lettreRestantes<1){
         var erreur=essais-essaiRestants;
-        endGame(true,erreur,chrono);
+        sendResult(true,erreur,chrono);
+        if(agentTest!=null){agentTest.stop();agentTest.speak("Bravo ! tu a trouvé le mot mystère !");agentTest.play("Congratulate"); }
     }
-} 
-
-function endGame(success,erreurs,temps){
-        $(".clickable").off('click').removeClass("clickable");
-        if(success){
-            alert("gagné !!");
-        }else{
-            alert("perdu :(");
-        
-        }
-    
-}
+}  
 function showSecretWord(){
     var containerContent=$('<div id="letter-container"></div>');
     for (var i = 0, len = mot.length; i < len; i++) {
@@ -101,5 +92,6 @@ function removeAccent(s){
 function startChrono(){
     chrono++;
     setTimeout(function() {startChrono();}, 1000);
-} 
+}
+
              

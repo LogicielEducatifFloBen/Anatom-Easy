@@ -28,7 +28,7 @@ class Sandbox
 
     /**
      * @var \FloBen\AnatomEasyBundle\Entity\Result
-     * @ORM\ManyToOne(targetEntity="Result", inversedBy="sandbox")
+     * @ORM\ManyToOne(targetEntity="Result", inversedBy="sandbox",cascade={"persist"})
      * @ORM\JoinColumn(name="result_id", referencedColumnName="id", onDelete="Set Null")
      */
     protected $result;

@@ -25,13 +25,19 @@ class Result
     protected $date;
 
     /**
-     * @var string
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="boolean");
      */
-    protected $integer;
+    protected $success;
+
 
     /**
-     * @var string
+     * @var integer
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $score;
+
+    /**
+     * @var integer
      * @ORM\Column(type="integer", nullable=true)
      */
     protected $secondSpent;
@@ -59,30 +65,23 @@ class Result
     public function getId()
     {
         return $this->id;
-    }
+    } 
 
     /**
-     * Set todoData
-     *
-     * @param string $todoData
-     * @return Result
-     */
-    public function setTodoData($todoData)
-    {
-        $this->todoData = $todoData;
-    
-        return $this;
-    }
-
-    /**
-     * Get todoData
+     * tostring
      *
      * @return string 
      */
-    public function getTodoData()
+    public function __toString()
     {
-        return $this->todoData;
-    }
+        $s="réussi";
+        if($this->success){
+            $s="perdu";
+        }
+        return  ' le [ '/* . $this->date */. ' ]  ' .$s .'. score = '. $this->score   .'. temps ecoule = ' . gmdate("H:i:s", $this->secondSpent) ;
+    }  
+    
+    
     /**
      * Constructor
      */
@@ -114,6 +113,75 @@ class Result
     {
         return $this->date;
     }
+
+    /**
+     * Set success
+     *
+     * @param boolean $success
+     * @return Result
+     */
+    public function setSuccess($success)
+    {
+        $this->success = $success;
+    
+        return $this;
+    }
+
+    /**
+     * Get success
+     *
+     * @return boolean 
+     */
+    public function getSuccess()
+    {
+        return $this->success;
+    }
+    
+    /**
+     * Set score
+     *
+     * @param \integer $score
+     * @return Result
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+    
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return \integer 
+     */
+    public function getScore()
+    {
+        return $this->score;
+    } 
+
+    /**
+     * Set secondSpent
+     *
+     * @param \integer $secondSpent
+     * @return Result
+     */
+    public function setSecondSpent($secondSpent)
+    {
+        $this->secondSpent = $secondSpent;
+    
+        return $this;
+    }
+
+    /**
+     * Get secondSpent
+     *
+     * @return \integer 
+     */
+    public function getSecondSpent()
+    {
+        return $this->secondSpent;
+    } 
 
     /**
      * Add homeworkHasExercice
@@ -179,51 +247,5 @@ class Result
     public function getSandbox()
     {
         return $this->sandbox;
-    }
-
-    /**
-     * Set integer
-     *
-     * @param \int $integer
-     * @return Result
-     */
-    public function setInteger(\int $integer)
-    {
-        $this->integer = $integer;
-    
-        return $this;
-    }
-
-    /**
-     * Get integer
-     *
-     * @return \int 
-     */
-    public function getInteger()
-    {
-        return $this->integer;
-    }
-
-    /**
-     * Set secondSpent
-     *
-     * @param \int $secondSpent
-     * @return Result
-     */
-    public function setSecondSpent(\int $secondSpent)
-    {
-        $this->secondSpent = $secondSpent;
-    
-        return $this;
-    }
-
-    /**
-     * Get secondSpent
-     *
-     * @return \int 
-     */
-    public function getSecondSpent()
-    {
-        return $this->secondSpent;
-    }
+    } 
 }
