@@ -8,6 +8,10 @@
     src: url("font/pop.ttf");
 }
 
+@font-face {
+    font-family: "ecolier";
+    src: url("font/Georgia Belle.ttf");
+}
 
 body{
 	background: #CEA0D8;
@@ -422,7 +426,7 @@ background: #63323B; /* Old browsers */
 }
 
 #global{
-	font-family: "ecolier";
+
 }
 
 #global span{
@@ -457,6 +461,56 @@ background: #63323B; /* Old browsers */
 	height:100%;
 	width:100%;
 	
+}
+
+
+/************************* PENDU ****************************/
+#penduGame{
+	position:relative;
+	float:left;
+	width:70%;
+	height:70%;
+	margin-left:10%;
+
+}
+
+#tableImages{
+	margin-left:25%;
+
+}
+
+
+#pendu-container{
+	position:relative;
+	float:left;
+	min-height:30%;
+	width:40%;
+	margin-left:33%;
+	background: #91c6b2;
+	border:3px solid #63323b;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-top-right-radius:12px;
+	-moz-border-radius-topright:12px;
+	-webkit-border-top-right-radius:12px;
+}
+
+#secret-word-container{
+	height:30%;
+	width:100%;
+	position:relative;
+	float:left;
+
+}
+
+#letters-container{
+	position:relative;
+	float:left;
+	height:30%;
+	width:100%;
+	background: #91c6b2;
+
 }
 
 

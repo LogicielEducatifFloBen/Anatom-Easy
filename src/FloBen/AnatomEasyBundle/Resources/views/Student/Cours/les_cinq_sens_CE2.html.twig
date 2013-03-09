@@ -1,0 +1,60 @@
+{% extends "FloBenAnatomEasyBundle:Student/Cours:studentCoursBarre.html.twig" %}
+
+{% block title %}Le systeme lymphatique CE2{% endblock title %}
+{% block body %}
+
+{{ parent() }}
+	{% block titreCours %}Les cinq sens (CE2){% endblock titreCours %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CE1'}) }}">Cours precedent (CE1)</a>{% endblock coursPrecedent %}
+	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CM1'}) }}">Cours suivant (CM1)</a>{% endblock coursSuivant %}
+	<div id="global">
+		<h1>quels sont les cinq sens?</h1>
+		<span>Les cing sens sont les suivant :
+		<ul>
+			<li>La vue nous renseigne sur la forme et la couleur des choses grâce &agrave; nos yeux.</li>
+			<li>L’ouïe nous permet d’entendre les sons que les oreilles reçoivent.</li>
+			<li>L’odorat nous fait appr&eacute;cier les odeurs que l’air transporte jusqu’&agrave; notre nez.</li>
+			<li>Le toucher vous permet de sentir le poids d’un objet, s’il est chaud ou froid, doux ou rugueux. La peau perçoit toutes ces sensations, elle est aussi sensible &agrave; la douleur.</span>
+			<li>Le goût nous permet de reconnaître les saveurs sucr&eacute;es, sal&eacute;es, acides ou am&egrave;res  grâce &agrave; notre langue.</li>
+		</ul>
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/resumeSens.png"/></div>
+		<h1>Le sens gustatif</h1>
+		<span>
+		Le goût,est le sens qui permet d'identifier les
+		substances chimiques sous forme de solutions
+		par l'interm&eacute;diaire de ch&eacute;mor&eacute;cepteurs situ&eacute;s
+		sur ta langue. Il joue un rôle important dans
+		l'alimentation en permettant d'analyser la saveur
+		des aliments.
+		L'odorat, qui permet de d&eacute;tecter les substances
+		chimiques volatiles, est un sens proche de celui
+		du goût. Le «goût» englobe donc ces deux sens. Sur ta langue, plusieurs zones sont d&eacute;di&eacute;es &agrave; la d&eacute;tection de certaines saveurs.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/saveurs.png"/></div>
+		<h1>Le sens olfatif</h1>
+		<span>
+		L’olfaction ou l’odorat est le sens qui permet d'analyser les substances chimiques volatiles
+		(odeurs) pr&eacute;sentes dans l’air. Ce sens est moins utilis&eacute; chez l’&ecirc;tre humain que
+		chez de nombreux mammif&egrave;res pour lesquels il est pr&eacute;pond&eacute;rant. C'est le nez qui permet l'odorat, mais pas seulement. Lorsque que tu inspire
+		l'air charg&eacute;e en tr&egrave;s petites particules passe dans le nez. Lorsqu'il atteint les cils olfactifs, les petites particules sont d&eacute;tect&eacute;e et un message est envoy&eacute; au cerveau
+		qui interpr&egrave;te le message. Pour mieux comprendre, regarde le sch&eacute;ma ci-dessous.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/olfaction.png"/></div>
+		<h1>Le sens tactile</h1>
+		<span>
+		Plus grand organe du corps, la peau est compos&eacute;e de trois couches superpos&eacute;es,
+		l’&eacute;piderme,le derme l’hypoderme. Barri&egrave;re protectrice du corps contre tous agents ext&eacute;rieurs (virus, bact&eacute;ries et parasites),
+		la peau prot&egrave;ge les organes internes, est un organe sensoriel puisqu’elle est
+		sensible au toucher, &agrave; la pression, &agrave; la vibration, &agrave; la douleur, au froid, &agrave; la chaleur et
+		joue un rôle important dans la thermor&eacute;gulation.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/tactile.png"/></div>
+		<h1>Le sens auditif</h1>
+		<span>
+		L’ouïe ou l’audition est la capacit&eacute; de percevoir des sons. Elle est l’un des cinq sens.L'audition est le fruit d'un m&eacute;canisme complexe assur&eacute; principalement par les
+		deux oreilles et les voies centrales avec notamment un contrôle permanent du cerveau. l'oreille perçoit les diff&eacute;rents sons allant de 10 Hetz son grave &agrave; environ 16 000 Hertz son aigu.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/audition.png"/></div>
+	</div>
+{% endblock body %}

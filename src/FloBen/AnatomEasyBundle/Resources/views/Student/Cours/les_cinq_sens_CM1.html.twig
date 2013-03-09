@@ -1,0 +1,58 @@
+{% extends "FloBenAnatomEasyBundle:Student/Cours:studentCoursBarre.html.twig" %}
+
+{% block title %}Le systeme lymphatique CM1{% endblock title %}
+{% block body %}
+
+{{ parent() }}
+	{% block titreCours %}Les cinq sens (CM1){% endblock titreCours %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CE2'}) }}">Cours precedent (CE2)</a>{% endblock coursPrecedent %}
+	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CM2'}) }}">Cours suivant (CM2)</a>{% endblock coursSuivant %}
+	<div id="global">
+		<h1>Comment marche la vue ?</h1>
+		<span>
+		C'est l'oeil qui permet la vue. La partie la plus importante de l'oeil est le globe oculaire qui est le v&eacute;ritable organe de la vue. 
+		Le globe oculaire a la forme d'une sph&egrave;re, et il est form&eacute; de trois couches de tissus superpos&eacute;es:
+		<ul>
+			<li>la scl&eacute;rotique.</li>
+			<li>La r&eacute;tine o&ugrave; se trouvent les cellules nerveuses d'o&ugrave; part le nerf optique </li>
+			<li>La choroïde avec l'iris et la pupille </li>
+		</ul>
+
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/oeil.png"/></div>
+		<span>
+		La lumi&egrave;re p&eacute;n&egrave;tre dans l'oeil par la pupille : elle traverse le cristallin (derri&egrave;re la pupille) et une image se forme sur la r&eacute;tine. 
+		L'information est transmise au cerveau par le nerf optique.
+		</span>
+		<h1>Comment marche le goût?</h1>
+		<span>
+		C'est la langue et le nez en communication avec le cerveau qui permettent le goût. La langue compte 3000 papilles gustatives form&eacute;es de cellules sp&eacute;cialis&eacute;es dans les saveurs de base : sal&eacute;, sucr&eacute;, amer et acide ou aigre. Chaque saveur dispose donc d'une partie de la langue qui lui est r&eacute;serv&eacute;e. 
+		Les cellules r&eacute;ceptrices captent les stimulations et transmettent au cerveau les signaux correspondants.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/langue.png"/></div>
+		
+		<h1>Comment marche l'ouïe ?</h1>
+		<span>
+		C'est l'oreille qui met en place le m&eacute;canisme de l'audition. Le son arrive dans le pavillon, passe dans le conduit et tape sur le tympan.
+		Puis il est transmis par la chaine d'osselets jusque dans l'oreille interne. 
+		Le son est transmis au cerveau par les cellules nerveuses &agrave; l'int&eacute;rieur du colimaçon et le nerf auditif.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/oreille.png"/></div>
+		
+		<h1>Comment marche l'odorat?</h1>
+		<span>
+		Le nez est un organe extr&ecirc;mement sensible, il peut percevoir des milliers d'odeurs. Si nous voulons sentir facilement les odeurs nous devons inspirer avec force. Lorsque nous respirons par le nez, l'air passe directement dans la gorge et une toute petite partie arrive dans les cellules olfactives.
+		Ces cellules vont transmettre les impulsions au nerf olfactif qui envoie un signal au cerveau qui va ainsi reconnaitre l'odeur.
+
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/nez.png"/></div>
+		
+		<h1>Comment marche le toucher ?</h1>
+		<span>
+		La peau a deux couches, son &eacute;paisseur est de un &agrave; quatre mm, ça varie selon les parties du corps La peau est tr&egrave;s &eacute;lastique. C 'est par la peau que viennent les sensations du toucher, le chaud, le froid, la douleur. 
+		La premi&egrave;re couche superficielle de rev&ecirc;tement s'appelle "EPIDERME". 
+		La deuxi&egrave;me couche est une partie profonde o&ugrave; se trouvent les terminaisons nerveuses, elle s'appelle "DERME" . Les terminaisons nerveuses transmettent les sensations au cerveau.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/peau.png"/></div>
+	</div>
+{% endblock body %}
