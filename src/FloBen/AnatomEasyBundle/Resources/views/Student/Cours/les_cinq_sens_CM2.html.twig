@@ -1,0 +1,72 @@
+{% extends "FloBenAnatomEasyBundle:Student/Cours:studentCoursBarre.html.twig" %}
+
+{% block title %}Connection{% endblock title %}
+{% block body %}
+
+{{ parent() }}
+	{% block titreCours %}Les cinq sens (CM2){% endblock titreCours %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CM1'}) }}">Cours precedent (CM1)</a>{% endblock coursPrecedent %}
+	{% block coursSuivant %}<a href="">c'est la fin</a>{% endblock coursSuivant %}
+	<div id="global">
+		<h1>Les sens</h1>
+		<span>Les sens sont ce qui permet &agrave; l’homme de percevoir le monde qui l’entoure. L’&ecirc;tre humain poss&egrave;de cinq sens qui correspondent chacun &agrave; un organe.
+		Les organes des sens envoient des informations au cerveau qui les apprend ou les reconnaît. Ensuite le cerveau envoie des “messages” au corps. 
+		Par exemple une bonne odeur de pain frais peut donner envie de manger, alors que si on met sa main trop pr&egrave;s du feu, on l’&eacute;loignera tout de suite.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/tableauSens.png"/></div>
+		
+		<h1>La vue</h1>
+		<span>
+		C’est le sens qui permet de voir. L’organe de la vue est l’oeil.
+		Les images que l’on voit sont form&eacute;es par des rayons lumineux qui arrivent sur les objets et qui se r&eacute;fl&eacute;chissent dessus.
+		La corn&eacute;e concentre ces rayons lumineux au centre de l’oeil et l’iris permet d’augmenter ou de diminuer la quantit&eacute; de lumi&egrave;re reçue par l’oeil.
+		Les rayons lumineux entrent dans l’oeil par la pupille (au centre de l’oeil) et traversent le cristallin : le cristallin (qui permet de r&eacute;gler la nettet&eacute; de la vision) inverse les rayons lumineux. L’image est alors form&eacute;e &agrave; l’envers sur la r&eacute;tine. La r&eacute;tine transmet ces informations au cerveau par le nerf optique, et le cerveau remet l’image &agrave; l’endroit.
+
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/zoomOeil.png"/></div>
+		
+		
+		<h1>L'ouïe</h1>
+		<span>
+		C’est le sens qui permet d’entendre. L’organe de l’ouïe est l’oreille.
+		Les sons sont produits par des vibrations dans l’air.
+		Les sons entrent dans les oreilles par le pavillon puis passent par le conduit auditif jusqu’au tympan (une peau tr&egrave;s fine et tr&egrave;s souple). Le tympan vibre et envoie les sons &agrave; trois petits os : le marteau, l’enclume et l’&eacute;trier. Ces petits os amplifient les vibrations et les transmettent &agrave; la cochl&eacute;e. La cochl&eacute;e contient des cellules sp&eacute;ciales qui ont des cils microscopiques et qui transforment les vibrations en informations que le cerveau peut d&eacute;coder. Ces informations sont transmises au cerveau par le nerf auditif.
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/zoomOreille.png"/></div>
+		
+		
+		<h1>L'odorat</h1>
+		<span>
+		C’est le sens qui permet de sentir. L’organe de l’odorat est le nez.
+		Les odeurs sont des mol&eacute;cules contenues dans l’air.
+		Avec l’air que nous respirons, les odeurs entrent dans le nez par les narines et traversent la cavit&eacute; nasale. Le haut de la cavit&eacute; nasale contient des poils minuscules qu’on appelle des cils olfactifs. Les cils olfactifs fixent les odeurs qui sont ensuite transmises au cerveau.
+		L’&ecirc;tre humain peut reconnaître plusieurs milliers d’odeurs diff&eacute;rentes.
+		L’odorat joue &eacute;galement un rôle dans le goût (voir ci-dessous).
+
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/zoomNez.png"/></div>
+		
+		<h1>Le goût</h1>
+		<span>
+		C’est le sens qui permet de goûter (les aliments). L’organe du goût est la langue.
+		Les aliments contiennent des mol&eacute;cules sapides qui nous permettent de goûter les saveurs des aliments.
+		Sur notre langue nous avons des papilles gustatives qui renferment des bourgeons du goût. Ce sont les r&eacute;cepteurs des bourgeons du goût qui envoient des messages au cerveau et qui nous permettent de distinguer les 4 saveurs de base : amer, acide, sal&eacute;, sucr&eacute;. Ces 4 saveurs de base sont perçues sur des zones diff&eacute;rentes de la langue (voir le sch&eacute;ma ci-dessous). A partir de ces 4 saveurs de base nous percevons beaucoup de goûts diff&eacute;rents.
+		L’odorat joue un rôle dans le sens du goût : si on mange un aliment quand on a le nez bouch&eacute; (si on est enrhum&eacute; par exemple), on sent beaucoup moins le goût des aliments.
+		Les zones du goût sur la langue : amer, acide, sal&eacute;, sucr&eacute; :
+		
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/zoomLangue.png"/></div>
+		
+		<h1>Le toucher</h1>
+		<span>
+		C’est le sens qui permet de toucher.L’organe du toucher est la peau.
+		La peau est l’organe le plus grand du corps humain. Les parties les plus sensibles de la peau se trouvent dans les mains (surtout au bout des doigts), les pieds (surtout la plante des pieds) et le visage.
+		La peau contient plusieurs sortes de minuscules r&eacute;cepteurs tactiles[5]. A chaque sorte de r&eacute;cepteurs correspond une information particuli&egrave;re. Par exemple certains r&eacute;cepteurs ne sont sensibles qu’aux frôlements et aux vibrations.
+		Ces informations sont capt&eacute;es par des terminaisons nerveuses qui les transforment en influx nerveux [6]. Ces influx sont ensuite transmis au cerveau.
+		Le sens du toucher nous permet de reconnaître par exemple la consistance et le poids d’un objet. Il nous permet aussi de ressentir le chaud, le froid ou la douleur, et donc de prendre soin de nous.
+		Vue (tr&egrave;s grossie) en coupe de la peau avec les r&eacute;cepteurs tactiles :
+
+		</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/tactile.png"/></div>
+	</div>
+{% endblock body %}

@@ -1,0 +1,33 @@
+{% extends "FloBenAnatomEasyBundle:Student/Cours:studentCoursBarre.html.twig" %}
+
+{% block title %}Le systeme lymphatique CE1{% endblock title %}
+{% block body %}
+
+{{ parent() }}
+	{% block titreCours %}Les cinq sens (CE1){% endblock titreCours %}
+	{% block coursPrecedent %}<a href="">c'est le d&eacute;but</a>{% endblock coursPrecedent %}
+	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CE2'}) }}">Cours suivant (CE2)</a>{% endblock coursSuivant %}
+	<div id="global">
+		<span>Bienvenue dans l'univers des sens. Tes cinq sens : l'ouïe, l'odorat, la vue, le toucher et le goût sont les portes de ton corps. 
+		Tes cinq sens te permettent de d&eacute;couvrir le monde qui t'entoure. Grâce &agrave; eux, tu vois de beaux paysages, tu &eacute;coutes de la musique, 
+		tu goûtes de d&eacute;licieux gâteaux, tu sens le parfum des fleurs et la douceur de leurs p&eacute;tales.
+		</span>
+		<h1>C'est quoi la vue ?</h1>
+		<span>La vue nous renseigne sur la forme et la couleur des choses grâce &agrave; nos yeux.</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/paysages.png"/></div>
+		<h1>C'est quoi l'ouïe ?</h1>
+		<span>L’ouïe nous permet d’entendre les sons que les oreilles reçoivent.</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/ouieImages.png"/></div>
+		<h1>C'est quoi l'odorat ?</h1>
+		<span>L’odorat nous fait appr&eacute;cier les odeurs que l’air transporte jusqu’&agrave; notre nez.</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/odoratImages.png"/></div>
+		<h1>C'est quoi le toucher ?</h1>
+		<span>Le toucher vous permet de sentir le poids d’un objet, s’il est chaud ou froid, doux ou rugueux. La peau perçoit toutes ces sensations, elle est aussi sensible &agrave; la douleur.</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/toucherImages.png"/></div>
+		<h1>C'est quoi le goût ?</h1>
+		<span>Le goût nous permet de reconnaître les saveurs sucr&eacute;es, sal&eacute;es, acides ou am&egrave;res  grâce &agrave; notre langue.</span>
+		<div class="boiteImgCours"><img src="/css/img/cours/goutImages.png"/></div>
+		
+		
+	</div>
+{% endblock body %}
