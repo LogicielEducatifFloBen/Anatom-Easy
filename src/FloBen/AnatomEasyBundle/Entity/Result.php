@@ -78,7 +78,7 @@ class Result
         if($this->success){
             $s="perdu";
         }
-        return  ' le [ '/* . $this->date */. ' ]  ' .$s .'. score = '. $this->score   .'. temps ecoule = ' . gmdate("H:i:s", $this->secondSpent) ;
+        return  ' le [ '  . $this->date->format('d/m/Y')  . ' ]  ' .$s .'. score = '. $this->score   .'. temps ecoule = ' .$this->secondSpent ;
     }  
     
     

@@ -68,7 +68,7 @@
                             class="homeworkDone" 
                             href="javascript:void(0)"
                         {% else %} 
-                            href="{{path('anatomeasy_student_exercices', {'idExercice': homeworkHasExercice.exercice.type ,'idTheme':  homeworkHasExercice.exercice.subjects|split(' ')|join('_') ,'idNiveau': app.user.group.level}) }}"
+                            href="{{path('anatomeasy_student_exercices', {'idExercice': homeworkHasExercice.exercice.type ,'idTheme':  homeworkHasExercice.exercice.subjects|split(' ')|join('_') ,'idNiveau': homeworkHasExercice.exercice.level}) }}"
                         {% endif %} >
                         <div class="boiteItemMenuTitre">
 			                 <div class="boitItemMenuImg">

@@ -2,9 +2,13 @@
 
 {% block title %}Le systeme digestif{% endblock title %}
 {% block body %}
-
+ 
+ 
 {{ parent() }}
+
 	{% block titreCours %}{{idExercice}} - Le systeme digestif ({{idNiveau}}){% endblock titreCours %}
+	 
+	
 	<div id="global" class="jeu-pendu span11">
 		<div id="penduGame"  >
 			 <div id="pendu-container" class="pagination-centered" >

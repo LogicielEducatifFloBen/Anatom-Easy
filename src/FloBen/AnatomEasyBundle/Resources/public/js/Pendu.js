@@ -1,7 +1,6 @@
 
 var mot="";
-var motCaseInsensitive="";
-var chrono=0;
+var motCaseInsensitive=""; 
 var essais=8;
 var essaiRestants=8;
 var lettreRestantes=0;
@@ -26,7 +25,6 @@ function startPendu(niveau,mots){
                  )
         ;
     }
-    setTimeout(function() {startChrono();}, 1000);
 }
 
 function clickLetter(letterdiv){
@@ -51,13 +49,19 @@ function clickLetter(letterdiv){
         $('table img[name="'+essaiRestants+'"]').show();
     }
     if(essaiRestants<1){ 
-        sendResult(false,8,chrono); 
-        if(agentTest!=null){agentTest.stop(); agentTest.speak("Dommage ! le mot mystère était "+mot+" !");agentTest.play("Sad");}
+        if(agentTest!=null){agentTest.stop(); 
+                            agentTest.speak("Dommage ! le mot mystère était "+mot+" !");
+                            agentTest.play("Sad");}
+        else alert("Dommage ! le mot mystère était "+mot+" ! Une nouvelle partie va bientôt commencer!");
+        sendResult(false,0);  
     }
     if(lettreRestantes<1){
-        var erreur=essais-essaiRestants;
-        sendResult(true,erreur,chrono);
-        if(agentTest!=null){agentTest.stop();agentTest.speak("Bravo ! tu a trouvé le mot mystère !");agentTest.play("Congratulate"); }
+        if(agentTest!=null){agentTest.stop();
+                            agentTest.speak("Bravo ! tu a trouvé le mot mystère !");
+                            agentTest.play("Congratulate");  
+        }
+        else alert("Dommage ! le mot mystère était "+mot+" ! Une nouvelle partie va bientôt commencer!"); 
+        sendResult(true,(essaiRestants/essais)*100);  
     }
 }  
 function showSecretWord(){
@@ -93,5 +97,4 @@ function startChrono(){
     chrono++;
     setTimeout(function() {startChrono();}, 1000);
 }
-
-             
+ 
