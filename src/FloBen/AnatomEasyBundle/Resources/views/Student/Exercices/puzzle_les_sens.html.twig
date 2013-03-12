@@ -9,7 +9,7 @@
 		<div id="puzzleGame"  class="pagination-centered" >
 		    <div class="dbx-group puzzle-container" id="photo"> 
 		    </div>
-		    <p id="congratulations">Congratulations! You've restored the original picture.</p>
+		    <p id="congratulations"></p>
 		 </div>
 	</div>
 
@@ -27,7 +27,7 @@
     <script type="text/javascript">     
         $(document).ready(function() {
             var optionArray= new Array();  
-            clippyAgent(optionArray,'Voici le Puzzle! Replace les éléments de l\'image en un minimum de temps !',8000);
+            clippyAgent(optionArray,'Voici le Puzzle! Replace les \E9l\E9ments de l\'image en un minimum de temps !',8000);
             
             startPuzzle(" {{idNiveau}} ","{{ asset('css/img/puzzle/saveurs.png') }}");
  

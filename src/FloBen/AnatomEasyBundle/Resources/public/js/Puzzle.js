@@ -9,13 +9,13 @@ function startPuzzle(level,imgPath){
     var height=600; 
     if (level.indexOf("CE1") >= 0) 
     {  
-        nbShuffle=5; 
+        nbShuffle=10; 
         NCaseW=3;
         NCaseH=2; 
     }
     else if (level.indexOf("CE2") >= 0) 
     {
-        nbShuffle=5;
+        nbShuffle=10;
         NCaseW=4;
         NCaseH=3; 
     }
@@ -295,8 +295,8 @@ function startPuzzle(level,imgPath){
 		    //(so you don't get it just by picking up and dropping the first image)
 		    if(!busy && state != laststate)
 		    {
-			    document.getElementById('congratulations').style.display = 'block';
-			    reset();
+			    document.getElementById('congratulations').style.display = 'block'; 
+			    $("#congratulations").html("Félicitation ! Tu as reconstitué l'image d'origine en "+chrono+" secondes !");
 			    sendResult(true,100);
 		    }
 	    }
