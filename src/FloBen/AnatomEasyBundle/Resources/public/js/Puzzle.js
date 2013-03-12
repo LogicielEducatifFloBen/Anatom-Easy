@@ -49,7 +49,7 @@ function startPuzzle(level,imgPath){
                                     .attr('id','P'+k)
                                     .append($('<a></a>').attr('href','javascript:void(null)')
                                                         .attr('class','dbx-handle'));
-            var bckgrndPos=''+(j==0 ? '0 ' : '-'+Math.round(j*width/NCaseW)+'px ')+(i==0 ? '0' : '-'+Math.round(i*height/NCaseH)+'px');  alert(bckgrndPos);
+            var bckgrndPos=''+(j==0 ? '0 ' : '-'+Math.round(j*width/NCaseW)+'px ')+(i==0 ? '0' : '-'+Math.round(i*height/NCaseH)+'px'); 
             box.css("background-position",bckgrndPos)
                .css("background-image",imgPath) 
                .css("background-size",width+'px '+height+'px')
