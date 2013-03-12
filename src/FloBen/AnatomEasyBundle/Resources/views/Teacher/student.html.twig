@@ -33,10 +33,10 @@
                          var timeArray=[];
                         {% for sandbox in eleve.sandbox %} 
                            {% if((sandbox.exercice.level == homeworkHasExercice.exercice.level) and
-                               (sandbox.exercice.level == homeworkHasExercice.exercice.level) and
-                               (sandbox.exercice.level == homeworkHasExercice.exercice.level))%}
+                               (sandbox.exercice.subjects == homeworkHasExercice.exercice.subjects) and
+                               (sandbox.exercice.type == homeworkHasExercice.exercice.type))%}
                            scoreArray.push([{{ (sandbox.result.date|date("d/m/Y") - "now"|date("d/m/Y"))  }}, {{sandbox.result.score}}]);
-                           timeArray.push([{{ (sandbox.result.date|date("d/m/Y") - "now"|date("d/m/Y"))  }}, {{sandbox.result.secondSpent}}]);
+                           timeArray.push([{{ sandbox.result.date|date("d/m/Y") }}, {{sandbox.result.secondSpent}}]);
                            {% endif %}
                         {% endfor %} 
                                      if(scoreArray[0]!=undefined){
@@ -48,17 +48,18 @@
                                          }
                                         scoreArray[0][0]=0;
                                         timeArray[0][0]=0;
-                                         
-                                          alert(timeArray);
-                                     }
-                                     $.plot($("#placeholder{{ loop.parent.loop.index }}{{loop.index}}"),
-                                             [ scoreArray,timeArray ], 
-                                             { yaxis: { max: 100 } });
+                                           
+                                         $.plot($("#placeholder_{{ loop.parent.loop.index }}_{{loop.index}}"),
+                                             [ { label: "Score (%)", threshold: { below: 20, color: "rgb(200, 20, 30)" }, data:  scoreArray },
+                                               { label: "temps Passé (s)",threshold: { below: 20, color: "greenyellow" }, data:  timeArray } ], 
+                                             { yaxis: { max: 100 },
+                                               xaxis:{} });
+                                   }
                                  });
                             })();/*]]>*/</script>  
                                 
                         
-                        <div id="placeholder{{ loop.parent.loop.index }}{{loop.index}}" style="width:600px;height:300px"></div>
+                        <div id="placeholder_{{ loop.parent.loop.index }}_{{loop.index}}" style="width:400px;height:200px"></div>
                             
                             
                          
@@ -82,6 +83,7 @@
 
 <script language="javascript" type="text/javascript" src="{{ asset('/bundles/flobenanatomeasy/js/flot/excanvas.js') }}" ></script>
 <script language="javascript" type="text/javascript" src="{{ asset('/bundles/flobenanatomeasy/js/flot/jquery.flot.js') }}" ></script>
+<script language="javascript" type="text/javascript" src="{{ asset('/bundles/flobenanatomeasy/js/flot/jquery.flot.time.js') }}" ></script>
   
 {% endblock javascripts %}
 

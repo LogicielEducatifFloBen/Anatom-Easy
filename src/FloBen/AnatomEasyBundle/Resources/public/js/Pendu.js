@@ -13,8 +13,8 @@ function startPendu(niveau,mots){
     motCaseInsensitive=removeAccent(mot);
     
     var abc=new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-    var container= $("#penduGame"); 
-    for(i=0;i<abc.length;i++){
+    var container= $("#global"); 
+    for(i=0;i<abc.length;i++){alert("prout");
         container.children("#letters-container")
                  .append($('<span>'+abc[i]+'</span>')
                      .addClass("pendu-letters")
@@ -57,7 +57,7 @@ function clickLetter(letterdiv){
     }
     if(lettreRestantes<1){
         if(agentTest!=null){agentTest.stop();
-                            agentTest.speak("Bravo ! tu a trouvé le mot mystère !");
+                            agentTest.speak("Bravo ! tu a trouvé le mot mystère en "+chrono+" secondes ! et ton score est de "+(essaiRestants/essais*100)+" !");
                             agentTest.play("Congratulate");  
         }
         else alert("Dommage ! le mot mystère était "+mot+" ! Une nouvelle partie va bientôt commencer!"); 
