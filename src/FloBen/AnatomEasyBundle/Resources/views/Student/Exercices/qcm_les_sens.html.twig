@@ -6,6 +6,44 @@
 {{ parent() }}
 	{% block titreCours %}{{idExercice}} - Les cinq sens  ({{idNiveau}}){% endblock titreCours %}
 	<div id="global">
-		<span>ezggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsdsgssssssssssssssssssssssssssssssssssssssssssssssssssssssssssd</span>
+		<div id="qcm">
+		
+	
+		<div id="question_container">
+		
+		</div>
+		<br/><input id="verify" type="button" name="Start" value="J'ai fini" style="background-color:#91c6b2" style="color:#63323b; font-weight:bold ; font-size:16pt;">
+		<input id="generate" type="button" name="Start" value="Faire un autre qcm" style="background-color:#91c6b2" style="color:#63323b; font-weight:bold ; font-size:16pt;">
+		</div>
 	</div>
 {% endblock body %}
+{% block javascripts %}
+  
+        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+		<script src="{{ asset('/bundles/flobenanatomeasy/js/Qcm.js') }}" type="text/javascript" ></script> 
+		<script src="{{ asset('/bundles/flobenanatomeasy/js/Question.js') }}" type="text/javascript" ></script> 
+        <script type="text/javascript">     
+            $(document).ready(function() { 
+                var optionArray= new Array(); 
+       
+			optionArray[0]= {item:'#retourMenuBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton pour retourner \340 la page d'accueil" };
+			clippyAgent(optionArray,"R\351ponds \340 toutes les questions, puis clique sur le bouton 'j'ai fini' en bas pour voir tes r\351sultats",8000);
+			
+				
+			
+				var qcm = new Qcm();
+			
+				qcm.AddQuestion("L'estomac est-il un organe utile \340 la digestion ?",new Array("oui", "non"), 0);
+				qcm.AddQuestion("O\371 sont extrait les nutriments ?",new Array("l'intestin", "l'estomac", "la bouche", "l'anus"), 0);
+				qcm.AddQuestion("Suivant le trajet des aliment, l'organe qui se situe entre la bouche et l'estomac s'appelle ?",new Array("L'intestin gr\352le","le gros intestin","l'oesophage"), 2);
+				qcm.AddQuestion("Quel est l'organie qui produit de la bile ?",new Array("le pancr\351as", "l'estomac", "l'anus", "l'intestin gr\352le"), 0);
+				qcm.AddQuestion("La mastication se d \351roule-t-elle au niveau de ta trach\351e?",new Array("oui", "non"), 1);
+				qcm.AddQuestion("Indique l'organe qui n'intervient pas dans la digestion dans les propositions suivantes ?",new Array("le pancr \351as", "l\'estomac", "les alv\351oles pulmonaires","l'intestin gr\352le"), 2);
+				qcm.AddQuestion("Comment appelle-t-on l'organe qui dissoue les aliments que tu manges ?",new Array("le pancr\351as","l'intestin gr\352le", "l\'estomac", "le gros intestin"), 2);
+		
+				
+				qcm.StartQcm("{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau': idNiveau}) }}");
+				
+			
+            }); </script>
+{% endblock javascripts %} 
