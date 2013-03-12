@@ -67,6 +67,7 @@ class StudentController extends Controller
      */
     public function exercicesAction($idExercice,$idTheme,$idNiveau)
     {
+
 		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' => $idNiveau );
     }
 	
@@ -77,6 +78,10 @@ class StudentController extends Controller
     public function exercicesNiveauAction($idExercice,$idTheme)
     {
 		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme);
+
+        if($idTheme=="Les_cinq_sens")$idTheme="Les_sens";
+		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' =>$idNiveau);
+
     }
 	
 	
