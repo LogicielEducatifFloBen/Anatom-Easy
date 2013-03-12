@@ -67,7 +67,16 @@ class StudentController extends Controller
      */
     public function exercicesAction($idExercice,$idTheme,$idNiveau)
     {
-		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' =>$idNiveau);
+		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' => $idNiveau );
+    }
+	
+	/**
+     * @Route("/exercices/{idExercice}/{idTheme}", name="anatomeasy_student_choixNiveaux")
+	 * @Template()
+     */
+    public function exercicesNiveauAction($idExercice,$idTheme)
+    {
+		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme);
     }
 	
 	

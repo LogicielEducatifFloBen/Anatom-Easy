@@ -5,7 +5,36 @@
 
 {{ parent() }}
 	{% block titreCours %}{{idExercice}} - Les cinq sens  ({{idNiveau}}){% endblock titreCours %}
-	<div id="global">
-		<span>ezggggggggggggggggggggggggggggggggggggggggggggggggggggggggggsdsgssssssssssssssssssssssssssssssssssssssssssssssssssssssssssd</span>
+	<div id="global" class="jeu-puzzle span11">
+		<div id="puzzleGame"  class="pagination-centered" >
+		    <div class="dbx-group puzzle-container" id="photo"> 
+		    </div>
+		    <p id="congratulations">Congratulations! You've restored the original picture.</p>
+		 </div>
 	</div>
-{% endblock body %}
+
+{% endblock body %} 
+ 
+        {% block stylesheets %}  
+		<link rel="stylesheet" type="text/css" href="{{ asset('/bundles/flobenanatomeasy/css/Puzzle.css')}}" /> 
+        {% endblock %}
+{% block javascripts %}
+ 
+    <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('/bundles/flobenanatomeasy/js/Puzzle.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('/bundles/flobenanatomeasy/js/PuzzleLib.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('/bundles/flobenanatomeasy/js/SendResult.js') }}" type="text/javascript" ></script> 
+    <script type="text/javascript">     
+        $(document).ready(function() {
+            var optionArray= new Array();  
+            clippyAgent(optionArray,'Voici le Puzzle! Replace les éléments de l\'image en un minimum de temps !',8000);
+            
+            startPuzzle(" {{idNiveau}} ","{{ asset('css/img/puzzle/saveurs.png') }}");
+ 
+
+
+        });
+    </script>  
+    
+    
+{% endblock javascripts %} 

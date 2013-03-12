@@ -8,24 +8,24 @@
 	{% block coursPrecedent %}<a href="">c'est le d&eacute;but</a>{% endblock coursPrecedent %}
 	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CE2'}) }}">Cours suivant (CE2)</a>{% endblock coursSuivant %}
 	<div id="global">
-		<span>Bienvenue dans l'univers des sens. Tes cinq sens : l'ouïe, l'odorat, la vue, le toucher et le goût sont les portes de ton corps. 
-		Tes cinq sens te permettent de d&eacute;couvrir le monde qui t'entoure. Grâce &agrave; eux, tu vois de beaux paysages, tu &eacute;coutes de la musique, 
-		tu goûtes de d&eacute;licieux gâteaux, tu sens le parfum des fleurs et la douceur de leurs p&eacute;tales.
+		<span>Bienvenue dans l'univers des sens. Tes cinq sens : l'ouïe, l'odorat, la vue, le toucher et le go&ucirc;t sont les portes de ton corps. 
+		Tes cinq sens te permettent de d&eacute;couvrir le monde qui t'entoure. Gr&acirc;ce &agrave; eux, tu vois de beaux paysages, tu &eacute;coutes de la musique, 
+		tu go&ucirc;tes de d&eacute;licieux g&acirc;teaux, tu sens le parfum des fleurs et la douceur de leurs p&eacute;tales.
 		</span>
 		<h1>C'est quoi la vue ?</h1>
-		<span>La vue nous renseigne sur la forme et la couleur des choses grâce &agrave; nos yeux.</span>
+		<span>La vue nous renseigne sur la forme et la couleur des choses gr&acirc;ce &agrave; nos yeux.</span>
 		<div class="boiteImgCours"><img src="/css/img/cours/paysages.png"/></div>
 		<h1>C'est quoi l'ouïe ?</h1>
-		<span>L’ouïe nous permet d’entendre les sons que les oreilles reçoivent.</span>
+		<span>L’ouïe nous permet d’entendre les sons que les oreilles re&ccedil;oivent.</span>
 		<div class="boiteImgCours"><img src="/css/img/cours/ouieImages.png"/></div>
 		<h1>C'est quoi l'odorat ?</h1>
 		<span>L’odorat nous fait appr&eacute;cier les odeurs que l’air transporte jusqu’&agrave; notre nez.</span>
 		<div class="boiteImgCours"><img src="/css/img/cours/odoratImages.png"/></div>
 		<h1>C'est quoi le toucher ?</h1>
-		<span>Le toucher vous permet de sentir le poids d’un objet, s’il est chaud ou froid, doux ou rugueux. La peau perçoit toutes ces sensations, elle est aussi sensible &agrave; la douleur.</span>
+		<span>Le toucher vous permet de sentir le poids d’un objet, s’il est chaud ou froid, doux ou rugueux. La peau per&ccedil;oit toutes ces sensations, elle est aussi sensible &agrave; la douleur.</span>
 		<div class="boiteImgCours"><img src="/css/img/cours/toucherImages.png"/></div>
-		<h1>C'est quoi le goût ?</h1>
-		<span>Le goût nous permet de reconnaître les saveurs sucr&eacute;es, sal&eacute;es, acides ou am&egrave;res  grâce &agrave; notre langue.</span>
+		<h1>C'est quoi le go&ucirc;t ?</h1>
+		<span>Le go&ucirc;t nous permet de reconna&icirc;tre les saveurs sucr&eacute;es, sal&eacute;es, acides ou am&egrave;res  gr&acirc;ce &agrave; notre langue.</span>
 		<div class="boiteImgCours"><img src="/css/img/cours/goutImages.png"/></div>
 		
 		<div id="boiteBonus">
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 		<div id="boiteMedia">
-			<h1>Continu à apprendre à la récréation!</h1>
+			<h1>Continu &agrave; apprendre &agrave; la r&eacute;cr&eacute;ation!</h1>
 			<div class="boiteItemBonus">
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
@@ -121,7 +121,7 @@
             $(document).ready(function() { 
                 var optionArray= new Array(); 
                optionArray[0]= { action: 'speak', speech: "Lorsque tu auras termin\351, tu peux t\'entrainer sur l\'un des exercices en bas de page",timeout:'2000' }; 
-			// optionArray[0]= {item:'#retourMenuBoxImg', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton si tu souhaites lire le cours du niveau supérieur, attention, assure toi d'avoir d'abord bien compris ce cours" };
+			// optionArray[0]= {item:'#retourMenuBoxImg', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton si tu souhaites lire le cours du niveau sup&eacute;rieur, attention, assure toi d'avoir d'abord bien compris ce cours" };
 			 optionArray[1]= {item:'#coursSuivantBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton si tu souhaites lire le cours du niveau sup\351rieur"};
 			 optionArray[2]= { item:'#coursSuivantBox', event:'mouseenter', action: 'speak', speech: "Attention, assure toi d'avoir d'abord bien compris celui-ci",timeout:'2000' }; 
 			 optionArray[3]= {item:'#retourMenuBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton pour retourner \340 la page d'accueil" };

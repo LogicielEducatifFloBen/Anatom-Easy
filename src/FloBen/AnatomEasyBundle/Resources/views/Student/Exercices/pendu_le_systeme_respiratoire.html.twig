@@ -48,10 +48,10 @@ a
                 
         
             var mots=new Array();
-            mots['CE1']=new Array("Estomac", "Bouche");
-            mots['CE2']=$.merge(["Pancréas", "Fois"],mots['CE1']); 
-            mots['CM1']=$.merge(["Oesophage", "Intestin grêle" ],mots['CE2']);  
-            mots['CM2']=$.merge([ "Vésicule biliaire", "Diaphragme"],mots['CM1']);
+            mots['CE1']=new Array("inspiration", "poumon");
+            mots['CE2']=$.merge(["poumon", "trachée"],mots['CE1']); 
+            mots['CM1']=$.merge(["dioxyde de carbone", "Echange gazeux" ],mots['CE2']);  
+            mots['CM2']=$.merge([ "larynx", "bronchiole"],mots['CM1']);
             startPendu('{{idNiveau}}',mots);
         });
     </script>  

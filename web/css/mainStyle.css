@@ -374,11 +374,11 @@ background: #63323B; /* Old browsers */
 #global{
 	position: relative;
 	float: left;
-	
+	padding:2%;
 	margin-top: 4%;
-	margin-left:3%;
+	margin-left:2%;
 	min-height:500px;
-	width:95%;
+	width:93%;
 	
 	border:3px solid #44000E;
 	border-radius:10px;
@@ -644,3 +644,7 @@ background: #63323B; /* Old browsers */
 	margin-left:37%;
 }
 
+.choix h2{
+	display:inline;
+
+}
