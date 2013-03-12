@@ -1,8 +1,21 @@
-
-function sendResult(success,erreurs,temps){ 
-        var score = 0;
-        if(success)var score = (essaiRestants/essais)*100; 
-        $(".clickable").off('click').removeClass("clickable");
-        $.post(window.location.pathname+"/register", { 'success': success, 'score' :score, 'secondSpent':temps }); 
+var chrono=0; 
+    function sendResult(success,scoreF){
+            if(agentTest!=null){
+                agentTest.speak("Une nouvelle partie vas bientôt commencer !");
+            }  
+            $(".clickable").off('click').removeClass("clickable");
+            $.post(window.location.pathname+"/register", { 'success': success, 'score' :scoreF, 'secondSpent':chrono }); 
+            setTimeout(function() {document.location.reload(true)}, 15000); 
+    }
     
+$(document).ready(function() { 
+    setTimeout(function() {startChrono();}, 1000);
+    
+});
+
+function startChrono(){
+    chrono++;
+    setTimeout(function() {startChrono();}, 1000);
 }
+
+

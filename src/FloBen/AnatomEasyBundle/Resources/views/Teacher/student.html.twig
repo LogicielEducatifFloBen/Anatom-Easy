@@ -10,29 +10,80 @@
 </div>
 <p>
 {% for homework in eleve.getHomework %} 
-<h3>Devoir pour le {{homework.deadline|date("d/m/Y")}}</h3>
-    <ul id="homeworkTab_{{homework.id}}" class="nav nav-tabs"> 
+<h3>Devoir pour le {{homework.deadline|date("d/m/Y")}}</h3>   
     
-    {% for homeworkHasExercice in homework.getHomeworkHasExercice %} 
-        <li class="{% if loop.index == 1 %}active{% endif %}">
-            <a href="#homeworkHasExercice_{{homeworkHasExercice.id}}" data-toggle="tab">{{homeworkHasExercice.exercice}}</a>
-        </li> 
+    
+<div class="accordion" id="accordion{{loop.index}}">
+    {% for homeworkHasExercice in homework.homeworkHasExercice %} 
+ 
+        <div class="accordion-group"> 
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{loop.parent.loop.index}}" href="#collapse{{ loop.parent.loop.index }}{{loop.index}}">
+                    {{homeworkHasExercice.exercice}}
+                  </a>
+                </div>
+                <div id="collapse{{ loop.parent.loop.index }}{{loop.index}}" class="accordion-body collapse{% if loop.index == 1 %} in{% endif %}">
+                  <div class="accordion-inner">
+                    {%if homeworkHasExercice.result %}
+                        {{homeworkHasExercice.result}}
+                        <h3>Cet exercice en mode "Bac à sable"</h3>
+                        <script type="text/javascript">/*<![CDATA[*/    (function () {
+                                 $(document).ready(function() {
+                         var scoreArray=[];
+                         var timeArray=[];
+                        {% for sandbox in eleve.sandbox %} 
+                           {% if((sandbox.exercice.level == homeworkHasExercice.exercice.level) and
+                               (sandbox.exercice.level == homeworkHasExercice.exercice.level) and
+                               (sandbox.exercice.level == homeworkHasExercice.exercice.level))%}
+                           scoreArray.push([{{ (sandbox.result.date|date("d/m/Y") - "now"|date("d/m/Y"))  }}, {{sandbox.result.score}}]);
+                           timeArray.push([{{ (sandbox.result.date|date("d/m/Y") - "now"|date("d/m/Y"))  }}, {{sandbox.result.secondSpent}}]);
+                           {% endif %}
+                        {% endfor %} 
+                                     if(scoreArray[0]!=undefined){
+                                        //s'il ya un historique
+                                        
+                                         for(var i=1;i<scoreArray.length;i++){
+                                            scoreArray[i][0]-=scoreArray[0][0];
+                                            timeArray[i][0]-=scoreArray[0][0];
+                                         }
+                                        scoreArray[0][0]=0;
+                                        timeArray[0][0]=0;
+                                         
+                                          alert(timeArray);
+                                     }
+                                     $.plot($("#placeholder{{ loop.parent.loop.index }}{{loop.index}}"),
+                                             [ scoreArray,timeArray ], 
+                                             { yaxis: { max: 100 } });
+                                 });
+                            })();/*]]>*/</script>  
+                                
+                        
+                        <div id="placeholder{{ loop.parent.loop.index }}{{loop.index}}" style="width:600px;height:300px"></div>
+                            
+                            
+                         
+                    {% else %}
+                        Exercice non terminé.
+                    {% endif %}
+                    
+                  </div>
+                </div> 
+        </div> 
+
+
     {% endfor %}
+
+</div> 
     
-    </ul>
-    <div id="homeworkTabContent_{{homework.id}}" class="tab-content">
-    {% for homeworkHasExercice in homework.getHomeworkHasExercice %} 
-    
-        <div class="tab-pane fade{% if loop.index == 1 %} active in{% endif %}" id="homeworkHasExercice_{{homeworkHasExercice.id}}">
-            <p>resultats de {{homeworkHasExercice.exercice}}</p>
-        </div>
-    {% endfor %} 
-    </div>
 {% endfor %}
 </p>
 {% endblock body %}
+{% block javascripts %}
 
-
+<script language="javascript" type="text/javascript" src="{{ asset('/bundles/flobenanatomeasy/js/flot/excanvas.js') }}" ></script>
+<script language="javascript" type="text/javascript" src="{{ asset('/bundles/flobenanatomeasy/js/flot/jquery.flot.js') }}" ></script>
+  
+{% endblock javascripts %}
 
 
 

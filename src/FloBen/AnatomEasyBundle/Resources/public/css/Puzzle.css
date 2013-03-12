@@ -1,0 +1,193 @@
+
+
+
+/****************************************************************
+  docking boxes core CSS: YOU MUST NOT CHANGE OR OVERRIDE THESE 
+*****************************************************************/
+.dbx-clone {
+	position:absolute;
+	visibility:hidden;
+	}
+.dbx-clone, .dbx-clone .dbx-handle-cursor {
+	cursor:move !important;
+	}
+.dbx-dummy {
+	display:block;
+	width:0;
+	height:0;
+	overflow:hidden;
+	}
+.dbx-group, .dbx-box, .dbx-handle {
+	position:relative;
+	display:block;
+	}
+
+
+
+/****************************************************************
+  avoid padding, margins or borders on dbx-box, 
+  to reduce visual discrepancies between it and the clone.  
+  overall, dbx-box is best left as visually unstyled as possible 
+*****************************************************************/
+.dbx-box {
+	margin:0;
+	padding:0;
+	border:none;
+	}
+
+
+
+/****************************************************************
+  otherwise, do what you like :) 
+*****************************************************************/
+
+
+
+
+
+/* group container(s) */
+.dbx-group {
+	border:3px double #999;
+	border-color:#bbb #666 #666 #bbb;
+	float:left;
+	margin:0 20px 20px 0;
+	}
+
+/* clear all margins etc. inside containers */
+.dbx-group * {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+	}
+
+
+
+
+/* all the boxes have the same background image
+   with a different background position for each one 
+   this means that the puzzle can be generated 
+   using a single image @ 500x400 */
+.dbx-box {
+	width:100px;
+	height:100px;
+	float:left; 
+	} 
+	/*
+#P0 { background-position:0 0; }
+#P1 { background-position:-100px 0; }
+#P2 { background-position:-200px 0; }
+#P3 { background-position:-300px 0; }
+#P4 { background-position:-400px 0; }
+
+#P5 { background-position:0 -100px; }
+#P6 { background-position:-100px -100px; }
+#P7 { background-position:-200px -100px; }
+#P8 { background-position:-300px -100px; }
+#P9 { background-position:-400px -100px; }
+
+#P10 { background-position:0 -200px; }
+#P11 { background-position:-100px -200px; }
+#P12 { background-position:-200px -200px; }
+#P13 { background-position:-300px -200px; }
+#P14 { background-position:-400px -200px; }
+
+#P15 { background-position:0 -300px; }
+#P16 { background-position:-100px -300px; }
+#P17 { background-position:-200px -300px; }
+#P18 { background-position:-300px -300px; }
+#P19 { background-position:-400px -300px; } 
+*/
+/* add an obvious border higlight when the piece has the focus
+   *** could do this with an image - then it could have rounded corners :) 
+   *** these are stretching too wide, going from the left edge ofthe pafge 
+   *** to the right edge of the piece, insted of neatly surrounding it
+   *** pretty sure its flaot related */
+.dbx-box-focus {
+	opacity:0.6;
+	}
+
+
+
+
+
+/* handles */
+.dbx-handle {
+	width:100px;
+	height:100px;
+	float:left;
+	text-indent:-100em;
+
+	/* test piece numbering
+	font:normal normal normal 2em georgia, sans-serif;
+	text-decoration:none;
+	color:#fff;
+	text-shadow:1px 1px 0 #000;
+	text-indent:0.2em;
+	*/
+	}
+
+/* handle cursors */
+.dbx-handle-cursor {
+	cursor:move;
+	} 
+
+
+/* congratulations message */
+#congratulations
+{
+	padding:8px 25px 8px 11px;
+	border:3px double #070;
+	background:#ded;
+	color:#070;
+	font-weight:bold;
+	float:left;
+	margin:10px 0 0 0;
+	display:none;
+}
+ 
+/* keyboard navigation tooltip */
+.dbx-tooltip {
+	margin:105px 0 0 0;
+	width:185px;
+	
+	display:block;
+	position:absolute;
+	border:1px solid InfoText;
+	background:InfoBackground;
+	color:InfoText;
+	font:small-caption;
+	font-weight:normal;
+	padding:2px 4px 3px 5px;
+	text-align:left;
+	}
+ 
+
+/* additional clone styles */
+.dbx-clone {
+	opacity:0.6;
+	-moz-opacity:0.6;
+	-khtml-opacity:0.6;
+	filter:alpha(opacity=60);
+	}
+
+ 
+/* hacks for IE6 */
+* html .dbx-tooltip {
+	font-weight:normal !important;
+	}
+	
+	
+	
+abbr
+{
+	font-style:normal;
+	border:none;
+	cursor:default;
+}
+
+.clear {
+	clear:both;
+	}
+
+
+

@@ -20,7 +20,7 @@
                     </form> 
                     
         <!-- Button to trigger modal -->
-<a href="#myModal" data-target="#myModal" role="button" class="btn btn-success" data-toggle="modal"><i class="icon-plus icon-white"></i>Ajouter un devoir    </a>
+<a href="#myModal" data-target="#myModal" role="button" class="btn btn-success" data-toggle="modal"><i class="icon-plus icon-white"></i>Ajouter un devoir</a>
              
         </caption>
         <thead>
@@ -29,20 +29,49 @@
                 <th> <i class="icon-list-alt"></i> Devoirs</th> 
             </tr>
         </thead>
-        <tbody> 
-        {% for eleve in classe.student %}
+        <tbody>  
+        {% for eleve in classe.student %}  
             <tr>
                 <td><a href="{{ path('anatomeasy_teacher_student', { 'idStudent': eleve.id }) }}">{{eleve.username}}</a></td>
-                <td>{% for homework in eleve.homework %}
-                        <div>
-                         {{homework.deadline|date("d/m/Y")}} 
-                         {% for homeworkHasExercice in homework.homeworkHasExercice %}
-                            <div>
-                             {{homeworkHasExercice.exercice}} 
-                            </div>
+                <td> 
+                    {% for devoir in eleve.homework %}  
+                        <ul class="list-devoir thumbnails">
+                            {% if ((devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1)<0  %}
+                                <li class="span2"> 
+                                    <strong>Terminé le {{devoir.deadline|date("d/m/Y")}}</strong>
+                                </li> 
+                            {% else %}
+                                <li class="span2">
+                                    <p class="text-warning">
+                                    A rendre dans : {{(devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1 }} jours(s).
+                                    </p>
+                                </li>  
+                            {% endif %} 
+                        </li>
+                        {% for homeworkHasExercice in devoir.homeworkHasExercice %}
+                            <li class="span2">
+                                 
+                                    <div class="boiteItemMenuTitre">
+			                             <div class="boitItemMenuImg">
+				                              <img src="/css/img/{{homeworkHasExercice.exercice.type|e}}.png" class="img-rounded" alt="{{homeworkHasExercice.exercice.type|e}}">
+			                            </div>
+			                            <div class="boitItemMenuText">
+				                            <p> 
+                                                [{{ homeworkHasExercice.exercice.level}}] {{ homeworkHasExercice.exercice.subjects}}
+                                            </p>
+                                {% if homeworkHasExercice.done == 1 %} 
+                                     <p class="text-success homework-done"><strong>Fait </strong>
+                                    </p>
+                                {% elseif ((devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1) %} 
+                                     <p class="text-error homework-done"><strong>Non terminé</strong>
+                                    </p>
+                                {% endif %} 
+			                            </div>
+		                            </div> 
+                            </li> 
                         {% endfor %}
-                        </div>
-                    {% endfor %}
+                    </ul> 
+                {% endfor %} 
                 </td>
             </tr>
         {% endfor %}
