@@ -14,7 +14,7 @@ function startPendu(niveau,mots){
     
     var abc=new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
     var container= $("#global"); 
-    for(i=0;i<abc.length;i++){alert("prout");
+    for(i=0;i<abc.length;i++){ 
         container.children("#letters-container")
                  .append($('<span>'+abc[i]+'</span>')
                      .addClass("pendu-letters")
