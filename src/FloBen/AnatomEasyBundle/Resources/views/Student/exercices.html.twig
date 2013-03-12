@@ -7,15 +7,15 @@
 {{ parent() }}
 
 
-{% if idExercice == "QCM" %}
+{% if idExercice == "Qcm" %}
 	{% if idTheme == "La_digestion" %}
 		{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_digestif.html.twig" %}
 	{% else %}
 		{% if idTheme == "La_respiration" %}
 			{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_respiratoire.html.twig" %}
 		{% else %}
-			{% if idTheme == "Le_systeme_immunitaire" %}
-				{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_le_systeme_lymphatique.html.twig" %}
+			{% if idTheme == "Les_sens" %}
+				{% include "FloBenAnatomEasyBundle:Student/Exercices:qcm_les_sens.html.twig" %}
 			{% else %}
 				<h1>error</h1>
 			{% endif %}
@@ -30,8 +30,8 @@
 			{% if idTheme == "La_respiration" %}
 				{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_respiratoire.html.twig" %}
 			{% else %}
-				{% if idTheme == "Le_systeme_immunitaire" %}
-					{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_le_systeme_lymphatique.html.twig" %}
+				{% if idTheme == "Les_sens" %}
+					{% include "FloBenAnatomEasyBundle:Student/Exercices:puzzle_les_sens.html.twig" %}
 				{% else %}
 						<h1>error</h1>
 				{% endif %}
@@ -47,8 +47,8 @@
 			{% if idTheme == "La_respiration" %}
 				{% include "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_respiratoire.html.twig" %}
 			{% else %}
-				{% if idTheme == "Le_systeme_immunitaire" %}
-					{% include  "FloBenAnatomEasyBundle:Student/Exercices:pendu_le_systeme_lymphatique.html.twig" %}
+				{% if idTheme == "Les_sens" %}
+					{% include  "FloBenAnatomEasyBundle:Student/Exercices:pendu_les_sens.html.twig" %}
 				{% else %}
 					<h1>error</h1>
 				

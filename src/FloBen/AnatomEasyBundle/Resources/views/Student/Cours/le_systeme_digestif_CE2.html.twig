@@ -25,6 +25,106 @@
 			</ul>
 		</span>
 		<div class="boiteImgCours"><img src="/css/img/cours/appareilDigestif.png"/> </div>
-
+			<div id="boiteExo">
+			<h1>Entraine toi sur les exercices du niveau CE2!</h1>
+			<div class="boiteItemBonus">
+				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'La_digestion' ,'idNiveau':'CE2'}) }}" >
+					<div class="boiteItemBonusTitre itemBonus">
+						  <div class="boiteItemBonusImg">
+							  <img src="/css/img/QCM.png"/>
+						</div>
+					</div>
+						<div class="boitItemBonusText">
+							<h2>QCM</h2>
+						</div>
+				</a>
+			</div>
+			
+			<div class="boiteItemBonus">
+				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_digestion' ,'idNiveau':'CE2'}) }}" >
+					<div class="boiteItemBonusTitre itemBonus">
+						  <div class="boiteItemBonusImg">
+							  <img src="{{asset('/css/img/Pendu.png')}}"/>
+						</div>
+						<div class="boitItemBonusText">
+							<h2>PENDU</h2>
+						</div>
+					</div>	
+				</a>
+			</div>
+			
+			<div class="boiteItemBonus">
+				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_digestion' ,'idNiveau':'CE2'}) }}" >
+					<div class="boiteItemBonusTitre itemBonus">
+						  <div class="boiteItemBonusImg">
+							    <img src="/css/img/Puzzle.png"/>
+						</div>
+						<div class="boitItemBonusText">
+							<h2>PUZZLE</h2>
+						</div>
+					</div>	
+				</a>
+			</div>
+		</div>
+		<div id="boiteMedia">
+			<h1>Continu à apprendre à la récréation!</h1>
+			<div class="boiteItemBonus">
+				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
+					<div class="boiteItemBonusTitre itemBonus">
+						  <div class="boiteItemBonusImg">
+							  <img src="/css/img/videos.gif"/>
+						</div>
+					</div>
+						<div class="boitItemBonusText">
+							<h2>VIDEOS</h2>
+						</div>
+				</a>
+			</div>
+			
+			<div class="boiteItemBonus">
+				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'lectures' })}}">
+					<div class="boiteItemBonusTitre itemBonus">
+						  <div class="boiteItemBonusImg">
+							   <img src="/css/img/lecture.png"/>
+						</div>
+						<div class="boitItemBonusText">
+							<h2>LECTURES</h2>
+						</div>
+					</div>	
+				</a>
+			</div>
+			
+			<div class="boiteItemBonus">
+				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'jeux'  })}}">
+					<div class="boiteItemBonusTitre itemBonus">
+						  <div class="boiteItemBonusImg">
+							   <img src="/css/img/jeux.png"/>
+						</div>
+						<div class="boitItemBonusText">
+							<h2>BOITE A JEUX</h2>
+						</div>
+					</div>	
+				</a>
+			</div>
+		</div>
+	</div>	
 	</div>
 {% endblock body %}
+{% block javascripts %}
+  
+        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script type="text/javascript">     
+            $(document).ready(function() { 
+                var optionArray= new Array(); 
+               optionArray[0]= { action: 'speak', speech: "Lorsque tu auras termin\351, tu peux t\'entrainer sur l\'un des exercices en bas de page",timeout:'2000' }; 
+			// optionArray[0]= {item:'#retourMenuBoxImg', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton si tu souhaites lire le cours du niveau supérieur, attention, assure toi d'avoir d'abord bien compris ce cours" };
+			 optionArray[1]= {item:'#coursSuivantBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton si tu souhaites lire le cours du niveau sup\351rieur"};
+			 optionArray[2]= { item:'#coursSuivantBox', event:'mouseenter', action: 'speak', speech: "Attention, assure toi d'avoir d'abord bien compris celui-ci",timeout:'2000' }; 
+			 optionArray[3]= {item:'#retourMenuBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton pour retourner \340 la page d'accueil" };
+			 optionArray[4]= {item:'#coursPrecedBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton si tu souhaites lire le cours du niveau inf\351rieur"};
+			 
+			
+			clippyAgent(optionArray,"Lis attentivement ce cours",8000);
+				
+            }); </script>
+{% endblock javascripts %} 

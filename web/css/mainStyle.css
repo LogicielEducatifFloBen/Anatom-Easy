@@ -165,7 +165,7 @@ body{
    font-family: Georgia, serif;
    text-decoration: none;
    vertical-align: middle;
-   }
+  }
 .boiteItemMenuBtn:hover {
    border-color: #91c6b2;
    background: #63323b;
@@ -176,7 +176,7 @@ body{
    background: #1b435e;
 }
 .boiteItemMenuBtn a {
-	font-size: 12px;
+	font-size: 20px;
 }
 
 .boiteItemMenuBtn a:Hover {
@@ -361,7 +361,7 @@ background: #63323B; /* Old browsers */
 	position: relative;
 	float: left;
 	
-	margin-top: 5%;
+	margin-top: 4%;
 	margin-left:3%;
 	min-height:500px;
 	width:95%;
@@ -406,28 +406,8 @@ background: #63323B; /* Old browsers */
 
 }
 
-/*jeu du pendu*/ 
-#pendu-container,#secret-word-container,#letters-container{
 
-	font-size:24pt;
-    margin:50px;
-} 
-#pendu-container{
-    height:362px;
-}
-.jeu-pendu .pendu-letters{
-    padding:5px; 
-    text-transform : uppercase;
-    color:grey;
-}
-.jeu-pendu .clickable{ 
-    cursor:pointer; 
-    color:green;
-}
 
-#global{
-
-}
 
 #global span{
 	font-size:18pt;
@@ -463,8 +443,133 @@ background: #63323B; /* Old browsers */
 	
 }
 
+.boiteItemBonus{
+	position :relative;
+	float:left;
+	margin-left:10%;
+	margin-top:2%;
+	width: 20%;
+	height : 50%;
+
+}
+
+
+.boiteItemBonusTitre{
+	position :relative;
+	float:left;
+	width: 100%;
+	height : 100%;
+
+}
+
+.boiteItemBonusImg{
+	position :relative;
+	float:left;
+	width: 100%;
+	height : 100%;
+	
+}
+.boiteItemBonusImg img{
+	position :relative;
+	float:left;
+	width: 100%;
+	height : 100%;
+	
+}
+
+#boiteBonus{
+	position:relative;
+	float:left;
+	margin-top:2%;
+	height: 380px;
+	width:100%;
+
+}
+
+#boiteExo{
+	position:relative;
+	float:left;
+	width:49%;
+	height:100%;
+	border-right:2px solid #63323b;
+}
+
+#boiteExo h1 {
+	margin-top:3%;
+	margin-bottom:2%;
+	font-size:16pt;
+	color:#91c6b2;
+	background: #63323b;
+	text-align:center;
+.}
+
+#boiteMedia h1 {
+	margin-top:3%;
+	margin-bottom:2%;
+	font-size:16pt;
+	color:#91c6b2;
+	background: #63323b;
+	text-align:center;
+.}
+
+
+
+#boiteMedia{
+	position:relative;
+	float:left;
+	width:49%;
+	height:100%;
+}
+
+.itemBonus{
+	background:#91c6b2;
+	-webkit-border-radius: 22px;
+   -moz-border-radius: 22px;
+	border-radius: 22px;
+}
+
+
+.itemBonus:hover{
+	background: #63323b;
+	border-color:#91c6b2;
+}
+
+.boitItemBonusText{
+	position :relative;
+	float:left;
+	width: 100%;
+	height : 100%;
+}
+
+
+.boitItemBonusText h2{
+	font-family: "caricature3d";
+	font-size:16pt;
+	color: #228450;
+	text-align:left;
+}
+
 
 /************************* PENDU ****************************/
+/*jeu du pendu*/ 
+#pendu-container,#secret-word-container,#letters-container{
+
+	font-size:24pt;
+    margin:50px;
+} 
+#pendu-container{
+    height:362px;
+}
+.jeu-pendu .pendu-letters{
+    padding:5px; 
+    text-transform : uppercase;
+    color:grey;
+}
+.jeu-pendu .clickable{ 
+    cursor:pointer; 
+    color:green;
+}
+
 #penduGame{
 	position:relative;
 	float:left;
@@ -513,5 +618,15 @@ background: #63323B; /* Old browsers */
 
 }
 
+/******************** RECREATION ***********************/
 
+.videoRecre{
+
+	display:block;
+	height:400px;
+	width:400px;
+	margin-top: 2%;
+	margin-bottom: 4%;
+	margin-left:37%;
+}
 
