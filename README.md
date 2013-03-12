@@ -36,7 +36,7 @@ INSERT INTO `Level` (`id`) VALUES
 INSERT INTO `Subjects` (`id`) VALUES
 ('La digestion'),
 ('La respiration'),
-('Le systeme immunitaire');
+('Les cinq sens');
 
 --
 -- Contenu de la table `Type`

@@ -5,7 +5,7 @@ function showForm(prototypeId,add) {
     var $container = $('div#'+prototypeId);
 
     if(!add){
-        var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, ''));
+        var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, '').replace(/__name__/g, ''));
         $container.append($prototype);
     }else{
         var $lienAjout = $('<a href="#" class="btn btn-success" id="ajout_'+prototypeId+'" class="btn"><i class="icon-plus icon-white"></i>Ajouter</a>');

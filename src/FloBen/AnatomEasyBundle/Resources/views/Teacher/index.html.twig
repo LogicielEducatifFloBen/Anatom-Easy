@@ -22,9 +22,9 @@
          
         {% for classe in classes %}
     <table class="table table-bordered table-striped table-hover table-condensed"> 
-        <caption class="lead">{{ classe.name }}, classe de {{ classe.level }}  
+        <caption class="lead">{{ classes[loop.revindex0].name }}, classe de {{ classes[loop.revindex0].level }}  
         
-            <a href="{{ path('anatomeasy_teacher_group', { 'idGroup': classe.id }) }}" role="button"  id="homework_{{ classe.id }}" class="btn btn-small btn-success" data-toggle="modal">
+            <a href="{{ path('anatomeasy_teacher_group', { 'idGroup': classes[loop.revindex0].id }) }}" role="button"  id="homework_{{ classes[loop.revindex0].id }}" class="btn btn-small btn-success" data-toggle="modal">
             <i class="icon-zoom-in icon-white"></i> Voir la classe 
             </a>  
         </caption>
@@ -35,7 +35,7 @@
             </tr>
         </thead>
         <tbody> 
-        {% for eleve in classe.student %}
+        {% for eleve in classes[loop.revindex0].student %}
             <tr>
                 <td>{{eleve.username}}</td>
                 <td>{% for homework in eleve.homework %}

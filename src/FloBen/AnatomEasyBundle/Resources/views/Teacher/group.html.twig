@@ -32,18 +32,20 @@
         <tbody>  
         {% for eleve in classe.student %}  
             <tr>
-                <td><a href="{{ path('anatomeasy_teacher_student', { 'idStudent': eleve.id }) }}">{{eleve.username}}</a></td>
+                <td><a href="{{ path('anatomeasy_teacher_student', { 'idStudent': eleve.id }) }}">
+                        <button class="btn-primary btn " type="button" title="voir le profil de {{eleve.username}}"> <i class="icon-user icon-white"> </i> Profil de {{eleve.username}}</button>
+                </a></td>
                 <td> 
                     {% for devoir in eleve.homework %}  
                         <ul class="list-devoir thumbnails">
-                            {% if ((devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1)<0  %}
+                            {% if ((eleve.homework[loop.revindex0].deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1)<0  %}
                                 <li class="span2"> 
-                                    <strong>Terminé le {{devoir.deadline|date("d/m/Y")}}</strong>
+                                    <strong>Terminé le {{eleve.homework[loop.revindex0].deadline|date("d/m/Y")}}</strong>
                                 </li> 
                             {% else %}
                                 <li class="span2">
                                     <p class="text-warning">
-                                    A rendre dans : {{(devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1 }} jours(s).
+                                    A rendre dans : {{(eleve.homework[loop.revindex0].deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1 }} jours(s).
                                     </p>
                                 </li>  
                             {% endif %} 
@@ -57,12 +59,12 @@
 			                            </div>
 			                            <div class="boitItemMenuText">
 				                            <p> 
-                                                [{{ homeworkHasExercice.exercice.level}}] {{ homeworkHasExercice.exercice.subjects}}
+                                                [{{ eleve.homework[loop.parent.loop.revindex0].homeworkHasExercice[loop.revindex0].exercice.level}}] {{ eleve.homework[loop.parent.loop.revindex0].homeworkHasExercice[loop.revindex0].exercice.subjects}}
                                             </p>
-                                {% if homeworkHasExercice.done == 1 %} 
+                                {% if eleve.homework[loop.parent.loop.revindex0].homeworkHasExercice[loop.revindex0].done == 1 %} 
                                      <p class="text-success homework-done"><strong>Fait </strong>
                                     </p>
-                                {% elseif ((devoir.deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1) %} 
+                                {% elseif ((eleve.homework[loop.parent.loop.revindex0].deadline|date("d/m/Y") - "now"|date("d/m/Y"))-1) %} 
                                      <p class="text-error homework-done"><strong>Non terminé</strong>
                                     </p>
                                 {% endif %} 

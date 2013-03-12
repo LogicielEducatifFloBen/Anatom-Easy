@@ -67,6 +67,7 @@ class StudentController extends Controller
      */
     public function exercicesAction($idExercice,$idTheme,$idNiveau)
     {
+        if($idTheme=="Les_cinq_sens")$idTheme="Les_sens";
 		return array('idExercice' =>$idExercice,'idTheme' =>$idTheme, 'idNiveau' =>$idNiveau);
     }
 	

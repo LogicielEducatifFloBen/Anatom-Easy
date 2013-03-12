@@ -110,9 +110,12 @@
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
+			{%if app.user.group%}
 			<div class="boiteItemMenuBtn coursWithLevel">
 				<a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_respiratoire' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
+			{%endif%}
+			
 			<div class="boiteItemMenuBtn coursWithoutLevel">
 				<a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_respiratoire'}) }}" >Choisi un niveau</a>
 			</div>
@@ -128,9 +131,11 @@
 		    </div>
 	    </div>
 	   <div class="boiteItemMenuBtnBox">
+			{%if app.user.group%}
 			<div class="boiteItemMenuBtn coursWithLevel">
                 <a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
+			{%endif%}
 			<div class="boiteItemMenuBtn coursWithoutLevel"> 
                 <a href="{{path('anatomeasy_student_niveaux', {'id':'le_systeme_digestif'}) }}" >Choisi un niveau</a>
 			</div>
@@ -147,10 +152,12 @@
 		</div>
 		<div class="boiteItemMenuBtnBox">
 			
+			{%if app.user.group%}
 			<div class="boiteItemMenuBtn coursWithLevel">
 				
                 <a href="{{path('anatomeasy_student_cours', {'idCours': 'les_cinq_sens' ,'idNiveau':app.user.group.level}) }}" >Le cours de ton niveau</a>
 			</div>
+			{%endif%}
 
 			<div class="boiteItemMenuBtn coursWithoutLevel">
                 <a href="{{path('anatomeasy_student_niveaux', {'id':'les_cinq_sens'}) }}" >Choisi un niveau</a>
@@ -172,10 +179,12 @@
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
+			{%if app.user.group%}
 			<div class="boiteItemMenuBtn">
 				
                 <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'La_digestion' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
 			</div>
+			{%endif%}
 			<div class="boiteItemMenuBtn">
                 <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'La_respiration' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
 			</div>
@@ -283,14 +292,14 @@
                 var optionArray= new Array(); 
                 optionArray[0]= {item:'#devoir h1  ', event:'mouseenter', action: 'speak', speech: 'Les devoirs : ici , tu peux consulter tes devoirs !' };
                 optionArray[1]= {item:'#cours h1', event:'mouseenter', action: 'speak', speech: 'Les Cours : ici , tu peux consulter les le\347ons !' }; 
-                optionArray[2]= {item:'#exercices h1', event:'mouseenter', action: 'speak', speech: 'Les Exercices : ici , tu peux t\'exercer en t\'amusant !' };
+                optionArray[2]= {item:'#exercices h1', event:'mouseenter', action: 'speak', speech: 'Les Exercices : ici , tu peux t\'exercer en t\'amusant ! (niveau [{{app.user.group.level}}])' };
 
                 optionArray[3]= {item:'#recreation h1', event:'mouseenter', action: 'speak', speech: 'La R\351cr\351ation : ici , tu trouveras d\'autres activit\351s !' };
 
-                optionArray[4]= {item:'#cours .coursWithLevel', event:'mouseenter', action: 'speak', speech: 'acc\351der directement au cours de {{app.user.group.level}}!' };
+                optionArray[4]= {item:'#cours .coursWithLevel', event:'mouseenter', action: 'speak', speech: 'acc\351der directement au cours de [{{app.user.group.level}}] !' };
                 optionArray[5]= {item:'#cours .coursWithoutLevel', event:'mouseenter', action: 'speak', speech: 'choisir le niveau du cours.' };
                 optionArray[6]= {item:'#exercices .qcm img', event:'mouseenter', action: 'speak', speech: 'Le Questionnaire \340 choix multiple : trouve les bonnes r\351ponses' }; 
-                optionArray[7]= {item:'#exercices .puzzle img', event:'mouseenter', action: 'speak', speech: 'Replace les pi\350ces au bon endroit' }; 
+                optionArray[7]= {item:'#exercices .puzzle img', event:'mouseenter', action: 'speak', speech: '[{{app.user.group.level}}]Replace les pi\350ces au bon endroit' }; 
                 optionArray[8]= {item:'#exercices .pendu img', event:'mouseenter', action: 'speak', speech: 'Le Pendu : Trouve le mot myst\350re avec le moins d\'essai possible!' };  
                 clippyAgent(optionArray,'La page d\'accueil! D\'ici, tu peux acc\351der \340 toutes les activit\351s!',8000);
             }); </script>
