@@ -5,7 +5,7 @@
 
 {{ parent() }}
 	{% block titreCours %}Le systeme respiratoire (CM2){% endblock titreCours %}
-	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_respiratoire" ,'idNiveau':'CM1'}) }}">Cours precedent (CM1)</a>{% endblock coursPrecedent %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_respiratoire" ,'idNiveau':'CM2'}) }}">Cours precedent (CM2)</a>{% endblock coursPrecedent %}
 	{% block coursSuivant %}<a href="">Tu as finis</a>{% endblock coursSuivant %}
 	<div id="global">
 	<h1>L'appareil respiratoire</h1>
@@ -28,7 +28,7 @@
 		<li>Les poumons, organe d &acute;&eacute;changes gazeux entre le sang et l&acute;air atmosph&eacute;rique</li>
 		</ul>
 	</span>
-	<div class="boiteImgCours"><img src="/css/img/cours/resumeRespiration.png"/></div>
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/resumeRespiration.png')}}"/></div>
 	<h1>Les voies a&eacute;riennes</h1>
 	<span>
 		L&acute;air p&eacute;n&egrave;tre dans l&acute;organisme par le nez et la bouche, cavit&eacute;s qui d&eacute;bouchent dans le
@@ -54,11 +54,11 @@
 			L&acute;entr&eacute;e de l&acute;air est assur&eacute;e par les mouvements involontaires de muscles respiratoires.
 		La fonction de ces muscles est d&acute;assurer les variations de dimension de la cavit&eacute; thoracique dans
 		laquelle sont log&eacute;s les poumons.
-		Le thorax est un compartiment ferm&eacute; limit&eacute; par les côtes qui s&acute;articulent &agrave; l&acute;arri&egrave;re sur la colonne et
+		Le thorax est un compartiment ferm&eacute; limit&eacute; par les c&ocirc;tes qui s&acute;articulent &agrave; l&acute;arri&egrave;re sur la colonne et
 		devant le sternum, ils sont recouverts par des muscles.
 		Cette cage est ferm&eacute;e &agrave; sa partie inf&eacute;rieure par un muscle : le diaphragme. Le diaphragme est le
 		muscle le plus important. Sa contraction provoque l&acute;augmentation de la hauteur de la cage thoracique
-		et l&acute;&eacute;cartement des côtes inf&eacute;rieures.
+		et l&acute;&eacute;cartement des c&ocirc;tes inf&eacute;rieures.
 		Les muscles respiratoires sont les muscles dont la contraction entra&icirc;ne une variation des dimensions
 		de la cage thoracique. Ils sont divis&eacute;s en deux cat&eacute;gories :
 		<ul>
@@ -68,7 +68,7 @@
 		<li>les muscles expiratoires qui diminuent les dimensions de la cage thoracique.</li>
 		</ul>	
 	</span>
-	<div class="boiteImgCours"><img src="/css/img/cours/muscleRespiration.png"/></div>
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/muscleRespiration.png')}}"/></div>
 
 	<h1>Les poumons</h1>
 	<span>
@@ -107,7 +107,8 @@
 		diffusion des gaz. Le sang qui s&acute;&eacute;loigne de l&acute;alv&eacute;ole s&acute;est donc enrichi en O2 et
 		appauvri en CO2.
 	</span>
-	<div class="boiteImgCours"><img src="/css/img/cours/resumePoumons.png"/></div>
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/resumePoumons.png')}}"/></div>
+	
 	<div id="boiteBonus">
 		<div id="boiteExo">
 			<h1>Entraine toi sur les exercices du niveau CM2!</h1>
@@ -115,7 +116,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'La_respiration' ,'idNiveau':'CM2'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/QCM.png"/>
+							  <img src="{{asset('css/img/QCM.png')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -128,7 +129,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_respiration' ,'idNiveau':'CM2'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="{{asset('/css/img/Pendu.png')}}"/>
+							  <img src="{{asset('css/img/Pendu.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PENDU</h2>
@@ -141,7 +142,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_respiration' ,'idNiveau':'CM2'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							    <img src="/css/img/Puzzle.png"/>
+							    <img src="{{asset('css/img/Puzzle.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PUZZLE</h2>
@@ -156,7 +157,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/videos.gif"/>
+							  <img src="{{asset('css/img/videos.gif')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -169,7 +170,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'lectures' })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/lecture.png"/>
+							   <img src="{{asset('css/img/lecture.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>LECTURES</h2>
@@ -182,7 +183,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'jeux'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/jeux.png"/>
+							   <img src="{{asset('css/img/jeux.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>BOITE A JEUX</h2>
@@ -196,7 +197,7 @@
 {% endblock body %}
 {% block javascripts %}
   
-        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script src="{{ asset('bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 

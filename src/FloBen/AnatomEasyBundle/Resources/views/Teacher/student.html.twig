@@ -161,27 +161,24 @@
                                (sandbox.exercice.type == homeworkHasExercice.exercice.type))%}
                            scoreArray.push([{{ (sandbox.result.date|date("d/m/Y") - "now"|date("d/m/Y"))  }}, {{sandbox.result.score}}]);
                            timeArray.push([{{ sandbox.result.date|date("d/m/Y") }}, {{sandbox.result.secondSpent}}]);
-                           dateArray.push([{{ sandbox.result.date|date("d/m/Y") }}, {{sandbox.result.date|date("d/m/Y")}}]);
-                           
+                           dateArray.push("{{sandbox.result.date|date('d/m/Y')}}");  
                            {% endif %}
                         {% endfor %} 
                                      if(scoreArray[0]!=undefined){
-                                        //s'il ya un historique
-                                        
-                                        dateArray= timeArray;
-                                         for(var i=1;i<scoreArray.length;i++){
-                                            scoreArray[i][0]-=scoreArray[0][0];
-                                            timeArray[i][0]-=scoreArray[0][0];
-                                            dateArray[i][0]-=scoreArray[0][0];
-                                         }
-                                        scoreArray[0][0]=0;
-                                        timeArray[0][0]=0;
-                                        dateArray[0][0]=0;
-                                           
-                                         $.plot($("#placeholder_{{ loop.parent.loop.index }}_{{loop.index}}"),
-                                             [ { label: "Score (%)", threshold: { below: 20, color: "rgb(200, 20, 30)" }, data:  scoreArray },
-                                               { label: "temps Passé (s)",threshold: { below: 20, color: "greenyellow" }, data:  timeArray } ], 
-                                             { yaxis: { max: 101 } });
+                                        //s'il ya un historique 
+                                         for(var i=0;i<scoreArray.length;i++){ 
+                                            scoreArray[i][0]=i;
+                                            timeArray[i][0]=i;
+                                         }  
+         $.plot($("#placeholder_{{ loop.parent.loop.index }}_{{loop.index}}"),
+             [ { label: "Score (%)", threshold: { below: 20, color: "rgb(200, 20, 30)" }, data:  scoreArray },
+               { label: "temps Passé (s)",threshold: { below: 20, color: "greenyellow" }, data:  timeArray } 
+             ],
+             { yaxis: { max: 101 },xaxis: { tickFormatter: function(val, axis) {  
+             //alert(scoreArray.length+" | "+val+" | "+dateArray[val*2]);
+                                           return " essai "+val*2+" :<br/>"+ dateArray[val*2];
+                                           }}
+                                           });
                                    }else{
                                     $("#placeholder_{{ loop.parent.loop.index }}_{{loop.index}}").html("Pas d'autres d'exercice");
                                    }
@@ -189,7 +186,7 @@
                             })();/*]]>*/</script>  
                                 
                         
-                        <div id="placeholder_{{ loop.parent.loop.index }}_{{loop.index}}" style="width:400px;height:200px"></div>
+                        <div id="placeholder_{{ loop.parent.loop.index }}_{{loop.index}}" style="width:900px;height:300px"></div>
                             
                             
                          

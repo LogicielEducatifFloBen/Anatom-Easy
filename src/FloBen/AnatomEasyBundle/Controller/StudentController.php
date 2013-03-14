@@ -21,7 +21,7 @@ use FloBen\AnatomEasyBundle\Entity\Exercice;
 class StudentController extends Controller
 {
     /**
-     * @Route("/", name="anatomeasy_student_index")
+     * @Route("", name="anatomeasy_student_index")
      * @Template()
      */
     public function indexAction()

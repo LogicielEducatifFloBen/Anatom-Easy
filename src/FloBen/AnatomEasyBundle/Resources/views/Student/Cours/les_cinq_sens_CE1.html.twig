@@ -8,25 +8,25 @@
 	{% block coursPrecedent %}<a href="">c'est le d&eacute;but</a>{% endblock coursPrecedent %}
 	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': "les_cinq_sens" ,'idNiveau':'CE2'}) }}">Cours suivant (CE2)</a>{% endblock coursSuivant %}
 	<div id="global">
-		<span>Bienvenue dans l'univers des sens. Tes cinq sens : l'ouïe, l'odorat, la vue, le toucher et le go&ucirc;t sont les portes de ton corps. 
+		<span>Bienvenue dans l'univers des sens. Tes cinq sens : l'ou&iuml;e, l'odorat, la vue, le toucher et le go&ucirc;t sont les portes de ton corps. 
 		Tes cinq sens te permettent de d&eacute;couvrir le monde qui t'entoure. Gr&acirc;ce &agrave; eux, tu vois de beaux paysages, tu &eacute;coutes de la musique, 
 		tu go&ucirc;tes de d&eacute;licieux g&acirc;teaux, tu sens le parfum des fleurs et la douceur de leurs p&eacute;tales.
 		</span>
 		<h1>C'est quoi la vue ?</h1>
 		<span>La vue nous renseigne sur la forme et la couleur des choses gr&acirc;ce &agrave; nos yeux.</span>
-		<div class="boiteImgCours"><img src="/css/img/cours/paysages.png"/></div>
-		<h1>C'est quoi l'ouïe ?</h1>
-		<span>L’ouïe nous permet d’entendre les sons que les oreilles re&ccedil;oivent.</span>
-		<div class="boiteImgCours"><img src="/css/img/cours/ouieImages.png"/></div>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/paysages.png')}}"/></div>
+		<h1>C'est quoi l'ou&iuml;e ?</h1>
+		<span>L'ou&iuml;e nous permet d'entendre les sons que les oreilles re&ccedil;oivent.</span>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/ouieImages.png')}}"/></div>
 		<h1>C'est quoi l'odorat ?</h1>
-		<span>L’odorat nous fait appr&eacute;cier les odeurs que l’air transporte jusqu’&agrave; notre nez.</span>
-		<div class="boiteImgCours"><img src="/css/img/cours/odoratImages.png"/></div>
+		<span>L'odorat nous fait appr&eacute;cier les odeurs que l'air transporte jusqu'&agrave; notre nez.</span>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/odoratImages.png')}}"/></div>
 		<h1>C'est quoi le toucher ?</h1>
-		<span>Le toucher vous permet de sentir le poids d’un objet, s’il est chaud ou froid, doux ou rugueux. La peau per&ccedil;oit toutes ces sensations, elle est aussi sensible &agrave; la douleur.</span>
-		<div class="boiteImgCours"><img src="/css/img/cours/toucherImages.png"/></div>
+		<span>Le toucher vous permet de sentir le poids d'un objet, s'il est chaud ou froid, doux ou rugueux. La peau per&ccedil;oit toutes ces sensations, elle est aussi sensible &agrave; la douleur.</span>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/toucherImages.png')}}"/></div>
 		<h1>C'est quoi le go&ucirc;t ?</h1>
 		<span>Le go&ucirc;t nous permet de reconna&icirc;tre les saveurs sucr&eacute;es, sal&eacute;es, acides ou am&egrave;res  gr&acirc;ce &agrave; notre langue.</span>
-		<div class="boiteImgCours"><img src="/css/img/cours/goutImages.png"/></div>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/goutImages.png')}}"/></div>
 		
 		<div id="boiteBonus">
 		<div id="boiteExo">
@@ -35,7 +35,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'Les_sens' ,'idNiveau':'CE1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/QCM.png"/>
+							  <img src="{{asset('css/img/QCM.png')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -48,7 +48,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'Les_sens' ,'idNiveau':'CE1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="{{asset('/css/img/Pendu.png')}}"/>
+							  <img src="{{asset('css/img/Pendu.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PENDU</h2>
@@ -61,7 +61,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'Les_sens' ,'idNiveau':'CE1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							    <img src="/css/img/Puzzle.png"/>
+							    <img src="{{asset('css/img/Puzzle.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PUZZLE</h2>
@@ -76,7 +76,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/videos.gif"/>
+							  <img src="{{asset('css/img/videos.gif')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -89,7 +89,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'lectures' })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/lecture.png"/>
+							   <img src="{{asset('css/img/lecture.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>LECTURES</h2>
@@ -102,7 +102,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'jeux'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/jeux.png"/>
+							   <img src="{{asset('css/img/jeux.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>BOITE A JEUX</h2>
@@ -116,7 +116,7 @@
 {% endblock body %}
 {% block javascripts %}
   
-        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script src="{{ asset('bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 

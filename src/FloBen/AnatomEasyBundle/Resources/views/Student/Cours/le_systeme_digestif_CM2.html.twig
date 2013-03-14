@@ -5,7 +5,7 @@
 
 {{ parent() }}
 	{% block titreCours %}Le systeme digestif (CM2){% endblock titreCours %}
-	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_digestif" ,'idNiveau':'CM1'}) }}">Cours precedent (CM1)</a>{% endblock coursPrecedent %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': "le_systeme_digestif" ,'idNiveau':'CM2'}) }}">Cours precedent (CM2)</a>{% endblock coursPrecedent %}
 	{% block coursSuivant %}<a href="">tu as finis</a>{% endblock coursSuivant %}
 	<div id="global">
 	
@@ -13,7 +13,7 @@
 	<span>
 		La bouche constitue la porte d&acute;entr&eacute;e de notre corps pour tout ce que nous consommons de liquide ou de solide. Bien s&ucirc;r, l&acute;air peut aussi circuler dans la bouche, elle est donc aussi impliqu&eacute;e dans la respiration.    
 	</span>
-	<div class="boiteImgCours"><img src="/css/img/cours/bouche.png"/></div>                                                                                                      
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/bouche.png')}}"/></div>                                                                                                      
 	<span>
 		Le r&ocirc;le essentiel de la bouche dans le syst&egrave;me digestif est la mastication.
 		La mastication c&acute;est le mouvement rythmique d&acute;ouverture et de fermeture de la bouche qui sert &agrave; broyer les aliments.
@@ -27,7 +27,7 @@
 		</ul>
 	</span>
 
-	<div class="boiteImgCours"><img src="/css/img/cours/dent.png"/></div> 
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/dent.png')}}"/></div> 
 
 	<span>
 	La langue assure le brassage lors de la mastication.
@@ -46,7 +46,7 @@
 	Le pharynx est un carrefour qui communique avec la trach&eacute;e (tuyau pour la respiration), l&acute;&oelig;sophage et m&ecirc;me la cavit&eacute; nasale. Lorsque l&acute;on avale, l&acute;extr&eacute;mit&eacute; sup&eacute;rieure de la trach&eacute;e se ferme gr&acirc;ce &agrave; l&acute;&eacute;piglotte et emp&ecirc;che ainsi tout autre substance que l&acute;air d&acute;entrer dans les poumons.         
 	</span> 
 
-	<div class="boiteImgCours"><img src="/css/img/cours/tete.png"/></div> 
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/tete.png')}}"/></div> 
 
 	<span>
 	L&acute;&oelig;sophage est un tuyau d&acute;une petite trentaine de cm qui &#147; pousse &#148; les aliments vers l&acute;estomac. A l&acute;int&eacute;rieur, il est tr&egrave;s lisse et recouvert d&acute;un liquide appel&eacute; mucus, ce qui permet aux aliments de glisser facilement.
@@ -58,7 +58,7 @@
 	<span>
 	C&apos;est une poche musculeuse (form&eacute;e de muscles) &agrave; paroi triple et en forme de J. Sa surface int&eacute;rieure contient les glandes qui s&eacute;cr&egrave;tent le suc gastrique.
 	<span>
-	<div class="boiteImgCours"><img src="/css/img/cours/estomac.png"/></div>  
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/estomac.png')}}"/></div>  
 	<span>
 	Gr&acirc;ce &agrave; ses muscles, l&acute;estomac va malaxer les aliments avec ce suc gastrique et les transformer en chyme. 
 	Chyme : n.m. masse liquide partiellement dig&eacute;r&eacute;e apr&egrave;s l&acute;action de l&acute;estomac.
@@ -71,7 +71,7 @@
 
 	</span>
 
-	<div class="boiteImgCours"><img src="/css/img/cours/estomacZoom.png"/> </div>
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/estomacZoom.png')}}"/> </div>
 
 	<h1>Quatri&egrave;me &eacute;tape : les intestins</h1>
 	<span>
@@ -83,16 +83,16 @@
 	Lymphe : n.f. liquide incolore se trouvant dans le corps et qui transporte des &eacute;l&eacute;ments nutritifs mais aussi des d&eacute;chets.( le plus gros organe lymphatique est la rate)
 	Les d&eacute;chets passent ensuite dans le gros intestin appel&eacute; aussi colon (+- 1,5 m de long) o&ugrave; l&apos;eau sera absorb&eacute;e et o&ugrave; les d&eacute;chets deviendront solides. Le gros intestin abrite une foule de microbes (nomm&eacute;e flore intestinale) qui ach&egrave;veront de transformer les aliments. Les d&eacute;chets sont ensuite &eacute;vacu&eacute;s par l&apos;anus via le rectum qui est la derni&egrave;re partie de l&acute;intestin.
 	</span>
-	<div class="boiteImgCours"><img src="/css/img/cours/abdomen.png"/> </div>
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/abdomen.png')}}"/> </div>
 	
-	<div id="boiteBonus">
-		<div id="boiteExo">
+				<div id="boiteBonus">
+			<div id="boiteExo">
 			<h1>Entraine toi sur les exercices du niveau CM2!</h1>
 			<div class="boiteItemBonus">
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'La_digestion' ,'idNiveau':'CM2'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/QCM.png"/>
+							  <img src="{{asset('css/img/QCM.png')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -105,7 +105,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_digestion' ,'idNiveau':'CM2'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="{{asset('/css/img/Pendu.png')}}"/>
+							  <img src="{{asset('css/img/Pendu.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PENDU</h2>
@@ -118,7 +118,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_digestion' ,'idNiveau':'CM2'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							    <img src="/css/img/Puzzle.png"/>
+							    <img src="{{asset('css/img/Puzzle.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PUZZLE</h2>
@@ -133,7 +133,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/videos.gif"/>
+							  <img src="{{asset('css/img/videos.gif')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -146,7 +146,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'lectures' })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/lecture.png"/>
+							   <img src="{{asset('css/img/lecture.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>LECTURES</h2>
@@ -159,7 +159,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'jeux'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/jeux.png"/>
+							   <img src="{{asset('css/img/jeux.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>BOITE A JEUX</h2>
@@ -168,12 +168,12 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</div>	
 	</div>
 {% endblock body %}
 {% block javascripts %}
   
-        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script src="{{ asset('bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 

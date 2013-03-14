@@ -96,10 +96,10 @@ function Qcm (){
 			var reponse = $(this).children('input[name=reponse]').val();
 			
 			if(choix == undefined){
-				var divCorrect= $("<span class='correction' style='color:blue'> Tu n'as pas r\351pondu à la question, si tu ne sais pas, va revoir <a href="+self.coursUrl+">ton cours </a> et essai encore </span>");
+				var divCorrect= $("<span class='correction' style='color:blue'> Tu n'as pas r\351pondu \340 la question, si tu ne sais pas, va revoir <a href="+self.coursUrl+">ton cours </a> et essai encore </span>");
 				$(this).append(divCorrect);
 			}else if(choix == reponse){
-					var divCorrect= $("<span class='correction' style='color:green'>Bravo, c\est la bonne r\351ponse</span>");
+					var divCorrect= $("<span class='correction' style='color:green'>Bravo, c\'est la bonne r\351ponse</span>");
 					$(this).append(divCorrect);
 			
 			}else{

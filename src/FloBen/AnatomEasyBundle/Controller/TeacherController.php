@@ -25,7 +25,7 @@ use FloBen\AnatomEasyBundle\Form\ClasseType;
 class TeacherController extends Controller
 {
     /**
-     * @Route("/", name="anatomeasy_teacher_index")
+     * @Route("", name="anatomeasy_teacher_index")
      * @Template()
      */
     public function indexAction()
