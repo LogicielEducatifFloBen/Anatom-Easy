@@ -2,14 +2,13 @@
 
 {% block title %}Connection{% endblock title %}
 {% block body %}
-
-{{ parent() }}
+ 
 
 
 	<div id="navBar">
 		<div id="retourMenuBox" class="barreButton">
 			<div id="retourMenuBoxImg">
-				<img src="/css/img/icone_retour_main.png"/>
+				<img src="{{asset('css/img/icone_retour_main.png')}}"/>
 			</div>
 			<div id="retourMenuBoxTxt">
 				<a href="{{path('anatomeasy_student_index')}}">Menu principal</a>
@@ -17,7 +16,7 @@
 		</div>
 		<div id="coursPrecedBox" class="barreButton">
 			<div id="coursPrecedBoxImg">
-				<img src="/css/img/goBefore.png"/>
+				<img src="{{asset('css/img/goBefore.png')}}"/>
 			</div>
 			<div id="coursPrecedBoxTxt">
 				{% block coursPrecedent %}
@@ -32,7 +31,7 @@
 		
 		<div id="coursSuivantBox" class="barreButton">
 			<div id="coursSuivantBoxImg">
-				<img src="/css/img/goNext.png"/>
+				<img src="{{asset('css/img/goNext.png')}}"/>
 			</div>
 			<div id="coursSuivantBoxTxt">
 				{% block coursSuivant %}

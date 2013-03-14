@@ -4,13 +4,12 @@
 {% block body %}
 
 
-{{ parent() }}
 
 	<div id="navBar">
 		<a href="{{path('anatomeasy_student_index')}}">
 		<div id="retourMenuBox" class="barreButton">
 			<div id="retourMenuBoxImg">
-				<img src="css/img/icone_retour_main.png"/>
+				<img src="{{ asset('css/img/icone_retour_main.png') }}"/>
 			</div>
 			<div id="retourMenuBoxTxt">
 			menu principal</span></a>
