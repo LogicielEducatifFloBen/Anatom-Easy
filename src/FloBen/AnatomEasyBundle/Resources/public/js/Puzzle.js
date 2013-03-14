@@ -10,26 +10,26 @@ function startPuzzle(level,imgPath){
     if (level.indexOf("CE1") >= 0) 
     {  
         nbShuffle=10; 
-        NCaseW=3;
+        NCaseW=2;
         NCaseH=2; 
     }
     else if (level.indexOf("CE2") >= 0) 
     {
         nbShuffle=10;
-        NCaseW=4;
-        NCaseH=3; 
+        NCaseW=3;
+        NCaseH=2; 
     }
     else if (level.indexOf("CM1") >= 0) 
     {
-        nbShuffle=20;
-        NCaseW=4;
+        nbShuffle=10;
+        NCaseW=3;
         NCaseH=3; 
     }
     else if (level.indexOf("CM2") >= 0) 
     {
-        nbShuffle=30;
-        NCaseW=5;
-        NCaseH=4; 
+        nbShuffle=15;
+        NCaseW=4;
+        NCaseH=3; 
     }
 
  /*
@@ -39,42 +39,50 @@ function startPuzzle(level,imgPath){
 #P3 { background-position:-300px 0; }
 #P4 { background-position:-400px 0; }*/
 
+ 
     var containerName="photo";
-    $("#"+containerName).css("width",width+"px").css("height",height+ "px");
-    var k=0;
+    $("#"+containerName).html("").css("width",width+"px").css("height",height+ "px") ;
+    var k=0; 
     for(i=0;i<NCaseH;i++){
         
         for(j=0;j<NCaseW;j++){//<div class="dbx-box" id="P'+k+'"><a href="javascript:void(null)" class="dbx-handle">'+k+'</a></div>
-            var box=$('<div></div>').attr('class','dbx-box')
-                                    .attr('id','P'+k)
-                                    .append($('<a></a>').attr('href','javascript:void(null)')
-                                                        .attr('class','dbx-handle'));
             var bckgrndPos=''+(j==0 ? '0 ' : '-'+Math.round(j*width/NCaseW)+'px ')+(i==0 ? '0' : '-'+Math.round(i*height/NCaseH)+'px'); 
-            box.css("background-position",bckgrndPos)
-               .css("background-image",imgPath) 
-               .css("background-size",width+'px '+height+'px')
-            ; 
+            var box=$('<div></div>').attr('id','P'+k)
+                                    .attr('class','dbx-box')
+                                    .css('width',(width/NCaseW)+"px")
+                                    .css('height',(height/NCaseH)+"px")
+                                    .css('float',"left")
+                                    .css("background-size",width+'px '+height+'px')
+                                    .css("background-position",bckgrndPos)
+                                    .css("background-image",'url('+imgPath+')') 
+                                    .append($('<a></a>').attr('href','javascript:void(null)')
+                                                        .attr('class','dbx-handle')
+                                                        .css('width',(width/NCaseW)+"px")
+                                                        .css('height',(height/NCaseH)+"px"))
+            ;
             $("#"+containerName).append(box);
+            //$("#"+containerName+" div:eq("+k+")").after(box);
             k++;
         } 
     }    
-			    //<div class="dbx-box" id="P0"><a href="javascript:void(null)" class="dbx-handle">0</a></div>
-    //initialise the docking boxes manager
+     
+    
+    
+    
+			    //<div class="dbx-box" id="P0"><a href="javascript:void(null)" class="dbx-handle">0</a></div> 
     var manager = new dbxManager(
 	    'photoswap',			// session ID [/-_a-zA-Z0-9/]
 	    'yes',					// enable box-ID based dynamic groups ['yes'|'no']
 	    'yes',					// hide source box while dragging ['yes'|'no']
 	    'link'					// toggle button element type ['link'|'button']
 	    );
-
-
     //create new docking boxes group
     var group = new dbxGroup(
 	    containerName, 				// container ID [/-_a-zA-Z0-9/]
 	    'freeform', 			// orientation ['vertical'|'horizontal'|'freeform'|'freeform-insert'|'confirm'|'confirm-insert']
 	    '7', 					// drag threshold ['n' pixels]
 	    'yes',					// restrict drag movement to container/axis ['yes'|'no']
-	    '15', 					// animate re-ordering [frames per transition, or '0' for no effect]
+	    '10', 					// animate re-ordering [frames per transition, or '0' for no effect]
 	    'no', 					// include open/close toggle buttons ['yes'|'no']
 	    '',		 				// default state ['open'|'closed']
 
@@ -90,8 +98,14 @@ function startPuzzle(level,imgPath){
 	    ''											// confirm dialog sentence for "selection not okay"
 	    );
 
-
-
+ 
+    $("#"+containerName+" div").each(function( index ) { 
+        if($(this).attr("id")!=undefined){
+            var numero = $(this).attr("id").substring(1); 
+            $("#"+containerName+" div:eq("+numero+")").before($(this)); 
+        
+        }
+    });
 
     //use the rules engine to prevent diagonal movement
     group.setRule('NESW');
@@ -207,19 +221,18 @@ function startPuzzle(level,imgPath){
     {
 	    //if the busy flag is true ignore this action
 	    if(busy) { return; }
-	
 	    //set the busy flag
 	    busy = true;
 	
 	    //reset the piece pointe
 	    var pointer = 0;
-	
+	 
 	    //create an onafteranimate handler
 	    manager.onafteranimate = function()
-	    {
+	    { 
 		    //if this is the primary box
 		    if(primaryID == this.getID(this.sourcebox))
-		    {
+		    { 
 			    //increase the piece pointer
 			    pointer += 2;
 			
@@ -309,24 +322,7 @@ function startPuzzle(level,imgPath){
     };
 
 
-
-    $(".dbx-box").css('width',(width/NCaseW)+"px")
-                       .css('height',(height/NCaseH)+"px");
-    $(".dbx-handle").css('width',(width/NCaseW)+"px")
-                    .css('height',(height/NCaseH)+"px") ;
-    ;
-
-
-
-    //init
-
-  
-    //iterate through the boxes and apply this as a background image
-    for(var i=0; i<boxes.length; i++)
-    {
-	    boxes[i].style.backgroundImage = 'url(' + imgPath + ')';
-    }
-    
+ 
     
     //populate the shuffling array randomly
     //add 30 pairs not just 20 so we get a good old shuffle
@@ -335,13 +331,13 @@ function startPuzzle(level,imgPath){
     {
 	    for(var j=0; j<2; j++)
 	    {
-		    shuffling.push('P' + (1 + Math.floor(Math.random() * (NCaseW*NCaseH))));
+		    shuffling.push('P' + ( Math.floor(Math.random() * (NCaseW*NCaseH))));
 	    }
     }
 
     //run the shuffle function with the shuffled array
     
-    setTimeout(function() {shuffle();}, 1500);
+    setTimeout(function() {shuffle();}, 3500);
 		  
 }
 
