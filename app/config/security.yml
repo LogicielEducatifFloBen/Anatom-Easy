@@ -27,8 +27,8 @@ security:
             form_login:                             # On définit notre méthode d'authentification
                 provider:       fos_userbundle      # On lit l'authentification au provider définit plus haut 
                 remember_me:    true                # On active la possibilité du "Se souvenir de moi" (désactivé par défaut)
-                default_target_path: /index
-                login_path:          /index
+                default_target_path: /
+                login_path:          /
                 check_path:          /login_check
             logout:  
                 target: /index
