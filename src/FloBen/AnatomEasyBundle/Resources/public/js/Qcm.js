@@ -27,8 +27,11 @@ function Qcm (){
 		$('#question_container').empty();
 		this.chrono=0;
 		self.startChrono();
+		var currentTab = $.merge(new Array(),self.questionArray); 
 		for(var i = 0; i < 7 ; i++){
-			var question=self.questionArray[Math.floor(Math.random()*self.questionArray.length)]; 
+			var indice = Math.floor(Math.random()*currentTab.length);
+			var question=currentTab[indice]; 
+			currentTab.splice(indice,1); 
 			
 			$("#question_container").append(self.constructQuestion(i,question));
 			$("#question_container").append("<br>");
@@ -124,7 +127,13 @@ function Qcm (){
 					   
 	}
 	var score = ((nbRight)*100)/7;
-	$.post(window.location.pathname+"/register", {'score' :score, 'secondSpent':this.chrono }); 
+	var success = false;
+	if(score == 100){
+		agentTest.play("Congratulate");  
+		success = true;
+	}
+	
+	$.post(window.location.pathname+"/register", {'success': success, 'score' :score, 'secondSpent':this.chrono }); 
 
 
  }
