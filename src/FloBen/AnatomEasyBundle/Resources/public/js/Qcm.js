@@ -1,26 +1,39 @@
 function Qcm (){
 
 
-	this.questionArray  = new Array();
+	this.questionArray  = '';
 	self                = this;
 	this.coursUrl       = '';
+	this.chrono			= 0;
 	
-	
-	this.StartQcm = function(coursUrl){
-	
+	this.StartQcm = function(tabQuestions,coursUrl){
+		
+		self.questionArray = tabQuestions;
+		self.coursUrl=coursUrl;	
+		
 		$("#verify").click(function() {
 		  self.Verify();
+		  $('html,body').animate({scrollTop: 0}, 'slow');
 		});
-		this.coursUrl=coursUrl;	
-		$.each(this.questionArray,function(numQuestion,question){
-	
-			$("#question_container").append(self.constructQuestion(numQuestion,question));
-			$("#question_container").append("<br>");
-              
-			  
-
+		$("#generate").click(function() {
+		  self.generate();
+		  $('html,body').animate({scrollTop: 0}, 'slow');
 		});
 		
+		self.generate();
+	}
+	
+	this.generate = function(){
+		$('#question_container').empty();
+		this.chrono=0;
+		self.startChrono();
+		for(var i = 0; i < 7 ; i++){
+			var question=self.questionArray[Math.floor(Math.random()*self.questionArray.length)]; 
+			
+			$("#question_container").append(self.constructQuestion(i,question));
+			$("#question_container").append("<br>");
+		
+		}
 	}
 	
 	this.constructQuestion = function (numQuestion,question){
@@ -50,23 +63,7 @@ function Qcm (){
 			});
 		return newQuestion;
 	}
-		/*	container.children("#question-container")
-                 .append($('<h1>'+abc[i]+'</h1>')
-                     .addClass("pendu-letters")
-                     .addClass("clickable")
-                     .click(function(){
-                        clickLetter($(this));
-                     } )
-              )
-			  
-			   <div id="question_0" class="div_questionnaire" >
-			qu'elle est votre sexe : <br />
-			Homme : <INPUT type=radio name="sexe" value="M">
-			<br>Femme : <INPUT type=radio name="sexe" value="F">
-			<br/><button onClick="ouvrir_fermer('response_0','question_0');">J'ai fini!</button>
-		</div>*/
-	
-	
+		
 	
 	this.AddQuestion = function(intitule, choix, reponse){
 		
@@ -82,35 +79,51 @@ function Qcm (){
 
 
 
-	function startChrono(){
-		chrono++;
-		setTimeout(function() {startChrono();}, 1000);
+	this.startChrono = function(){
+	
+		this.chrono++;
+		setTimeout(function() {self.startChrono();}, 1000);
 	}
 	
 	this.Verify = function(){
 		
 		$(".correction").remove();
+		var nbRight = 0;
+		var nbWrong = 0;
+		var nbNoAnswer = 0;
+		
+		
 		$(".question").each(function( key, value ) {
 			
 			var choix = $(this).children('input:checked').val();
 			var reponse = $(this).children('input[name=reponse]').val();
 			
 			if(choix == undefined){
-				var divCorrect= $("<span class='correction' style='color:blue'> Tu n'as pas r\351pondu à la question, si tu ne sais pas, va revoir <a href="+self.coursUrl+">ton cours </a> et essai encore </span>");
+				var divCorrect= $("<span class='correction' style='color:blue'> Tu n'as pas r\351pondu \340 la question, si tu ne sais pas, va revoir <a href="+self.coursUrl+">ton cours </a> et essai encore </span>");
 				$(this).append(divCorrect);
+				nbNoAnswer ++;
 			}else if(choix == reponse){
-					var divCorrect= $("<span class='correction' style='color:green'>Bravo, c\est la bonne r\351ponse</span>");
-					$(this).append(divCorrect);
-			
+				var divCorrect= $("<span class='correction' style='color:green'>Bravo, c\'est la bonne r\351ponse!</span>");
+				$(this).append(divCorrect);
+				nbRight++;
 			}else{
-			
-					var divCorrect= $("<span class='correction' style='color:red'>Tu t'es tromp\351, la bonne r\351ponse est : "+reponse+"</span>");
-					
-					$(this).append(divCorrect);
+		
+				var divCorrect= $("<span class='correction' style='color:red'>Tu t'es tromp\351, la bonne r\351ponse est : "+reponse+"<a href="+self.coursUrl+">( ton cours )</a> </span>");
+				nbWrong++;
+				$(this).append(divCorrect);
 			}
+        
+		});
 	
-	
-	});
+	if(agentTest!=null){
+		agentTest.stop();
+		agentTest.speak("Tu as r\351pondu en "+this.chrono+" secondes et tu as "+nbRight+" r\351ponses correctes sur 7, consulte tes erreurs");
+					   
+	}
+	var score = ((nbRight)*100)/7;
+	$.post(window.location.pathname+"/register", {'score' :score, 'secondSpent':this.chrono }); 
+
+
  }
  
  }

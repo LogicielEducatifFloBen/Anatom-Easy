@@ -26,24 +26,85 @@
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 
-       
-			optionArray[0]= {item:'#retourMenuBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton pour retourner \340 la page d'accueil" };
+			
+			optionArray[0]= { action: 'speak', speech: "Tu peux aussi faire un autre qcm sur le m\352me th\350me en cliquant sur 'faire un autre qcm'",timeout:'2000' }; 
+			optionArray[1]= {item:'#retourMenuBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton pour retourner \340 la page d'accueil" };
+			optionArray[2]= {item:'#generate', event:'click', action: 'speak', speech: "Voici un nouveau qcm, r\351ponds aux questions et clique sur 'j\'ai fini' pour consulter la correction" };
 			clippyAgent(optionArray,"R\351ponds \340 toutes les questions, puis clique sur le bouton 'j'ai fini' en bas pour voir tes r\351sultats",8000);
 			
 				
 			
 				var qcm = new Qcm();
-			
-				qcm.AddQuestion("L'estomac est-il un organe utile \340 la digestion ?",new Array("oui", "non"), 0);
-				qcm.AddQuestion("O\371 sont extrait les nutriments ?",new Array("l'intestin", "l'estomac", "la bouche", "l'anus"), 0);
-				qcm.AddQuestion("Suivant le trajet des aliment, l'organe qui se situe entre la bouche et l'estomac s'appelle ?",new Array("L'intestin gr\352le","le gros intestin","l'oesophage"), 2);
-				qcm.AddQuestion("Quel est l'organie qui produit de la bile ?",new Array("le pancr\351as", "l'estomac", "l'anus", "l'intestin gr\352le"), 0);
-				qcm.AddQuestion("La mastication se d \351roule-t-elle au niveau de ta trach\351e?",new Array("oui", "non"), 1);
-				qcm.AddQuestion("Indique l'organe qui n'intervient pas dans la digestion dans les propositions suivantes ?",new Array("le pancr \351as", "l\'estomac", "les alv\351oles pulmonaires","l'intestin gr\352le"), 2);
-				qcm.AddQuestion("Comment appelle-t-on l'organe qui dissoue les aliments que tu manges ?",new Array("le pancr\351as","l'intestin gr\352le", "l\'estomac", "le gros intestin"), 2);
-		
+						
 				
-				qcm.StartQcm("{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau': idNiveau}) }}");
+				 var questions = new Array();
+				questions['CE1'] =  new Array();
+				
+				q1 = new Question("L\'air pollu\351 emp\352che de bien respirer ?",new Array("vrai", "faux"), 0);
+				q2 = new Question("L\'air entre dans ta bouche ou ton nez puis arrive aux poumons par la trach\351e ?",new Array("vrai", "faux"), 0);
+				q3 = new Question("L\'inspiration et l\'expiration sont les ?",new Array("mouvements respiratoires","Le rythme respiratoire"), 0);
+				q4 = new Question("On respire continuellement par des mouvements respiratoires r\351guliers",new Array("vrai", "faux"), 0);
+				q5 = new Question("Qu\'est ce que le rythme respiratoire ?",new Array("l\'inspiration et l\'expiration", "le nombre de mouvements respiratoires pendant un temps donn\351", "Les poumons"), 1);
+				q6 = new Question("Le trajet correct de l\'air est ?",new Array("bouche puis poumons puis trach\351e", "bouche puis trach\351e puis poumons", "poumons puis trach\351e puis bouche"), 1);
+				q7 = new Question("Le rythme respiratoire est le m\352me pour tout le monde ?",new Array("vrai", "faux"), 1);
+				q8 = new Question("Pendant un effort physique, comment \351volue le rythme respiratoire?",new Array("il augmente","il diminue","il ne change pas"), 0);
+				q9 = new Question("Les mouvements respiratoires sont r\351guliers ?",new Array("vrai","faux"), 0);
+				q10 = new Question("Combien de phase un mouvement respiratoire contient-il ? ",new Array("une","deux","trois"), 1);
+							
+				questions['CE1'].push(q1);
+				questions['CE1'].push(q2);
+				questions['CE1'].push(q3);
+				questions['CE1'].push(q5);
+				questions['CE1'].push(q6);
+				questions['CE1'].push(q7);
+				questions['CE1'].push(q8);
+				questions['CE1'].push(q9);
+				questions['CE1'].push(q10);
+				
+				questions['CE2'] = $.merge(new Array(),questions['CE1']); 
+				q8  = new Question("L\'air que tu expire contient est riche en ?",new Array("dioxyde de carbone", "oxyg\350ne"), 1);
+				q9  = new Question("Le gaz carbonique est un d\351chet ?",new Array("vrai","faux"), 0);
+				q10 = new Question("Les poumons sont divis\351s en ?",new Array("bronchioles", "oxyg\350ne"), 0);
+				q11 = new Question("Pendant l'expiration, le volume de la cage thoracique augmente ?",new Array("vrai","faux"), 1);
+				q12 = new Question("Quel est le nom de l\'organe que se contracte pendant l'inspiration et se d\351contracte pendant l\'expiration ?",new Array("les poumons ", "le diaphragme","les bronches"), 1);
+			
+				questions['CE2'].push(q8);
+				questions['CE2'].push(q9);
+				questions['CE2'].push(q10);
+				questions['CE2'].push(q11);
+				questions['CE2'].push(q12);
+				
+				questions['CM1'] = $.merge(new Array(),questions['CE2']); 
+				q13  = new Question("O\371 se font les \351changes gazeux ?",new Array("dans les poumons","dans les bronches","dans les alv\351oles pulmonaires"), 2);
+				q14  = new Question("Quel est le nom du gaz dont nos muscles ont besoin pour fonctionner ?",new Array("Le dioxyde de carbone","Le dioxyg\350ne"), 1);
+				q15  = new Question("A quoi sert le dioxyg\350ne ?",new Array("\340 alimenter nos muscles","\340 rien","\340 respirer"), 0);
+				q16 =  new Question("Le corps a besoin de dioxyg\350ne ?",new Array("oui","non"),1);
+				q17 =  new Question("Quel gaz rejette t\'on ap\350s le passage de l\'air dans les poumons ?",new Array("Le dioxyde de carbone","Le dioxyg\350ne"), 0);
+
+				
+				
+				questions['CM1'].push(q13);
+				questions['CM1'].push(q14);
+				questions['CM1'].push(q15);
+				questions['CM1'].push(q16);
+				questions['CM1'].push(q17);
+
+				
+				questions['CM2'] = $.merge(new Array(),questions['CM1']); 
+				q18  = new Question("Les poumons sont des organes d\'\351changes gazeux entre le sang et l\'air atmosph\351rique ?",new Array("vrai","faux"),0);
+				q19  = new Question("Le phrarynx fait partie ?",new Array("des muscles respiratoires", "des zones d\'\351changes gazeux", "des voies a\351riennes"), 2);
+				q20  = new Question("O\371 sont log\351s les poumons ?",new Array("le thorax","le diaphragme","la gorge"), 0);
+				q21  = new Question("O\371 se font les \351changes gazeux ? ",new Array("dans la membrane alv\351olaire", "dans la trach\351e", "dans le larynx"), 0);
+				q22  = new Question("Qu\'est ce qui permet de transporter l\'oxyg\350ne r\351cup\351r\351e dans les poumons vers les muscles ?",new Array("le sang ","les alv\351oles pulmonaires","le diaphragme"), 0);
+				
+				questions['CM2'].push(q18);
+				questions['CM2'].push(q19);
+				questions['CM2'].push(q20);
+				questions['CM2'].push(q21);
+				questions['CM2'].push(q22);
+		
+			
+				qcm.StartQcm(questions['{{idNiveau}}'],"{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_respiratoire' ,'idNiveau': idNiveau}) }}");
 				
 			
             }); </script>

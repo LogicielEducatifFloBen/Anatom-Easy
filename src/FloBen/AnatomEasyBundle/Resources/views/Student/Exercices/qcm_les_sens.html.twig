@@ -25,24 +25,87 @@
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 
-       
-			optionArray[0]= {item:'#retourMenuBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton pour retourner \340 la page d'accueil" };
+			
+			optionArray[0]= { action: 'speak', speech: "Tu peux aussi faire un autre qcm sur le m\352me th\350me en cliquant sur 'faire un autre qcm'",timeout:'2000' }; 
+			optionArray[1]= {item:'#retourMenuBox', event:'mouseenter', action: 'speak', speech: "Clique sur ce bouton pour retourner \340 la page d'accueil" };
+			optionArray[2]= {item:'#generate', event:'click', action: 'speak', speech: "Voici un nouveau qcm, r\351ponds aux questions et clique sur 'j\'ai fini' pour consulter la correction" };
 			clippyAgent(optionArray,"R\351ponds \340 toutes les questions, puis clique sur le bouton 'j'ai fini' en bas pour voir tes r\351sultats",8000);
 			
 				
 			
 				var qcm = new Qcm();
-			
-				qcm.AddQuestion("L'estomac est-il un organe utile \340 la digestion ?",new Array("oui", "non"), 0);
-				qcm.AddQuestion("O\371 sont extrait les nutriments ?",new Array("l'intestin", "l'estomac", "la bouche", "l'anus"), 0);
-				qcm.AddQuestion("Suivant le trajet des aliment, l'organe qui se situe entre la bouche et l'estomac s'appelle ?",new Array("L'intestin gr\352le","le gros intestin","l'oesophage"), 2);
-				qcm.AddQuestion("Quel est l'organie qui produit de la bile ?",new Array("le pancr\351as", "l'estomac", "l'anus", "l'intestin gr\352le"), 0);
-				qcm.AddQuestion("La mastication se d \351roule-t-elle au niveau de ta trach\351e?",new Array("oui", "non"), 1);
-				qcm.AddQuestion("Indique l'organe qui n'intervient pas dans la digestion dans les propositions suivantes ?",new Array("le pancr \351as", "l\'estomac", "les alv\351oles pulmonaires","l'intestin gr\352le"), 2);
-				qcm.AddQuestion("Comment appelle-t-on l'organe qui dissoue les aliments que tu manges ?",new Array("le pancr\351as","l'intestin gr\352le", "l\'estomac", "le gros intestin"), 2);
-		
+						
 				
-				qcm.StartQcm("{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau': idNiveau}) }}");
+				 var questions = new Array();
+				questions['CE1'] =  new Array();
+				
+				q1 = new Question("Quel est l\'organe principal qui permet la vue ?",new Array("l\'oeil", "l\'oreille","l\odorat"), 0);
+				q2 = new Question("Comment s\'appelle le sens qui nous permet d\'apprecier les odeurs ?",new Array("l\'ouie", "l\'odorat", "la bouche"), 1);
+				q3 = new Question("Indique l\'\351l\351ment qui n\'est pas une saveur ?",new Array("Sucr\351","Sal\351","Gateau"), 2);
+				q4 = new Question("Combien il y a t\'il de sens ?",new Array("un", "deux", "trois", "cing"), 3);
+				q5 = new Question("L\'oreille est l'organe qui te permet de ?",new Array("sentir", "gouter", "voir", "entendre"), 3);
+				q6 = new Question("Indique l\'\351l\351ment qui n\'est pas un sens",new Array("la vue", "l\'odorat", "l\'ouie","l\'oeil"), 3);
+				q7 = new Question("Am\350re, sucr\351, sal\351 sont des ?",new Array("saveurs","sens", "organes"), 0);
+				q8 = new Question("L\'oeil est l\'organe qui permet la vue ?",new Array("vrai","faux"), 0);
+				q9 = new Question("L\'oreille est l\'organe qui permet l\'odorat ?",new Array("vrai","faux"), 1);
+				q10 = new Question("Le nez est l\'organe qui permet l\'odorat ?",new Array("vrai","faux"), 0);
+							
+				questions['CE1'].push(q1);
+				questions['CE1'].push(q2);
+				questions['CE1'].push(q3);
+				questions['CE1'].push(q5);
+				questions['CE1'].push(q6);
+				questions['CE1'].push(q7);
+				questions['CE1'].push(q8);
+				questions['CE1'].push(q9);
+				questions['CE1'].push(q10);
+				
+				questions['CE2'] = $.merge(new Array(),questions['CE1']); 
+				q8  = new Question("Le sens qui nous renseigne sur les couleurs et les forme s'\appelle ?",new Array("la vue", "l\'odorat", "l\'ouie","l\'oeil"), 0);
+				q9  = new Question("Les r\351c\351pteurs qui nous permettent de sentir les saveurs sur la langue s\'appellent ?",new Array("les ch\351mor\351cepteurs", "les zones"), 0);
+				q10 = new Question("L\'olfaction est le sens qui nous permet de",new Array("voir", "gouter", "sentir", "entendre"), 2);
+				q11 = new Question("Les r\351c\351pteurs tactiles sont utilent pour ?",new Array("voir", "gouter", "entendre", "sentir"), 3);
+				q12 = new Question("Le cerveau joue t\'il un role dans la p\350rception du gout et des odeurs ?",new Array("non", "oui"), 1);
+			
+				questions['CE2'].push(q8);
+				questions['CE2'].push(q9);
+				questions['CE2'].push(q10);
+				questions['CE2'].push(q11);
+				questions['CE2'].push(q12);
+				
+				questions['CM1'] = $.merge(new Array(),questions['CE2']); 
+				q13  = new Question("Le globe oculaire est une partie importante de l\'oeil ?",new Array("vrai","faux"), 0);
+				q14  = new Question("La r\350tine est une partie de l\'oeil",new Array("oui","non"), 0);
+				q15  = new Question("Les papilles gustatives permettent de reconnaitre les diff\351rentes saveurs ?",new Array("vrai","faux"), 0);
+				q16 =  new Question("Combien de saveurs il existe ?",new Array("3", "5", "4"), 2);
+				q17 =  new Question("Par o\371 la lumi\350re entre t\'elle dans l\'oeil ?",new Array("le cristallin", "la pupille","la r\350tine"), 1);
+				q18=  new Question("La chaine d\'osselets est une partie de l\'oreille ?",new Array("vrai","faux"), 0);
+				q19 =  new Question("Par o\371 le son arrive t\'il dans l\'oreille ?",new Array("le pavillon", "le conduit","le nerf auditif"), 0);
+				
+				
+				questions['CM1'].push(q13);
+				questions['CM1'].push(q14);
+				questions['CM1'].push(q15);
+				questions['CM1'].push(q16);
+				questions['CM1'].push(q17);
+				questions['CM1'].push(q18);
+				questions['CM1'].push(q19);
+				
+				questions['CM2'] = $.merge(new Array(),questions['CM1']); 
+				q18  = new Question("De quoi sont form\351e les images que l\'on voit ?",new Array("la lumi\350re", "la corn\351e","L\oesophage"), 1);
+				q19  = new Question("Q\'elle partie de l\'oeil permet de r\351gler la nettet\351 de la vision ?",new Array("la pupille", "le cristallin", "la r\351tine"), 1);
+				q20  = new Question("Lorsque l\'on voit une image, c\'est le cerveau que la remet \340 l\'endroit ?",new Array("vrai","faux"), 0);
+				q21  = new Question("Lorsque l\'on voit une image, les informations r\351cup\351r\351es par l\'oeil sont envoy\351es au cerveau par ",new Array("le nerf optique", "le conduit auditif", "l\'iris"), 0);
+				q22  = new Question("Dans l\'oreille, quel organe permet de transformer les vibrations en informations que le cerveau peut d\351coder ?",new Array("la cochl\351e ","le tympan","le marteau"), 0);
+				
+				questions['CM2'].push(q18);
+				questions['CM2'].push(q19);
+				questions['CM2'].push(q20);
+				questions['CM2'].push(q21);
+				questions['CM2'].push(q22);
+		
+			
+				qcm.StartQcm(questions['{{idNiveau}}'],"{{path('anatomeasy_student_cours', {'idCours': 'les_cinq_sens' ,'idNiveau': idNiveau}) }}");
 				
 			
             }); </script>

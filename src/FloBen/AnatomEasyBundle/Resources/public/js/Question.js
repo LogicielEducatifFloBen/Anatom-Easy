@@ -4,6 +4,6 @@ function Question (intitule, choix, reponse){
 	this.choix = choix;
 	this.reponse = reponse;
 
-
+	
 
 }
