@@ -16,14 +16,16 @@
 {% endblock body %} 
  
         {% block stylesheets %}  
-		<link rel="stylesheet" type="text/css" href="{{ asset('/bundles/flobenanatomeasy/css/Puzzle.css')}}" /> 
+		<link rel="stylesheet" type="text/css" href="{{ asset('bundles/flobenanatomeasy/css/Puzzle.css')}}" /> 
         {% endblock %}
 {% block javascripts %}
  
-    <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
-    <script src="{{ asset('/bundles/flobenanatomeasy/js/Puzzle.js') }}" type="text/javascript" ></script> 
-    <script src="{{ asset('/bundles/flobenanatomeasy/js/PuzzleLib.js') }}" type="text/javascript" ></script> 
-    <script src="{{ asset('/bundles/flobenanatomeasy/js/SendResult.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('bundles/flobenanatomeasy/js/Puzzle.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('bundles/flobenanatomeasy/js/dbx.js') }}" type="text/javascript" ></script>
+    <script src="{{ asset('bundles/flobenanatomeasy/js/dbx.remotes.js') }}" type="text/javascript" ></script>
+    <script src="{{ asset('bundles/flobenanatomeasy/js/dbx.rules.js') }}" type="text/javascript" ></script> 
+    <script src="{{ asset('bundles/flobenanatomeasy/js/SendResult.js') }}" type="text/javascript" ></script> 
     <script type="text/javascript">     
         $(document).ready(function() {
             var optionArray= new Array();  

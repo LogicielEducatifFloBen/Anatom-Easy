@@ -5,7 +5,7 @@
 
 {{ parent() }}
 	{% block titreCours %}Le systeme digestif (CM1){% endblock titreCours %}
-	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau':'CE2'}) }}">Cours precedent (CE2)</a>{% endblock coursPrecedent %}
+	{% block coursPrecedent %}<a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau':'CM1'}) }}">Cours precedent (CM1)</a>{% endblock coursPrecedent %}
 	{% block coursSuivant %}<a href="{{path('anatomeasy_student_cours', {'idCours': 'le_systeme_digestif' ,'idNiveau':'CM2'}) }}">Cours suivant (CM2)</a>{% endblock coursSuivant %}
 	<div id="global">
 	
@@ -17,7 +17,7 @@
 		Ils sont transform&eacute;s gr&acirc;ce &agrave; l&apos;action des sucs digestifs qui se trouvent dans les glandes digestives (glandes salivaires, foie, pancr&eacute;as).
 		Les nutriments passent dans le sang qui va les distribuer &agrave; tous les organes du corps. Les d&eacute;chets (l&apos;eau et les morceaux qui ne peuvent &ecirc;tre r&eacute;duits en petites particules) passent dans le gros intestin et sont rejet&eacute;s dans les urines et dans les mati&egrave;res f&eacute;cales.
 	</span>
-	<div class="boiteImgCours"><img src="/css/img/cours/tubeDigestif.png"/></div>
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/tubeDigestif.png')}}"/></div>
 
 	<h1>C&apos;est quoi les nutriments ?</h1>
 	<span>
@@ -30,16 +30,17 @@
 		On appelle villosit&eacute;s intestinales les petits replis, en forme de doigts, de 0,5 mm de long qui tapissent la paroi interne de l&apos;intestin gr&ecirc;le. Leur nombre consid&eacute;rable (plus de 10 millions) cr&eacute;e une grande surface de contact entre les aliments et la paroi intestinale : 140 m2 chez un adulte. On parle de surface d&apos;&eacute;change.
 		L&apos;absorption est aussi favoris&eacute;e par la longueur de l&apos;intestin gr&ecirc;le, qui est de 6,7 &agrave; 7,6 m.
 	</span>
-	<div class="boiteImgCours"><img src="/css/img/cours/nutriments.gif"/></div>
+	<div class="boiteImgCours"><img src="{{asset('css/img/cours/nutriments.gif')}}"/></div>
 	
-	<div id="boiteBonus">
-		<div id="boiteExo">
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/appareilDigestif.png')}}"/> </div>
+				<div id="boiteBonus">
+			<div id="boiteExo">
 			<h1>Entraine toi sur les exercices du niveau CM1!</h1>
 			<div class="boiteItemBonus">
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'La_digestion' ,'idNiveau':'CM1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/QCM.png"/>
+							  <img src="{{asset('css/img/QCM.png')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -52,7 +53,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_digestion' ,'idNiveau':'CM1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="{{asset('/css/img/Pendu.png')}}"/>
+							  <img src="{{asset('css/img/Pendu.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PENDU</h2>
@@ -65,7 +66,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_digestion' ,'idNiveau':'CM1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							    <img src="/css/img/Puzzle.png"/>
+							    <img src="{{asset('css/img/Puzzle.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PUZZLE</h2>
@@ -80,7 +81,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/videos.gif"/>
+							  <img src="{{asset('css/img/videos.gif')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -93,7 +94,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'lectures' })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/lecture.png"/>
+							   <img src="{{asset('css/img/lecture.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>LECTURES</h2>
@@ -106,7 +107,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'jeux'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/jeux.png"/>
+							   <img src="{{asset('css/img/jeux.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>BOITE A JEUX</h2>
@@ -115,7 +116,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</div>	
 	</div>
 		
 
@@ -123,7 +124,7 @@
 {% endblock body %}
 {% block javascripts %}
   
-        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script src="{{ asset('bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 

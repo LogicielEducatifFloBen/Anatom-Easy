@@ -17,7 +17,7 @@
 		L'air expir&eacute; suit le trajet inverse puis ressort par la bouche ou par le nez.
 		</span>
 		
-		<div class="boiteImgCours"><img src="/css/img/cours/trajet_air.png"/></div>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/trajet_air.png')}}"/></div>
 		
 		<h1> Les mouvements respiratoires </h1>
 		<span>
@@ -30,7 +30,7 @@
 		Les &eacute;changes gazeux se font au niveau des alv&eacute;oles pulmonaires. Elles ressemblent &agrave; des petits sacs minuscules. Dans ces alv&eacute;oles, le dioxyg&egrave;ne de l'air passe dans le sang pour alimenter tous les organes du corps. 
 		Notre corps produit quant &agrave; lui du dioxyde de carbone qui transportait du sang vers les poumons pour &ecirc;tre ensuite rejet&eacute; lors de l'expiration.
 		</span>
-		<div class="boiteImgCours"><img src="/css/img/cours/bronchiole.png"/></div>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/bronchiole.png')}}"/></div>
 		
 		<h1>Pourquoi cet &eacute;change ?</h1>
 		<span>
@@ -44,7 +44,7 @@
 		L'air que je respire est compos&eacute; de dioxyg&egrave;ne (O2), d'azote (N) en grande quantit&eacute; et de dioxyde de carbone (CO2) en quantit&eacute; minime.
 		</span>
 		
-		<div class="boiteImgCours"><img src="/css/img/cours/composition_air.png"/></div>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/composition_air.png')}}"/></div>
 		
 		<span>
 		On remarque que l'air expir&eacute; est plus pauvre en dioxyg&egrave;ne et plus riche en dioxyde de carbone que l'air inspir&eacute;. 
@@ -55,7 +55,7 @@
 		
 		</span>
 		
-		<div class="boiteImgCours"><img src="/css/img/cours/consomation.png"/></div>
+		<div class="boiteImgCours"><img src="{{asset('css/img/cours/consomation.png')}}"/></div>
 		
 	<div id="boiteBonus">
 		<div id="boiteExo">
@@ -64,7 +64,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Qcm' ,'idTheme': 'La_respiration' ,'idNiveau':'CM1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/QCM.png"/>
+							  <img src="{{asset('css/img/QCM.png')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -77,7 +77,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_respiration' ,'idNiveau':'CM1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="{{asset('/css/img/Pendu.png')}}"/>
+							  <img src="{{asset('css/img/Pendu.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PENDU</h2>
@@ -90,7 +90,7 @@
 				<a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_respiration' ,'idNiveau':'CM1'}) }}" >
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							    <img src="/css/img/Puzzle.png"/>
+							    <img src="{{asset('css/img/Puzzle.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>PUZZLE</h2>
@@ -105,7 +105,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							  <img src="/css/img/videos.gif"/>
+							  <img src="{{asset('css/img/videos.gif')}}"/>
 						</div>
 					</div>
 						<div class="boitItemBonusText">
@@ -118,7 +118,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'lectures' })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/lecture.png"/>
+							   <img src="{{asset('css/img/lecture.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>LECTURES</h2>
@@ -131,7 +131,7 @@
 				<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'jeux'  })}}">
 					<div class="boiteItemBonusTitre itemBonus">
 						  <div class="boiteItemBonusImg">
-							   <img src="/css/img/jeux.png"/>
+							   <img src="{{asset('css/img/jeux.png')}}"/>
 						</div>
 						<div class="boitItemBonusText">
 							<h2>BOITE A JEUX</h2>
@@ -145,7 +145,7 @@
 {% endblock body %}
 {% block javascripts %}
   
-        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script src="{{ asset('bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 

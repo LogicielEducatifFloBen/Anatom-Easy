@@ -20,11 +20,7 @@ class RegistrationController extends BaseController
             $user = $form->getData();
 
             ///////////
-            $group=new Group();
-            $group->setLevel($em->getRepository('FloBenAnatomEasyBundle:Level')->find($request->request->get('level', ''))); 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($group);
-            $user->setGroup($group);
+            
             ///////////
 
             $authUser = false;
@@ -33,7 +29,7 @@ class RegistrationController extends BaseController
                 $route = 'fos_user_registration_check_email';
             } else {
                 $authUser = true;
-                $route = 'fos_user_registration_confirmed';
+                $route = 'anatomeasy_index_index';
             }
 
             $this->setFlash('fos_user_success', 'registration.flash.user_created');

@@ -11,7 +11,7 @@
 		<a href="{{path('fos_user_security_logout')}}">
 			<div id="retourMenuBox" class="barreButton">
 				<div id="retourMenuBoxImg">
-					<img src="/css/img/logout1.gif"/>
+					<img src="{{asset('css/img/logout1.gif')}}"/>
 				</div>
 				<div id="retourMenuBoxTxt">
 					<span>deconnexion</span></a>
@@ -25,7 +25,7 @@
 			<h1>Bienvenue sur ta page {{app.user.username}}!</h1>
 		</div>
 	</div>
-{% if  app.user.homework %} 
+{% if  app.user.homework and app.user.group %} 
 
 <div id="devoir" class="itemMenu"> 
 <h1 class="titreMenu">Devoirs</h1>
@@ -72,7 +72,7 @@
                         {% endif %} >
                         <div class="boiteItemMenuTitre">
 			                 <div class="boitItemMenuImg">
-				                  <img src="/css/img/{{homeworkHasExercice.exercice.type|e}}.png" class="img-rounded" alt="{{homeworkHasExercice.exercice.type|e}}">
+				                  <img src="{{asset('css/img/' ~ homeworkHasExercice.exercice.type ~ '.png')}}" class="img-rounded" alt="{{homeworkHasExercice.exercice.type|e}}">
 			                </div>
 			                <div class="boitItemMenuText">
 				                <h2> 
@@ -93,6 +93,9 @@
     {% endfor %}
 
 </div>
+{% else %}
+<div style="height:100px;"></div>
+
 {% endif %}
 
 
@@ -102,7 +105,7 @@
 		<div class="boiteItemMenuTitre">
 			<div class="boitItemMenuImg">
 				 <div class="boitItemMenuImg">
-					<img src="/css/img/lungs.png"/>
+					<img src="{{asset('css/img/lungs.png')}}"/>
 				</div>
 				<div class="boitItemMenuText">
 					<h2>Le systeme respiratoire </h2>
@@ -124,7 +127,7 @@
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
 			<div class="boitItemMenuImg">
-					<img src="/css/img/stomach.png"/>
+					<img src="{{asset('css/img/stomach.png')}}"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>Le systeme digestif </h2>
@@ -144,7 +147,7 @@
 	<div class="boiteItemMenu">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
-				  <img src="/css/img/cinqSens.png"/>
+				  <img src="{{asset('css/img/cinqSens.png')}}"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>Les cinq sens </h2>
@@ -172,19 +175,17 @@
 	<div class="boiteItemMenu qcm">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
-				  <img src="/css/img/QCM.png"/>
+				  <img src="{{asset('css/img/QCM.png')}}"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>QCM</h2>
 			</div>
 		</div>
-		<div class="boiteItemMenuBtnBox">
-			{%if app.user.group%}
+		<div class="boiteItemMenuBtnBox"> 
 			<div class="boiteItemMenuBtn">
 				
                 <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Qcm' ,'idTheme': 'La_digestion'}) }}" >Le systeme digestif</a>
-			</div>
-			{%endif%}
+			</div> 
 			<div class="boiteItemMenuBtn">
                 <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Qcm' ,'idTheme': 'La_respiration'}) }}" >Le systeme respiratoire</a>
 			</div>
@@ -196,13 +197,14 @@
 	<div class="boiteItemMenu pendu">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
-				  <img src="{{asset('/css/img/Pendu.png')}}"/>
+				  <img src="{{asset('css/img/Pendu.png')}}"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>PENDU</h2>
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
+			{%if app.user.group%} 
 			<div class="boiteItemMenuBtn">
                 <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'La_digestion' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
 			</div>
@@ -212,27 +214,50 @@
 			<div class="boiteItemMenuBtn">
                 <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Pendu' ,'idTheme': 'Les_sens' ,'idNiveau':app.user.group.level}) }}" >Les cinq sens</a>
 			</div>
+            {% else %}
+                <div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Pendu' ,'idTheme': 'La_digestion'}) }}" >Le systeme digestif</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Pendu' ,'idTheme': 'La_respiration' }) }}" >Le systeme respiratoire</a>
+			</div>
+			<div class="boiteItemMenuBtn">
+                <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Pendu' ,'idTheme': 'Les_sens' }) }}" >Les cinq sens</a>
+			</div>
+            {% endif %}
        </div>
 	</div>
 	<div class="boiteItemMenu pussle">
 		<div class="boiteItemMenuTitre">
 			 <div class="boitItemMenuImg">
-				  <img src="/css/img/Puzzle.png"/>
+				  <img src="{{asset('css/img/Puzzle.png')}}"/>
 			</div>
 			<div class="boitItemMenuText">
 					<h2>PUZZLE</h2>
 			</div>
 		</div>
 		<div class="boiteItemMenuBtnBox">
-			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_digestion' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
-			</div>
-			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_respiration' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
-			</div>
-			<div class="boiteItemMenuBtn">
-                <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'Les_sens' ,'idNiveau':app.user.group.level}) }}" >Les cinq sens</a>
-			</div>
+			{%if app.user.group%} 
+			    <div class="boiteItemMenuBtn">
+                    <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_digestion' ,'idNiveau':app.user.group.level}) }}" >Le systeme digestif</a>
+			    </div>
+			    <div class="boiteItemMenuBtn">
+                    <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'La_respiration' ,'idNiveau':app.user.group.level}) }}" >Le systeme respiratoire</a>
+			    </div>
+			    <div class="boiteItemMenuBtn">
+                    <a href="{{path('anatomeasy_student_exercices', {'idExercice': 'Puzzle' ,'idTheme': 'Les_sens' ,'idNiveau':app.user.group.level}) }}" >Les cinq sens</a>
+			    </div> 
+            {% else %}
+            <div class="boiteItemMenuBtn">
+                    <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Puzzle' ,'idTheme': 'La_digestion'}) }}" >Le systeme digestif</a>
+			    </div>
+			    <div class="boiteItemMenuBtn">
+                    <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Puzzle' ,'idTheme': 'La_respiration' }) }}" >Le systeme respiratoire</a>
+			    </div>
+			    <div class="boiteItemMenuBtn">
+                    <a href="{{path('anatomeasy_student_choixNiveaux', {'idExercice': 'Puzzle' ,'idTheme': 'Les_sens' }) }}" >Les cinq sens</a>
+			    </div> 
+            {% endif %}
        </div>
 	</div>
 </div>
@@ -244,7 +269,7 @@
 		<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'videos'  })}}">
 			<div class="boiteItemMenuTitre itemRecreation">
 				 <div class="boitItemMenuImg">
-					  <img src="/css/img/videos.gif"/>
+					  <img src="{{asset('css/img/videos.gif')}}"/>
 				</div>
 				<div class="boitItemMenuText">
 						<h2>VIDEOS</h2>
@@ -258,7 +283,7 @@
 		<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'lectures' })}}">
 			<div class="boiteItemMenuTitre itemRecreation">
 				 <div class="boitItemMenuImg">
-					  <img src="/css/img/lecture.png"/>
+					  <img src="{{asset('css/img/lecture.png')}}"/>
 				</div>
 				<div class="boitItemMenuText">
 						<h2>LECTURES</h2>
@@ -271,7 +296,7 @@
 		<a href="{{path('anatomeasy_student_recreation', {'idMedia': 'jeux'  })}}">
 			<div class="boiteItemMenuTitre itemRecreation">
 				 <div class="boitItemMenuImg">
-					  <img src="/css/img/jeux.png"/>
+					  <img src="{{asset('css/img/jeux.png')}}"/>
 				</div>
 				<div class="boitItemMenuText">
 						<h2>BOITE A JEUX</h2>
@@ -286,21 +311,24 @@
 {% endblock body %}
 {% block javascripts %}
   
-        <script src="{{ asset('/bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
+        <script src="{{ asset('bundles/flobenanatomeasy/js/clippyTools.js') }}" type="text/javascript" ></script> 
         <script type="text/javascript">     
             $(document).ready(function() { 
                 var optionArray= new Array(); 
                 optionArray[0]= {item:'#devoir h1  ', event:'mouseenter', action: 'speak', speech: 'Les devoirs : ici , tu peux consulter tes devoirs !' };
                 optionArray[1]= {item:'#cours h1', event:'mouseenter', action: 'speak', speech: 'Les Cours : ici , tu peux consulter les le\347ons !' }; 
-                optionArray[2]= {item:'#exercices h1', event:'mouseenter', action: 'speak', speech: 'Les Exercices : ici , tu peux t\'exercer en t\'amusant ! (niveau [{{app.user.group.level}}])' };
+                
+                optionArray[2]= {item:'#recreation h1', event:'mouseenter', action: 'speak', speech: 'La R\351cr\351ation : ici , tu trouveras d\'autres activit\351s !' };
 
-                optionArray[3]= {item:'#recreation h1', event:'mouseenter', action: 'speak', speech: 'La R\351cr\351ation : ici , tu trouveras d\'autres activit\351s !' };
-
-                optionArray[4]= {item:'#cours .coursWithLevel', event:'mouseenter', action: 'speak', speech: 'acc\351der directement au cours de [{{app.user.group.level}}] !' };
-                optionArray[5]= {item:'#cours .coursWithoutLevel', event:'mouseenter', action: 'speak', speech: 'choisir le niveau du cours.' };
-                optionArray[6]= {item:'#exercices .qcm img', event:'mouseenter', action: 'speak', speech: 'Le Questionnaire \340 choix multiple : trouve les bonnes r\351ponses' }; 
+                optionArray[3]= {item:'#cours .coursWithoutLevel', event:'mouseenter', action: 'speak', speech: 'choisir le niveau du cours.' };
+                optionArray[4]= {item:'#exercices .qcm img', event:'mouseenter', action: 'speak', speech: 'Le Questionnaire \340 choix multiple : trouve les bonnes r\351ponses' }; 
+                optionArray[5]= {item:'#exercices .pendu img', event:'mouseenter', action: 'speak', speech: 'Le Pendu : Trouve le mot myst\350re avec le moins d\'essai possible!' }; 
+                
+			{%if app.user.group%}
+                optionArray[6]= {item:'#exercices h1', event:'mouseenter', action: 'speak', speech: 'Les Exercices : ici , tu peux t\'exercer en t\'amusant ! (niveau [{{app.user.group.level}}])' };
                 optionArray[7]= {item:'#exercices .puzzle img', event:'mouseenter', action: 'speak', speech: '[{{app.user.group.level}}]Replace les pi\350ces au bon endroit' }; 
-                optionArray[8]= {item:'#exercices .pendu img', event:'mouseenter', action: 'speak', speech: 'Le Pendu : Trouve le mot myst\350re avec le moins d\'essai possible!' };  
+                optionArray[8]= {item:'#cours .coursWithLevel', event:'mouseenter', action: 'speak', speech: 'acc\351der directement au cours de [{{app.user.group.level}}] !' };
+            {% endif %} 
                 clippyAgent(optionArray,'La page d\'accueil! D\'ici, tu peux acc\351der \340 toutes les activit\351s!',8000);
             }); </script>
 {% endblock javascripts %} 

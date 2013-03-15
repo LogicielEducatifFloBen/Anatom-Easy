@@ -103,9 +103,12 @@ function Qcm (){
 				$(this).append(divCorrect);
 				nbNoAnswer ++;
 			}else if(choix == reponse){
+
 				var divCorrect= $("<span class='correction' style='color:green'>Bravo, c\'est la bonne r\351ponse!</span>");
 				$(this).append(divCorrect);
 				nbRight++;
+
+
 			}else{
 		
 				var divCorrect= $("<span class='correction' style='color:red'>Tu t'es tromp\351, la bonne r\351ponse est : "+reponse+"<a href="+self.coursUrl+">( ton cours )</a> </span>");
